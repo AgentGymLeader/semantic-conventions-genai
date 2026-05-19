@@ -6,7 +6,7 @@
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ❌ | 16h |
-| [Update reference implementation dependencies (non-major) (#172)](https://github.com/open-telemetry/semantic-conventions-genai/pull/172) | app/renovate |  | ✅ | ✅ | 11h |
+| [Update reference implementation dependencies (non-major) (#172)](https://github.com/open-telemetry/semantic-conventions-genai/pull/172) | app/renovate |  | ⏳ | ✅ | 11h |
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 3h |
 | [Bump the python-security group across 25 directories with 1 update (#174)](https://github.com/open-telemetry/semantic-conventions-genai/pull/174) | app/dependabot |  | ✅ | ✅ | 3h |
 

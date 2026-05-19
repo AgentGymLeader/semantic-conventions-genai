@@ -163,6 +163,29 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/172",
       "route": "approver"
     },
+    "173": {
+      "facts": {
+        "approved": false,
+        "assignees": [],
+        "author": "app/renovate",
+        "ci_failing_count": 0,
+        "ci_pending_count": 27,
+        "conflicts": "no",
+        "created_at": "2026-05-19T16:34:48+00:00",
+        "is_draft": false,
+        "is_otelbot_author": false,
+        "last_activity_at": "2026-05-19T16:34:51+00:00",
+        "last_approver_activity_at": "",
+        "last_author_activity_at": "",
+        "last_external_activity_at": "",
+        "waiting_age_basis": "created",
+        "waiting_since": "2026-05-19T16:34:48+00:00"
+      },
+      "failed": false,
+      "pr_number": 173,
+      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/173",
+      "route": "approver"
+    },
     "96": {
       "facts": {
         "approved": false,

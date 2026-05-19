@@ -12,8 +12,10 @@
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [chore: add moonshot_ai, minimax, z_ai to well-known values (#99)](https://github.com/open-telemetry/semantic-conventions-genai/pull/99) | ariesdevil |  | ✅ | ✅ | 13d |
-| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 5h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 3h |
+| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 7h |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 5h |
+| [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | trask | ✅ | ✅ | 47m |
+| [Update reference implementation dependencies (non-major) (#172)](https://github.com/open-telemetry/semantic-conventions-genai/pull/172) | app/renovate |  | ✅ | ✅ | 34m |
 
 ## Waiting on authors
 
@@ -21,9 +23,8 @@
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: add optional byte_size to multimodal content parts (#143)](https://github.com/open-telemetry/semantic-conventions-genai/pull/143) | Mandark-droid |  | ✅ | ❌ | 7d |
 | [gen-ai: make multimodal content optional and add stripped_reason (#144)](https://github.com/open-telemetry/semantic-conventions-genai/pull/144) | Mandark-droid |  | ✅ | ❌ | 7d |
-| [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | trask | ✅ | ❌ | 14h |
-| [Add GenAI memory operation conventions (#140)](https://github.com/open-telemetry/semantic-conventions-genai/pull/140) ✅ | nagkumar91 | trask | ✅ | ❌ | 10h |
-| [Add gen_ai.server.inter_token_latency metric (#164)](https://github.com/open-telemetry/semantic-conventions-genai/pull/164) | Jwrede |  | ✅ | ❌ | 9h |
+| [Add GenAI memory operation conventions (#140)](https://github.com/open-telemetry/semantic-conventions-genai/pull/140) ✅ | nagkumar91 | trask | ✅ | ❌ | 12h |
+| [Add gen_ai.server.inter_token_latency metric (#164)](https://github.com/open-telemetry/semantic-conventions-genai/pull/164) | Jwrede |  | ✅ | ❌ | 11h |
 
 ## Draft pull requests
 
@@ -49,7 +50,7 @@ llm: PRRT_kwDOSUeMrM6C9x-U -> author (Reviewer said the default value is unneces
 llm: PRRT_kwDOSUeMrM6C-LHR -> author (Reviewer suggested a concrete cleanup change and removal of `attributes.gen_ai.memory.client`; the author needs to apply or respond to the suggestion.)
 
 PR #96
-llm: PRRT_kwDOSUeMrM6Ck7X- -> author (The latest comment is from a reviewer/approver asking whether to also add a modality attribute, so the ball is back with the PR author to जवाब/decide.)
+llm: PRRT_kwDOSUeMrM6Ck7X- -> reviewer (The author responded with the rescoped implementation and explanation, so the ball is back with reviewers to review/approve the updated branch.)
 
 ```
 

@@ -8,7 +8,8 @@
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 15h |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 13h |
 | [Update reference implementation dependencies (non-major) (#172)](https://github.com/open-telemetry/semantic-conventions-genai/pull/172) | app/renovate |  | ⏳ | ✅ | 8h |
-| [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 41m |
+| [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 44m |
+| [Bump the python-security group across 25 directories with 1 update (#174)](https://github.com/open-telemetry/semantic-conventions-genai/pull/174) | app/dependabot |  | ⏳ | ✅ | 23m |
 
 ## Waiting on authors
 
@@ -25,12 +26,6 @@
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [Update dependency google-genai to v2 (#112)](https://github.com/open-telemetry/semantic-conventions-genai/pull/112) ✅ | app/renovate |  | ❌ | ✅ | 1h |
-
-## Unknown
-
-| PR | Author | Assignees | CI | Conflicts | Age |
-|---|---|---|:---:|:---:|:---:|
-| [Bump the python-security group across 25 directories with 1 update (#174)](https://github.com/open-telemetry/semantic-conventions-genai/pull/174) | app/dependabot |  | ? | ? | ? |
 
 ## Draft pull requests
 

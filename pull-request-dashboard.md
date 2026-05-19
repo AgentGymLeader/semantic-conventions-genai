@@ -9,7 +9,6 @@
 | [Update reference implementation dependencies (non-major) (#172)](https://github.com/open-telemetry/semantic-conventions-genai/pull/172) | app/renovate |  | ✅ | ✅ | 12h |
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 4h |
 | [Bump the python-security group across 25 directories with 1 update (#174)](https://github.com/open-telemetry/semantic-conventions-genai/pull/174) | app/dependabot |  | ✅ | ✅ | 3h |
-| [Disable PR preview for webhook (#176)](https://github.com/open-telemetry/semantic-conventions-genai/pull/176) | trask |  | ⏳ | ✅ | <1m |
 
 ## Waiting on authors
 
@@ -21,6 +20,7 @@
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | trask | ✅ | ❌ | 10h |
 | [chore: add moonshot_ai, minimax, z_ai to well-known values (#99)](https://github.com/open-telemetry/semantic-conventions-genai/pull/99) | ariesdevil |  | ✅ | ✅ | 4h |
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ❌ | 1h |
+| [Disable PR preview for webhook (#176)](https://github.com/open-telemetry/semantic-conventions-genai/pull/176) | trask |  | ✅ | ✅ | <1m |
 
 ## Waiting on external
 

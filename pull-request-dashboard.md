@@ -14,7 +14,6 @@
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 1d |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 22h |
 | [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 6h |
-| [Fix broken schema URL in README (#183)](https://github.com/open-telemetry/semantic-conventions-genai/pull/183) | mikeldking |  | ❌ | ✅ | 1m |
 
 ## Waiting on authors
 
@@ -27,6 +26,7 @@
 | [chore: add moonshot_ai, minimax, z_ai to well-known values (#99)](https://github.com/open-telemetry/semantic-conventions-genai/pull/99) | ariesdevil |  | ✅ | ✅ | 1d |
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ❌ | 1d |
 | [Disable PR preview for webhook (#176)](https://github.com/open-telemetry/semantic-conventions-genai/pull/176) ✅ | trask |  | ✅ | ✅ | 6h |
+| [Fix broken schema URL in README (#183)](https://github.com/open-telemetry/semantic-conventions-genai/pull/183) | mikeldking |  | ❌ | ✅ | <1m |
 
 ## Waiting on external
 

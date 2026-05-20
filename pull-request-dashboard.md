@@ -5,7 +5,7 @@
 
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
-| [Refresh PR dashboard on check suite updates (#177)](https://github.com/open-telemetry/semantic-conventions-genai/pull/177) ✅ | trask |  | ✅ | ✅ | 23h |
+| [Refresh PR dashboard on check suite updates (#177)](https://github.com/open-telemetry/semantic-conventions-genai/pull/177) ✅ | trask |  | ✅ | ✅ | 1d |
 
 ## Waiting on approvers
 
@@ -13,7 +13,7 @@
 |---|---|---|:---:|:---:|:---:|
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 1d |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 20h |
-| [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 4h |
+| [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 5h |
 
 ## Waiting on authors
 

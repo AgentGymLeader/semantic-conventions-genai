@@ -8,7 +8,7 @@
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 8h |
 | [Disable PR preview for webhook (#176)](https://github.com/open-telemetry/semantic-conventions-genai/pull/176) | trask |  | ✅ | ✅ | 3h |
 | [Refresh PR dashboard on check suite updates (#177)](https://github.com/open-telemetry/semantic-conventions-genai/pull/177) | trask |  | ✅ | ✅ | 3h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 5m |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | <1m |
 
 ## Waiting on authors
 

@@ -43,30 +43,6 @@
 <summary>Diagnostics</summary>
 
 ```text
-PR #176
-llm: PRRT_kwDOSUeMrM6DjcPw -> author (Reviewer asked whether to add a way to disable PR comments, so the author needs to जवाब/respond or update the docs.)
-llm: PRRT_kwDOSUeMrM6DjeQP -> author (The reviewer questioned the documentation path and suggested an alternative, so the author needs to confirm or update the file.)
-
-PR #164
-llm: PRRT_kwDOSUeMrM6C-3Kb -> author (The reviewer asked for justification and raised an alternative approach, so the PR author needs to პასუხ/respond and possibly revise the metric change.)
-
-PR #144
-llm: PRRT_kwDOSUeMrM6BMiXX -> author (Reviewer flagged a mismatch between the comment and the Pydantic model and asked for either a validator or a clarification, so the author needs to respond or make a change.)
-
-PR #143
-llm: PRRT_kwDOSUeMrM6BMbLE -> author (Reviewer asked the PR author to add or update a reference scenario for the new `byte_size` convention change, so the ball is with the author.)
-
-PR #112
-llm: pr-conversation -> external (The blocker is an upstream google-adk/google-genai version constraint and the needed fix depends on a future external release, not on repo discussion.)
-
-PR #99
-llm: pr-conversation -> author (A reviewer asked whether any instrumentation uses these values, so the author needs to जवाब/confirm.)
-
-PR #96
-llm: PRRT_kwDOSUeMrM6Ck7X- -> author (The latest comment is from a reviewer suggesting the SIG decision implies modality should be considered here, so the author needs to respond or act on that suggestion.)
-llm: PRRT_kwDOSUeMrM6DToum -> author (A reviewer raised a concrete issue and asked for a change; the author needs to update the mapping table or respond.)
-llm: PRRT_kwDOSUeMrM6DT__X -> author (The latest comment is from a reviewer/approver proposing attribute shape changes and asking to consider modality, so the PR author needs to respond or update the design.)
-
 ```
 
 </details>

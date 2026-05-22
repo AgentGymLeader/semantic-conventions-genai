@@ -186,7 +186,7 @@
     },
     "184": {
       "facts": {
-        "approved": false,
+        "approved": true,
         "assignees": [],
         "author": "hippoley",
         "ci_failing_count": 0,
@@ -195,8 +195,8 @@
         "created_at": "2026-05-21T08:08:54+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-21T10:43:31+00:00",
-        "last_approver_activity_at": "",
+        "last_activity_at": "2026-05-22T16:28:12+00:00",
+        "last_approver_activity_at": "2026-05-22T16:28:12+00:00",
         "last_author_activity_at": "2026-05-21T10:43:30+00:00",
         "last_external_activity_at": "2026-05-21T08:10:08+00:00",
         "waiting_age_basis": "oldest_pending_thread",

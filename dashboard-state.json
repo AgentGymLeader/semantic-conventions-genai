@@ -276,6 +276,13 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/190",
       "route": "author"
     },
+    "193": {
+      "facts": {},
+      "failed": true,
+      "pr_number": 193,
+      "pr_url": "",
+      "route": "unknown"
+    },
     "96": {
       "facts": {
         "approved": false,

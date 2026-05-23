@@ -1,12 +1,6 @@
 > [!NOTE]
 > Open non-draft PRs grouped by who is expected to act next. Draft PRs are listed separately. The grouping is partly performed by an LLM ([source](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/.github/scripts/pull-request-dashboard/dashboard.py)) and could contain mistakes.
 
-## Waiting on maintainers
-
-| PR | Author | Assignees | CI | Conflicts | Age |
-|---|---|---|:---:|:---:|:---:|
-| [Disable PR preview for webhook (#176)](https://github.com/open-telemetry/semantic-conventions-genai/pull/176) ✅ | trask |  | ✅ | ✅ | 1m |
-
 ## Waiting on approvers
 
 | PR | Author | Assignees | CI | Conflicts | Age |
@@ -14,7 +8,7 @@
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 3d |
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 2d |
 | [chore: add moonshot_ai, minimax, z_ai to well-known values (#99)](https://github.com/open-telemetry/semantic-conventions-genai/pull/99) | ariesdevil |  | ✅ | ✅ | 21h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ⏳ | ✅ | <1m |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ⏳ | ✅ | 1m |
 
 ## Waiting on authors
 

@@ -20,7 +20,7 @@
 | [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ? | ✅ | 18h |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ❌ | ✅ | 14h |
 | [chore: add moonshot_ai to well-known values (#99)](https://github.com/open-telemetry/semantic-conventions-genai/pull/99) | ariesdevil |  | ✅ | ✅ | 1h |
-| [Add Copilot review guidance workflow (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) | trask |  | ✅ | ✅ | <1m |
+| [Add Copilot review guidance workflow (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) | trask |  | ✅ | ✅ | 1m |
 
 ## Waiting on external
 

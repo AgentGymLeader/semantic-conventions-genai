@@ -36,7 +36,7 @@
 | PR | Author | Updated |
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 23h |
-| [Add Copilot review guidance workflow (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) | trask | <1m |
+| [Add Copilot review guidance to dashboard (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) | trask | <1m |
 
 <details>
 <summary>Diagnostics</summary>

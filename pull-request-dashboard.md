@@ -1,6 +1,12 @@
 > [!NOTE]
 > Open non-draft PRs grouped by who is expected to act next. Draft PRs are listed separately. The grouping is partly performed by an LLM ([source](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/.github/scripts/pull-request-dashboard/dashboard.py)) and could contain mistakes.
 
+## Waiting on maintainers
+
+| PR | Author | Assignees | CI | Conflicts | Age |
+|---|---|---|:---:|:---:|:---:|
+| [Add Copilot review guidance to dashboard (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) ✅ | trask |  | ✅ | ✅ | 45m |
+
 ## Waiting on approvers
 
 | PR | Author | Assignees | CI | Conflicts | Age |
@@ -36,7 +42,6 @@
 | PR | Author | Updated |
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 1d |
-| [Add Copilot review guidance to dashboard (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) | trask | 36m |
 
 <details>
 <summary>Diagnostics</summary>

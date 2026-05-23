@@ -6,6 +6,7 @@
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ? | ✅ | 2d |
+| [Add Copilot review guidance workflow (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) | trask |  | ✅ | ✅ | 6m |
 
 ## Waiting on authors
 
@@ -41,7 +42,6 @@
 | PR | Author | Updated |
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 23h |
-| [Add Copilot review guidance workflow (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) | trask | <1m |
 
 <details>
 <summary>Diagnostics</summary>

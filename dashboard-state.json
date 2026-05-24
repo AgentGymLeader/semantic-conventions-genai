@@ -360,12 +360,12 @@
         "created_at": "2026-05-06T03:05:33+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-24T10:46:44+00:00",
+        "last_activity_at": "2026-05-24T10:47:21+00:00",
         "last_approver_activity_at": "2026-05-23T16:26:49+00:00",
         "last_author_activity_at": "2026-05-23T04:06:29+00:00",
         "last_external_activity_at": "2026-05-23T16:24:08+00:00",
         "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-05-23T16:24:08+00:00"
+        "waiting_since": "2026-05-23T16:26:49+00:00"
       },
       "failed": false,
       "pr_number": 99,

@@ -5,7 +5,7 @@
 
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
-| [Add Copilot review guidance to dashboard (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) ✅ | trask |  | ✅ | ✅ | 4h |
+| [Add Copilot review guidance to dashboard (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) ✅ | trask |  | ✅ | ✅ | 5h |
 
 ## Waiting on approvers
 
@@ -26,10 +26,10 @@
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | trask | ✅ | ❌ | 2d |
 | [Add experimental GenAI context selection event (#190)](https://github.com/open-telemetry/semantic-conventions-genai/pull/190) | caioribeiroclw-pixel |  | ❌ | ✅ | 1d |
 | [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 1d |
-| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ✅ | 23h |
-| [gen-ai: sync reference data.json files with scenario implementations (#186)](https://github.com/open-telemetry/semantic-conventions-genai/pull/186) ✅ | hippoley |  | ✅ | ✅ | 23h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ❌ | ✅ | 19h |
-| [chore: add moonshot_ai to well-known values (#99)](https://github.com/open-telemetry/semantic-conventions-genai/pull/99) | ariesdevil |  | ✅ | ✅ | 6h |
+| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ✅ | 1d |
+| [gen-ai: sync reference data.json files with scenario implementations (#186)](https://github.com/open-telemetry/semantic-conventions-genai/pull/186) ✅ | hippoley |  | ✅ | ✅ | 1d |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ❌ | ✅ | 20h |
+| [chore: add moonshot_ai to well-known values (#99)](https://github.com/open-telemetry/semantic-conventions-genai/pull/99) | ariesdevil |  | ✅ | ✅ | 8h |
 
 ## Waiting on external
 

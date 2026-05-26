@@ -7,7 +7,7 @@
 |---|---|---|:---:|:---:|:---:|
 | [Add Copilot review guidance to dashboard (#193)](https://github.com/open-telemetry/semantic-conventions-genai/pull/193) ✅ | trask |  | ✅ | ✅ | 2d |
 | [chore: add moonshot_ai to well-known values (#99)](https://github.com/open-telemetry/semantic-conventions-genai/pull/99) ✅ | ariesdevil |  | ✅ | ✅ | 1d |
-| [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) ✅ | hippoley |  | ❌ | ✅ | 1m |
+| [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) ✅ | hippoley |  | ❌ | ✅ | <1m |
 | [gen-ai: sync reference data.json files with scenario implementations (#186)](https://github.com/open-telemetry/semantic-conventions-genai/pull/186) ✅ | hippoley |  | ✅ | ✅ | <1m |
 
 ## Waiting on approvers

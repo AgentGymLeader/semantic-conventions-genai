@@ -5,7 +5,7 @@
 
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
-| [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) ✅ | hippoley |  | ✅ | ✅ | 20h |
+| [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) ✅ | hippoley |  | ✅ | ✅ | 21h |
 
 ## Waiting on approvers
 
@@ -13,8 +13,8 @@
 |---|---|---|:---:|:---:|:---:|
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 7d |
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 1d |
-| [Use GraphQL to find the existing dashboard issue (#199)](https://github.com/open-telemetry/semantic-conventions-genai/pull/199) | trask |  | ✅ | ✅ | 3h |
-| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 2h |
+| [Use GraphQL to find the existing dashboard issue (#199)](https://github.com/open-telemetry/semantic-conventions-genai/pull/199) | trask |  | ✅ | ✅ | 4h |
+| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 3h |
 
 ## Waiting on authors
 
@@ -26,9 +26,9 @@
 | [gen-ai: add evaluation operation name and gen_ai.evaluate.internal span (#185)](https://github.com/open-telemetry/semantic-conventions-genai/pull/185) | hippoley |  | ❌ | ✅ | 5d |
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | trask | ✅ | ❌ | 5d |
 | [Add experimental GenAI context selection event (#190)](https://github.com/open-telemetry/semantic-conventions-genai/pull/190) | caioribeiroclw-pixel |  | ❌ | ✅ | 4d |
-| [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 3d |
-| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ✅ | 19h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 6h |
+| [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 4d |
+| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ✅ | 20h |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 7h |
 
 ## Waiting on external
 
@@ -41,8 +41,8 @@
 | PR | Author | Updated |
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 4d |
-| [Remove OTEL_SEMCONV_STABILITY_OPT_IN transition blurb (#198)](https://github.com/open-telemetry/semantic-conventions-genai/pull/198) | trask | 3h |
-| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | 49m |
+| [Remove OTEL_SEMCONV_STABILITY_OPT_IN transition blurb (#198)](https://github.com/open-telemetry/semantic-conventions-genai/pull/198) | trask | 4h |
+| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | 5m |
 
 <details>
 <summary>Diagnostics</summary>

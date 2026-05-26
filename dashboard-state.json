@@ -322,6 +322,29 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/194",
       "route": "approver"
     },
+    "195": {
+      "facts": {
+        "approved": false,
+        "assignees": [],
+        "author": "eternalcuriouslearner",
+        "ci_failing_count": 1,
+        "ci_pending_count": 31,
+        "conflicts": "no",
+        "created_at": "2026-05-26T13:02:51+00:00",
+        "is_draft": false,
+        "is_otelbot_author": false,
+        "last_activity_at": "2026-05-26T13:02:52+00:00",
+        "last_approver_activity_at": "",
+        "last_author_activity_at": "2026-05-26T12:54:19+00:00",
+        "last_external_activity_at": "",
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-05-26T12:54:19+00:00"
+      },
+      "failed": false,
+      "pr_number": 195,
+      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/195",
+      "route": "approver"
+    },
     "96": {
       "facts": {
         "approved": false,

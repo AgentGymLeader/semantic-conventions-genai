@@ -80,12 +80,12 @@
         "created_at": "2026-05-14T22:13:32+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-26T16:20:57+00:00",
+        "last_activity_at": "2026-05-26T16:22:30+00:00",
         "last_approver_activity_at": "2026-05-23T04:06:49+00:00",
         "last_author_activity_at": "2026-05-26T11:47:53+00:00",
-        "last_external_activity_at": "2026-05-26T16:20:57+00:00",
+        "last_external_activity_at": "2026-05-26T16:22:30+00:00",
         "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-05-26T16:20:57+00:00"
+        "waiting_since": "2026-05-26T16:22:30+00:00"
       },
       "failed": false,
       "pr_number": 162,

@@ -31,7 +31,7 @@
 | [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 3d |
 | [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ✅ | 15h |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 2h |
-| [gen-ai: sync reference data.json files with scenario implementations (#186)](https://github.com/open-telemetry/semantic-conventions-genai/pull/186) ✅ | hippoley |  | ⏳ | ✅ | 7m |
+| [gen-ai: sync reference data.json files with scenario implementations (#186)](https://github.com/open-telemetry/semantic-conventions-genai/pull/186) ✅ | hippoley |  | ✅ | ✅ | 8m |
 
 ## Waiting on external
 
@@ -45,12 +45,59 @@
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 3d |
 | [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | 1h |
-| [Remove OTEL_SEMCONV_STABILITY_OPT_IN transition blurb (#198)](https://github.com/open-telemetry/semantic-conventions-genai/pull/198) | trask | 9m |
+| [Remove OTEL_SEMCONV_STABILITY_OPT_IN transition blurb (#198)](https://github.com/open-telemetry/semantic-conventions-genai/pull/198) | trask | 10m |
 
 <details>
 <summary>Diagnostics</summary>
 
 ```text
+PR #190
+llm: PRRT_kwDOSUeMrM6EO3GU -> author (A reviewer pointed out a snapshot inconsistency and suggested regenerating/fixing the output, so the PR author needs to respond or update the file.)
+llm: PRRT_kwDOSUeMrM6EO3Gw -> author (A reviewer raised a specific wording inconsistency in the changelog and asked to align it, so the author needs to respond or update the file.)
+
+PR #188
+llm: PRRT_kwDOSUeMrM6EG_rG -> reviewer (The author replied with a rationale for not making the requested change, so the ball is back with the reviewer to accept the explanation or continue the discussion.)
+llm: PRRT_kwDOSUeMrM6EP5P6 -> reviewer (The reviewer asked a question, and the author replied with a concrete source/example, so the ball is back with the reviewer to confirm or continue the review.)
+llm: PRRT_kwDOSUeMrM6EP9-D -> reviewer (The author responded with the requested investigation and said they added scenarios; the reviewer now needs to check whether that satisfies the request.)
+llm: pr-conversation -> author (A reviewer left substantive feedback and open questions, so the author needs to respond or make changes.)
+
+PR #186
+llm: PRRT_kwDOSUeMrM6E5JLf -> author (The reviewer requested the PR description be updated or the change adjusted, so the PR author needs to act next.)
+
+PR #185
+llm: PRRT_kwDOSUeMrM6DuuPn -> author (Reviewer raised a naming inconsistency and suggested a spec alignment change; the author needs to respond or make the update.)
+
+PR #184
+llm: pr-conversation -> reviewer (The author responded with a concrete fix and summary of the latest commit, so the thread is back with reviewers to re-check it.)
+
+PR #179
+llm: PRRT_kwDOSUeMrM6EP0dp -> author (The reviewer asked to add reference instrumentation scenarios, so the PR author needs to act on that request.)
+llm: PRRT_kwDOSUeMrM6EP1ZF -> author (A reviewer raised a specific missing-field concern, so the author needs to respond or update the change.)
+llm: PRRT_kwDOSUeMrM6EP2En -> author (Reviewer requested a documentation clarification about MCP prompt arguments mapping to variables, so the author needs to update or जवाब.)
+
+PR #164
+llm: PRRT_kwDOSUeMrM6C-3Kb -> author (The reviewer asked for justification and raised an alternative approach, so the PR author needs to პასუხ/respond and possibly revise the metric change.)
+llm: pr-conversation -> author (The latest comment is from the reviewer/approver, asking the author to align the metric description with OTel's intent, so the author needs to respond or update the PR.)
+
+PR #162
+llm: pr-conversation -> author (The latest comment is a reviewer question about whether compaction count should be tracked, so the PR author needs to respond or decide on the attribute model.)
+
+PR #144
+llm: PRRT_kwDOSUeMrM6BMiXX -> author (Reviewer flagged a mismatch between the comment and the Pydantic model and asked for either a validator or a clarification, so the author needs to respond or make a change.)
+
+PR #143
+llm: PRRT_kwDOSUeMrM6BMbLE -> author (Reviewer asked the PR author to add or update a reference scenario for the new `byte_size` convention change, so the ball is with the author.)
+
+PR #112
+llm: pr-conversation -> external (The blocker is an upstream google-adk/google-genai version constraint and the needed fix depends on a future external release, not on repo discussion.)
+
+PR #98
+llm: pr-conversation -> reviewer (The author’s last comment asks the reviewer to review again, so the ball is with the reviewer.)
+
+PR #96
+llm: PRRT_kwDOSUeMrM6Ck7X- -> author (The latest comment is from the author and says they are still holding the modality patch until the design shape settles, so the author still has the next action.)
+llm: pr-conversation -> reviewer (The latest comment is from the PR author and asks for a change (“Could you add `Closes #96`…”), so the reviewer/maintainer needs to act next.)
+
 ```
 
 </details>

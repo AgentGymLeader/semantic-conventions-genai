@@ -222,8 +222,8 @@
         "last_approver_activity_at": "2026-05-26T18:57:39+00:00",
         "last_author_activity_at": "2026-05-26T02:27:02+00:00",
         "last_external_activity_at": "2026-05-26T18:45:09+00:00",
-        "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-05-26T18:57:39+00:00"
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-05-26T02:27:02+00:00"
       },
       "failed": false,
       "pr_number": 186,

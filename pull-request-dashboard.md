@@ -6,7 +6,7 @@
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) ✅ | hippoley |  | ✅ | ✅ | 1d |
-| [Remove OTEL_SEMCONV_STABILITY_OPT_IN transition blurb (#198)](https://github.com/open-telemetry/semantic-conventions-genai/pull/198) ✅ | trask |  | ✅ | ✅ | 8h |
+| [Remove OTEL_SEMCONV_STABILITY_OPT_IN transition blurb (#198)](https://github.com/open-telemetry/semantic-conventions-genai/pull/198) ✅ | trask |  | ✅ | ✅ | 10h |
 
 ## Waiting on approvers
 
@@ -25,12 +25,12 @@
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | trask | ✅ | ❌ | 5d |
 | [Add experimental GenAI context selection event (#190)](https://github.com/open-telemetry/semantic-conventions-genai/pull/190) | caioribeiroclw-pixel |  | ❌ | ✅ | 4d |
 | [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 4d |
-| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 3h |
-| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 3h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 2h |
-| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ✅ | 1h |
-| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask |  | ✅ | ✅ | 1h |
-| [Use GraphQL to find the existing dashboard issue (#199)](https://github.com/open-telemetry/semantic-conventions-genai/pull/199) ✅ | trask |  | ✅ | ✅ | 1h |
+| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 5h |
+| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 5h |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 4h |
+| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ✅ | 4h |
+| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask |  | ✅ | ✅ | 3h |
+| [Use GraphQL to find the existing dashboard issue (#199)](https://github.com/open-telemetry/semantic-conventions-genai/pull/199) ✅ | trask |  | ✅ | ✅ | 3h |
 
 ## Waiting on external
 
@@ -79,6 +79,9 @@ llm: pr-conversation -> author (The latest reviewer comment asks the author to a
 
 PR #185
 llm: PRRT_kwDOSUeMrM6DuuPn -> author (Reviewer raised a naming inconsistency and suggested a spec alignment change; the author needs to respond or make the update.)
+llm: PRRT_kwDOSUeMrM6E_Amb -> author (A reviewer requested a concrete fix (“we need a verb here”), so the PR author needs to update the line and respond.)
+llm: PRRT_kwDOSUeMrM6E_COY -> author (A reviewer asked which instrumentation should generate the span and requested a prototype, so the author needs to respond or provide the example.)
+llm: pr-conversation -> author (The reviewer added a clarification/suggestion about linking evaluation results via traceId/spanId, so the author needs to respond or adjust the implementation.)
 
 PR #184
 llm: pr-conversation -> none (The reviewer’s last comment is a brief acknowledgement (“thanks”) with no follow-up requested, so the thread appears closed.)

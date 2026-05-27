@@ -5,16 +5,14 @@
 
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
-| [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) ✅ | hippoley |  | ✅ | ✅ | 23h |
+| [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) ✅ | hippoley |  | ✅ | ✅ | 1d |
+| [Remove OTEL_SEMCONV_STABILITY_OPT_IN transition blurb (#198)](https://github.com/open-telemetry/semantic-conventions-genai/pull/198) ✅ | trask |  | ✅ | ✅ | 8h |
 
 ## Waiting on approvers
 
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 7d |
-| [Remove OTEL_SEMCONV_STABILITY_OPT_IN transition blurb (#198)](https://github.com/open-telemetry/semantic-conventions-genai/pull/198) | trask |  | ✅ | ✅ | 7h |
-| [Use GraphQL to find the existing dashboard issue (#199)](https://github.com/open-telemetry/semantic-conventions-genai/pull/199) | trask |  | ✅ | ✅ | 6h |
-| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask |  | ✅ | ✅ | 3h |
 
 ## Waiting on authors
 
@@ -27,10 +25,12 @@
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | trask | ✅ | ❌ | 5d |
 | [Add experimental GenAI context selection event (#190)](https://github.com/open-telemetry/semantic-conventions-genai/pull/190) | caioribeiroclw-pixel |  | ❌ | ✅ | 4d |
 | [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 4d |
-| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 1h |
-| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 1h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 53m |
-| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ✅ | 17m |
+| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 3h |
+| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 3h |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 2h |
+| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ✅ | 1h |
+| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask |  | ✅ | ✅ | 1h |
+| [Use GraphQL to find the existing dashboard issue (#199)](https://github.com/open-telemetry/semantic-conventions-genai/pull/199) ✅ | trask |  | ✅ | ✅ | 1h |
 
 ## Waiting on external
 
@@ -48,8 +48,16 @@
 <summary>Diagnostics</summary>
 
 ```text
+PR #199
+llm: PRRT_kwDOSUeMrM6E-btJ -> author (The latest comment is from a reviewer and is an observation, not a closing acknowledgement, so the author still needs to respond or act.)
+
 PR #197
-llm: pr-conversation -> reviewer (The reviewer raised three follow-up questions, and the author replied that the requested clarifications were added; the thread is now back with the reviewer to confirm or continue review.)
+llm: PRRT_kwDOSUeMrM6E-B7t -> author (Latest comment is from a reviewer/approver asking for a rename, so the author needs to respond or make the change.)
+llm: PRRT_kwDOSUeMrM6E-Ear -> author (A reviewer asked whether the metric should be added or broadened, so the author needs to respond or implement a decision.)
+llm: PRRT_kwDOSUeMrM6E-G-4 -> author (A reviewer asked a substantive question about whether the value should be unknown, so the author needs to जवाब/respond or update the implementation.)
+llm: PRRT_kwDOSUeMrM6E-Rw6 -> author (A reviewer asked whether the metric should be opt-in, and there’s no author reply yet, so the author needs to respond or update the docs.)
+llm: PRRT_kwDOSUeMrM6E-XbN -> author (A reviewer asked a substantive question about provider support and billing; the author needs to जवाब/clarify.)
+llm: PRRT_kwDOSUeMrM6E-Bw4 -> author (Reviewer suggested future schema breakdown by modality and linked an example, so the author needs to respond or act on it.)
 
 PR #195
 llm: PRRT_kwDOSUeMrM6E9S_1 -> author (A reviewer pointed out hardcoded `MOCK_A2A_URL` and requested deriving it from `MOCK_LLM_URL`; the author needs to update the scenario or respond.)

@@ -126,17 +126,17 @@
         "created_at": "2026-05-19T16:34:48+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-26T19:00:41+00:00",
-        "last_approver_activity_at": "",
+        "last_activity_at": "2026-05-27T12:10:08+00:00",
+        "last_approver_activity_at": "2026-05-27T12:10:08+00:00",
         "last_author_activity_at": "",
         "last_external_activity_at": "",
-        "waiting_age_basis": "created",
-        "waiting_since": "2026-05-19T16:34:48+00:00"
+        "waiting_age_basis": "oldest_pending_thread",
+        "waiting_since": "2026-05-27T12:10:08+00:00"
       },
       "failed": false,
       "pr_number": 173,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/173",
-      "route": "approver"
+      "route": "author"
     },
     "179": {
       "facts": {
@@ -218,12 +218,12 @@
         "created_at": "2026-05-22T12:34:34+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-27T01:29:42+00:00",
+        "last_activity_at": "2026-05-27T12:07:12+00:00",
         "last_approver_activity_at": "2026-05-27T01:29:41+00:00",
-        "last_author_activity_at": "2026-05-26T11:54:51+00:00",
+        "last_author_activity_at": "2026-05-27T12:07:12+00:00",
         "last_external_activity_at": "2026-05-26T02:56:28+00:00",
         "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-05-27T01:29:41+00:00"
+        "waiting_since": "2026-05-27T12:07:12+00:00"
       },
       "failed": false,
       "pr_number": 188,
@@ -310,8 +310,8 @@
         "created_at": "2026-05-26T18:41:31+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-27T02:03:13+00:00",
-        "last_approver_activity_at": "2026-05-27T02:03:13+00:00",
+        "last_activity_at": "2026-05-27T12:01:42+00:00",
+        "last_approver_activity_at": "2026-05-27T12:01:42+00:00",
         "last_author_activity_at": "2026-05-26T18:41:23+00:00",
         "last_external_activity_at": "",
         "waiting_age_basis": "last_author_activity",
@@ -333,8 +333,8 @@
         "created_at": "2026-05-26T18:58:23+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-27T02:09:45+00:00",
-        "last_approver_activity_at": "2026-05-27T02:09:45+00:00",
+        "last_activity_at": "2026-05-27T11:37:58+00:00",
+        "last_approver_activity_at": "2026-05-27T11:37:58+00:00",
         "last_author_activity_at": "2026-05-26T19:20:54+00:00",
         "last_external_activity_at": "2026-05-26T19:09:52+00:00",
         "waiting_age_basis": "oldest_pending_thread",

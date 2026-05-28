@@ -393,25 +393,27 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/208",
       "route": "approver"
     },
-    "209": {
+    "211": {
       "facts": {
         "approved": false,
         "assignees": [],
-        "author": "lmolkova",
+        "author": "trask",
+        "ci_failing_count": 0,
+        "ci_pending_count": 0,
         "conflicts": "no",
-        "created_at": "2026-05-28T22:32:41+00:00",
+        "created_at": "2026-05-28T23:06:54+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-28T22:35:34+00:00",
+        "last_activity_at": "2026-05-28T23:10:18+00:00",
         "last_approver_activity_at": "",
-        "last_author_activity_at": "2026-05-28T22:35:32+00:00",
+        "last_author_activity_at": "2026-05-28T23:06:42+00:00",
         "last_external_activity_at": "",
         "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-05-28T22:35:32+00:00"
+        "waiting_since": "2026-05-28T23:06:42+00:00"
       },
       "failed": false,
-      "pr_number": 209,
-      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/209",
+      "pr_number": 211,
+      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/211",
       "route": "approver"
     },
     "96": {

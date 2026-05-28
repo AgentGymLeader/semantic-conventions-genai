@@ -1,20 +1,14 @@
 > [!NOTE]
 > Open non-draft PRs grouped by who is expected to act next. Draft PRs are listed separately. The grouping is partly performed by an LLM ([source](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/.github/scripts/pull-request-dashboard/dashboard.py)) and could contain mistakes.
 
-## Waiting on maintainers
-
-| PR | Author | Assignees | CI | Conflicts | Age |
-|---|---|---|:---:|:---:|:---:|
-| [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) ✅ | hippoley |  | ✅ | ✅ | 2d |
-
 ## Waiting on approvers
 
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
-| [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 19h |
-| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 12h |
-| [Introduce `area:*` labels (#205)](https://github.com/open-telemetry/semantic-conventions-genai/pull/205) | trask |  | ✅ | ✅ | 11h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ❌ | ✅ | 11m |
+| [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) | hippoley |  | ✅ | ✅ | 2d |
+| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 16h |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 4h |
+| [remove deprecated setting (#206)](https://github.com/open-telemetry/semantic-conventions-genai/pull/206) | zeitlinger |  | ✅ | ✅ | 3h |
 
 ## Waiting on authors
 
@@ -24,15 +18,16 @@
 | [gen-ai: make multimodal content optional and add stripped_reason (#144)](https://github.com/open-telemetry/semantic-conventions-genai/pull/144) | Mandark-droid |  | ✅ | ❌ | 16d |
 | [Add gen_ai.server.inter_token_latency metric (#164)](https://github.com/open-telemetry/semantic-conventions-genai/pull/164) | Jwrede |  | ✅ | ❌ | 9d |
 | [gen-ai: add evaluation operation name and gen_ai.evaluate.internal span (#185)](https://github.com/open-telemetry/semantic-conventions-genai/pull/185) | hippoley |  | ❌ | ✅ | 7d |
-| [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | trask | ✅ | ❌ | 6d |
+| [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | trask | ✅ | ❌ | 7d |
 | [Add experimental GenAI context selection event (#190)](https://github.com/open-telemetry/semantic-conventions-genai/pull/190) | caioribeiroclw-pixel |  | ❌ | ✅ | 5d |
 | [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao |  | ✅ | ✅ | 5d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 1d |
 | [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask |  | ✅ | ✅ | 1d |
-| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 23h |
-| [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 23h |
-| [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 19h |
-| [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 19h |
+| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 1d |
+| [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 1d |
+| [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 23h |
+| [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 23h |
+| [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 3h |
 
 ## Waiting on external
 
@@ -61,6 +56,12 @@ llm: PRRT_kwDOSUeMrM6FJWYO -> author (The reviewer pointed out a missing `id` fi
 llm: PRRT_kwDOSUeMrM6FJWY9 -> author (Reviewer requested a wording consistency change in `model/gen-ai/metrics.yaml`; the author needs to update the text or respond.)
 llm: PRRT_kwDOSUeMrM6FJWZf -> author (Reviewer asked to standardize the user-facing phrasing in `model/gen-ai/metrics.yaml`; the author needs to update the text or जवाब back.)
 
+PR #201
+llm: PRRT_kwDOSUeMrM6FYxtF -> author (The latest comment is a reviewer question/suggestion asking for an explanation to be added, so the PR author needs to respond or update the docs.)
+llm: PRRT_kwDOSUeMrM6FY1gg -> author (A reviewer asked whether `gen_ai.agent.name` should be required and raised a substantive concern; the author needs to respond or adjust the metric definition.)
+llm: PRRT_kwDOSUeMrM6FY3VY -> author (Reviewer asked to add a reference scenario in this PR; the author needs to respond by implementing it or addressing the request.)
+llm: PRRT_kwDOSUeMrM6FY5Vy -> author (The latest comment is from a reviewer asking whether `gen_ai.tool.type` should also be added, so the author needs to जवाब/implement or push back.)
+
 PR #197
 llm: PRRT_kwDOSUeMrM6E-Ear -> author (A reviewer asked whether the metric should be added or broadened, so the author needs to respond or implement a decision.)
 
@@ -87,9 +88,6 @@ llm: PRRT_kwDOSUeMrM6DuuPn -> author (Reviewer raised a naming inconsistency and
 llm: PRRT_kwDOSUeMrM6E_Amb -> author (A reviewer requested a concrete fix (“we need a verb here”), so the PR author needs to update the line and respond.)
 llm: PRRT_kwDOSUeMrM6E_COY -> author (A reviewer asked which instrumentation should generate the span and requested a prototype, so the author needs to respond or provide the example.)
 llm: pr-conversation -> author (The reviewer added a clarification/suggestion about linking evaluation results via traceId/spanId, so the author needs to respond or adjust the implementation.)
-
-PR #184
-llm: pr-conversation -> none (The reviewer’s last comment is a brief acknowledgement (“thanks”) with no follow-up requested, so the thread appears closed.)
 
 PR #179
 llm: PRRT_kwDOSUeMrM6EP0dp -> author (The reviewer asked to add reference instrumentation scenarios, so the PR author needs to act on that request.)

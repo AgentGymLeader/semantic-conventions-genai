@@ -74,15 +74,15 @@
         "approved": false,
         "assignees": [],
         "author": "eternalcuriouslearner",
-        "ci_failing_count": 2,
+        "ci_failing_count": 0,
         "ci_pending_count": 0,
         "conflicts": "no",
         "created_at": "2026-05-14T22:13:32+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-28T11:15:08+00:00",
+        "last_activity_at": "2026-05-28T13:22:51+00:00",
         "last_approver_activity_at": "2026-05-27T00:53:45+00:00",
-        "last_author_activity_at": "2026-05-28T11:15:05+00:00",
+        "last_author_activity_at": "2026-05-28T11:37:56+00:00",
         "last_external_activity_at": "2026-05-26T16:22:30+00:00",
         "waiting_age_basis": "oldest_pending_thread",
         "waiting_since": "2026-05-28T11:06:47+00:00"
@@ -163,7 +163,7 @@
     },
     "184": {
       "facts": {
-        "approved": true,
+        "approved": false,
         "assignees": [],
         "author": "hippoley",
         "ci_failing_count": 0,
@@ -172,8 +172,8 @@
         "created_at": "2026-05-21T08:08:54+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-26T22:12:48+00:00",
-        "last_approver_activity_at": "2026-05-26T22:12:47+00:00",
+        "last_activity_at": "2026-05-28T13:22:42+00:00",
+        "last_approver_activity_at": "2026-05-28T12:20:09+00:00",
         "last_author_activity_at": "2026-05-26T02:28:52+00:00",
         "last_external_activity_at": "2026-05-21T08:10:08+00:00",
         "waiting_age_basis": "last_author_activity",
@@ -182,7 +182,7 @@
       "failed": false,
       "pr_number": 184,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/184",
-      "route": "maintainer"
+      "route": "approver"
     },
     "185": {
       "facts": {
@@ -310,17 +310,17 @@
         "created_at": "2026-05-27T10:55:36+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-27T15:31:59+00:00",
-        "last_approver_activity_at": "",
+        "last_activity_at": "2026-05-28T13:22:34+00:00",
+        "last_approver_activity_at": "2026-05-28T12:08:48+00:00",
         "last_author_activity_at": "2026-05-27T15:18:42+00:00",
         "last_external_activity_at": "",
-        "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-05-27T15:18:42+00:00"
+        "waiting_age_basis": "oldest_pending_thread",
+        "waiting_since": "2026-05-28T12:08:48+00:00"
       },
       "failed": false,
       "pr_number": 201,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/201",
-      "route": "approver"
+      "route": "author"
     },
     "202": {
       "facts": {
@@ -368,27 +368,27 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/203",
       "route": "author"
     },
-    "205": {
+    "206": {
       "facts": {
         "approved": false,
         "assignees": [],
-        "author": "trask",
+        "author": "zeitlinger",
         "ci_failing_count": 0,
         "ci_pending_count": 0,
         "conflicts": "no",
-        "created_at": "2026-05-27T23:21:10+00:00",
+        "created_at": "2026-05-28T11:30:56+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-27T23:27:54+00:00",
+        "last_activity_at": "2026-05-28T13:22:13+00:00",
         "last_approver_activity_at": "",
-        "last_author_activity_at": "2026-05-27T23:26:56+00:00",
-        "last_external_activity_at": "2026-05-27T23:22:32+00:00",
+        "last_author_activity_at": "2026-05-28T11:30:38+00:00",
+        "last_external_activity_at": "",
         "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-05-27T23:26:56+00:00"
+        "waiting_since": "2026-05-28T11:30:38+00:00"
       },
       "failed": false,
-      "pr_number": 205,
-      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/205",
+      "pr_number": 206,
+      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/206",
       "route": "approver"
     },
     "96": {

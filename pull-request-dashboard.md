@@ -6,9 +6,8 @@
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) | hippoley |  | ✅ | ✅ | 2d |
-| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 16h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 4h |
-| [remove deprecated setting (#206)](https://github.com/open-telemetry/semantic-conventions-genai/pull/206) | zeitlinger |  | ✅ | ✅ | 3h |
+| [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 18h |
+| [Rename area:tokens label to area:token-counts (#208)](https://github.com/open-telemetry/semantic-conventions-genai/pull/208) | trask |  | ✅ | ✅ | 12m |
 
 ## Waiting on authors
 
@@ -25,15 +24,17 @@
 | [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask |  | ✅ | ✅ | 1d |
 | [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 1d |
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 1d |
-| [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 23h |
-| [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 23h |
-| [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 3h |
+| [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 1d |
+| [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 1d |
+| [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 5h |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner |  | ✅ | ✅ | 20m |
+| [Add 'needs author feedback' issue management workflows (#207)](https://github.com/open-telemetry/semantic-conventions-genai/pull/207) | trask |  | ✅ | ✅ | 17m |
 
 ## Waiting on external
 
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
-| [Update dependency google-genai to v2 (#112)](https://github.com/open-telemetry/semantic-conventions-genai/pull/112) ✅ | app/renovate |  | ❌ | ✅ | 8d |
+| [Update dependency google-genai to v2 (#112)](https://github.com/open-telemetry/semantic-conventions-genai/pull/112) ✅ | app/renovate |  | ❌ | ✅ | 9d |
 
 ## Draft pull requests
 
@@ -45,6 +46,12 @@
 <summary>Diagnostics</summary>
 
 ```text
+PR #207
+llm: PRRT_kwDOSUeMrM6FeBFE -> author (Reviewer flagged a mismatch between the workflow behavior and its docs/config and asked for one of two fixes, so the PR author needs to respond or update the workflow/docs.)
+llm: PRRT_kwDOSUeMrM6FeBGV -> author (Reviewer raised a concrete change request about adding a concurrency guard, and there is no author reply yet.)
+llm: PRRT_kwDOSUeMrM6FeBG1 -> author (A reviewer suggested removing an unnecessary permission, and there’s no author reply yet, so the PR author needs to act or respond.)
+llm: PRRT_kwDOSUeMrM6FeBHK -> author (A reviewer noted the `actions/checkout` step is unused and suggested removing it, so the author needs to update the workflow or जवाब.)
+
 PR #203
 llm: PRRT_kwDOSUeMrM6FJXwy -> author (The reviewer flagged an invalid YAML scalar/unit value and asked for it to be emitted as `{step}` instead, so the PR author needs to fix it and respond.)
 llm: PRRT_kwDOSUeMrM6FJXxg -> author (Reviewer reported a snapshot bug and asked for it to be updated; the PR author needs to fix the generated registry value.)
@@ -103,6 +110,7 @@ llm: PRRT_kwDOSUeMrM6C-3Kb -> author (The reviewer asked for justification and r
 llm: pr-conversation -> author (The latest comment is from the reviewer/approver, asking the author to align the metric description with OTel's intent, so the author needs to respond or update the PR.)
 
 PR #162
+llm: PRRT_kwDOSUeMrM6Fd-ZR -> author (The reviewer flagged a mismatch and requested either a code/docs fix or a description/changelog update, so the PR author needs to act next.)
 llm: pr-conversation -> reviewer (The latest comment is from the author answering the reviewers’ questions, so the ball is back with the reviewers to confirm, continue discussion, or resolve the thread.)
 
 PR #144

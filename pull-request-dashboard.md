@@ -5,10 +5,10 @@
 
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
-| [Clarify that billed token counts should be reported for Cohere usage (#211)](https://github.com/open-telemetry/semantic-conventions-genai/pull/211) ✅ | trask |  | ✅ | ✅ | 21h |
-| [Generalize the `gen_ai.provider.name` description (#212)](https://github.com/open-telemetry/semantic-conventions-genai/pull/212) ✅ | trask |  | ✅ | ✅ | 17h |
-| [Relax `gen_ai.provider.name` on `gen_ai.client.operation.duration` to Conditionally Required (#214)](https://github.com/open-telemetry/semantic-conventions-genai/pull/214) ✅ | trask |  | ✅ | ✅ | 16h |
-| [Clarify GenAI span duration (#216)](https://github.com/open-telemetry/semantic-conventions-genai/pull/216) ✅ | trask |  | ✅ | ✅ | 15h |
+| [Clarify that billed token counts should be reported for Cohere usage (#211)](https://github.com/open-telemetry/semantic-conventions-genai/pull/211) ✅ | trask |  | ✅ | ✅ | 22h |
+| [Generalize the `gen_ai.provider.name` description (#212)](https://github.com/open-telemetry/semantic-conventions-genai/pull/212) ✅ | trask |  | ✅ | ✅ | 18h |
+| [Relax `gen_ai.provider.name` on `gen_ai.client.operation.duration` to Conditionally Required (#214)](https://github.com/open-telemetry/semantic-conventions-genai/pull/214) ✅ | trask |  | ✅ | ✅ | 17h |
+| [Clarify GenAI span duration (#216)](https://github.com/open-telemetry/semantic-conventions-genai/pull/216) ✅ | trask |  | ✅ | ✅ | 16h |
 
 ## Waiting on approvers
 
@@ -16,10 +16,12 @@
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) | hippoley |  | ✅ | ✅ | 3d |
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 1d |
-| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask |  | ✅ | ✅ | 20h |
-| [Clarify GenAI conversation ID fallbacks (#219)](https://github.com/open-telemetry/semantic-conventions-genai/pull/219) | trask |  | ✅ | ✅ | 4h |
-| [Change `gen_ai.request.top_k` type to int and split out `gen_ai.retrieval.top_k` (#217)](https://github.com/open-telemetry/semantic-conventions-genai/pull/217) | trask |  | ✅ | ✅ | 3h |
-| [Clarify MCP context propagation (#220)](https://github.com/open-telemetry/semantic-conventions-genai/pull/220) | trask |  | ✅ | ✅ | 3h |
+| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask |  | ✅ | ✅ | 21h |
+| [Clarify GenAI conversation ID fallbacks (#219)](https://github.com/open-telemetry/semantic-conventions-genai/pull/219) | trask |  | ✅ | ✅ | 5h |
+| [Change `gen_ai.request.top_k` type to int and split out `gen_ai.retrieval.top_k` (#217)](https://github.com/open-telemetry/semantic-conventions-genai/pull/217) | trask |  | ✅ | ✅ | 4h |
+| [Clarify MCP context propagation (#220)](https://github.com/open-telemetry/semantic-conventions-genai/pull/220) | trask |  | ✅ | ✅ | 4h |
+| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 21m |
+| [Bump uv from 0.11.7 to 0.11.15 in /reference/scenarios/crewai in the python-security group across 1 directory (#221)](https://github.com/open-telemetry/semantic-conventions-genai/pull/221) | app/dependabot |  | ✅ | ✅ | 1m |
 
 ## Waiting on authors
 
@@ -29,9 +31,8 @@
 | [gen-ai: make multimodal content optional and add stripped_reason (#144)](https://github.com/open-telemetry/semantic-conventions-genai/pull/144) | Mandark-droid |  | ✅ | ❌ | 18d |
 | [Add gen_ai.server.inter_token_latency metric (#164)](https://github.com/open-telemetry/semantic-conventions-genai/pull/164) | Jwrede |  | ✅ | ❌ | 10d |
 | [gen-ai: add evaluation operation name and gen_ai.evaluate.internal span (#185)](https://github.com/open-telemetry/semantic-conventions-genai/pull/185) | hippoley |  | ❌ | ✅ | 8d |
-| [Add experimental GenAI context selection event (#190)](https://github.com/open-telemetry/semantic-conventions-genai/pull/190) | caioribeiroclw-pixel |  | ❌ | ✅ | 6d |
+| [Add experimental GenAI context selection event (#190)](https://github.com/open-telemetry/semantic-conventions-genai/pull/190) | caioribeiroclw-pixel |  | ❌ | ✅ | 7d |
 | [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao | lmolkova | ✅ | ✅ | 6d |
-| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ⏳ | ✅ | 2d |
 | [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 2d |
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 2d |
 | [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 2d |
@@ -78,14 +79,6 @@ llm: PRRT_kwDOSUeMrM6FY5Vy -> author (The latest comment is from a reviewer aski
 PR #197
 llm: PRRT_kwDOSUeMrM6E-Ear -> reviewer (The author responded with a preferred option and linked a commit; the ball is back with the reviewer to acknowledge or review the added change.)
 llm: PRRT_kwDOSUeMrM6FkB2H -> reviewer (The author asked for clarification and details on the reviewer’s claim, so the reviewer needs to जवाब/clarify next.)
-
-PR #195
-llm: PRRT_kwDOSUeMrM6E9S_1 -> author (A reviewer pointed out hardcoded `MOCK_A2A_URL` and requested deriving it from `MOCK_LLM_URL`; the author needs to update the scenario or respond.)
-llm: PRRT_kwDOSUeMrM6E9TAi -> author (A reviewer asked to inline A2A span attributes at each instrumentation site, so the PR author needs to update the scenario or respond.)
-llm: PRRT_kwDOSUeMrM6E9TA7 -> author (A reviewer asked for a code change and no author reply has been given, so the next action is on the PR author.)
-llm: PRRT_kwDOSUeMrM6E9TBK -> author (Reviewer says the span should wrap the real A2A SDK call and suggests specific code changes, so the PR author needs to update the scenario.)
-llm: PRRT_kwDOSUeMrM6E9TBd -> author (Reviewer asked to remove `gen_ai.request.stream = False` for non-streaming calls and only set it when streaming is enabled; the author needs to update the code.)
-llm: PRRT_kwDOSUeMrM6E9TBt -> author (A reviewer pointed out that the scenario is using a locally constructed events list instead of a real streaming SDK call, so the PR author needs to revise the implementation.)
 
 PR #190
 llm: PRRT_kwDOSUeMrM6EO3GU -> author (The reviewer flagged an inconsistency in `schema-snapshot/registry.yaml` and suggested regenerating or fixing the snapshot, so the author needs to update it and respond.)

@@ -73,6 +73,7 @@
       "facts": {
         "approved": false,
         "assignees": [
+          "lmolkova",
           "JWinermaSplunk"
         ],
         "author": "eternalcuriouslearner",
@@ -82,8 +83,8 @@
         "created_at": "2026-05-14T22:13:32+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-29T02:27:11+00:00",
-        "last_approver_activity_at": "2026-05-27T00:53:45+00:00",
+        "last_activity_at": "2026-05-29T04:59:57+00:00",
+        "last_approver_activity_at": "2026-05-29T04:59:57+00:00",
         "last_author_activity_at": "2026-05-29T02:27:09+00:00",
         "last_external_activity_at": "2026-05-28T17:00:48+00:00",
         "waiting_age_basis": "oldest_pending_thread",
@@ -143,7 +144,9 @@
     "179": {
       "facts": {
         "approved": false,
-        "assignees": [],
+        "assignees": [
+          "lmolkova"
+        ],
         "author": "steverao",
         "ci_failing_count": 0,
         "ci_pending_count": 0,
@@ -151,7 +154,7 @@
         "created_at": "2026-05-20T09:51:59+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-27T15:35:51+00:00",
+        "last_activity_at": "2026-05-29T04:58:20+00:00",
         "last_approver_activity_at": "2026-05-27T15:35:50+00:00",
         "last_author_activity_at": "2026-05-20T16:09:37+00:00",
         "last_external_activity_at": "",
@@ -289,9 +292,9 @@
         "created_at": "2026-05-26T16:00:15+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-29T03:06:47+00:00",
+        "last_activity_at": "2026-05-29T04:52:09+00:00",
         "last_approver_activity_at": "2026-05-28T09:14:13+00:00",
-        "last_author_activity_at": "2026-05-29T03:06:47+00:00",
+        "last_author_activity_at": "2026-05-29T04:52:09+00:00",
         "last_external_activity_at": "2026-05-29T02:07:22+00:00",
         "waiting_age_basis": "oldest_pending_thread",
         "waiting_since": "2026-05-29T00:28:48+00:00"
@@ -370,32 +373,9 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/203",
       "route": "author"
     },
-    "208": {
-      "facts": {
-        "approved": false,
-        "assignees": [],
-        "author": "trask",
-        "ci_failing_count": 0,
-        "ci_pending_count": 0,
-        "conflicts": "no",
-        "created_at": "2026-05-28T17:08:29+00:00",
-        "is_draft": false,
-        "is_otelbot_author": false,
-        "last_activity_at": "2026-05-28T17:11:24+00:00",
-        "last_approver_activity_at": "",
-        "last_author_activity_at": "2026-05-28T17:08:14+00:00",
-        "last_external_activity_at": "",
-        "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-05-28T17:08:14+00:00"
-      },
-      "failed": false,
-      "pr_number": 208,
-      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/208",
-      "route": "approver"
-    },
     "211": {
       "facts": {
-        "approved": false,
+        "approved": true,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -404,8 +384,8 @@
         "created_at": "2026-05-28T23:06:54+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-28T23:10:18+00:00",
-        "last_approver_activity_at": "",
+        "last_activity_at": "2026-05-29T04:53:44+00:00",
+        "last_approver_activity_at": "2026-05-29T04:53:44+00:00",
         "last_author_activity_at": "2026-05-28T23:06:42+00:00",
         "last_external_activity_at": "",
         "waiting_age_basis": "last_author_activity",
@@ -414,11 +394,11 @@
       "failed": false,
       "pr_number": 211,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/211",
-      "route": "approver"
+      "route": "maintainer"
     },
     "212": {
       "facts": {
-        "approved": false,
+        "approved": true,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -427,8 +407,8 @@
         "created_at": "2026-05-28T23:19:34+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-05-29T03:13:17+00:00",
-        "last_approver_activity_at": "",
+        "last_activity_at": "2026-05-29T04:57:06+00:00",
+        "last_approver_activity_at": "2026-05-29T04:57:06+00:00",
         "last_author_activity_at": "2026-05-29T03:09:31+00:00",
         "last_external_activity_at": "",
         "waiting_age_basis": "last_author_activity",
@@ -437,7 +417,76 @@
       "failed": false,
       "pr_number": 212,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/212",
+      "route": "maintainer"
+    },
+    "214": {
+      "facts": {
+        "approved": true,
+        "assignees": [],
+        "author": "trask",
+        "ci_failing_count": 0,
+        "ci_pending_count": 0,
+        "conflicts": "no",
+        "created_at": "2026-05-29T04:03:52+00:00",
+        "is_draft": false,
+        "is_otelbot_author": false,
+        "last_activity_at": "2026-05-29T04:51:45+00:00",
+        "last_approver_activity_at": "2026-05-29T04:48:13+00:00",
+        "last_author_activity_at": "2026-05-29T04:03:34+00:00",
+        "last_external_activity_at": "",
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-05-29T04:03:34+00:00"
+      },
+      "failed": false,
+      "pr_number": 214,
+      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/214",
+      "route": "maintainer"
+    },
+    "215": {
+      "facts": {
+        "approved": false,
+        "assignees": [],
+        "author": "trask",
+        "ci_failing_count": 0,
+        "ci_pending_count": 0,
+        "conflicts": "no",
+        "created_at": "2026-05-29T04:15:40+00:00",
+        "is_draft": false,
+        "is_otelbot_author": false,
+        "last_activity_at": "2026-05-29T04:52:21+00:00",
+        "last_approver_activity_at": "",
+        "last_author_activity_at": "2026-05-29T04:49:56+00:00",
+        "last_external_activity_at": "2026-05-29T04:19:52+00:00",
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-05-29T04:49:56+00:00"
+      },
+      "failed": false,
+      "pr_number": 215,
+      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/215",
       "route": "approver"
+    },
+    "216": {
+      "facts": {
+        "approved": true,
+        "assignees": [],
+        "author": "trask",
+        "ci_failing_count": 0,
+        "ci_pending_count": 0,
+        "conflicts": "no",
+        "created_at": "2026-05-29T04:22:50+00:00",
+        "is_draft": false,
+        "is_otelbot_author": false,
+        "last_activity_at": "2026-05-29T05:04:20+00:00",
+        "last_approver_activity_at": "2026-05-29T05:04:20+00:00",
+        "last_author_activity_at": "2026-05-29T05:02:15+00:00",
+        "last_external_activity_at": "2026-05-29T04:50:31+00:00",
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-05-29T05:02:15+00:00"
+      },
+      "failed": false,
+      "pr_number": 216,
+      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/216",
+      "route": "maintainer"
     },
     "96": {
       "facts": {

@@ -22,6 +22,7 @@
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 1d |
 | [Fix automated Copilot review guidance (#222)](https://github.com/open-telemetry/semantic-conventions-genai/pull/222) | trask |  | ✅ | ✅ | 20h |
 | [dashboard: include top-level review bodies in pr-conversation thread (#223)](https://github.com/open-telemetry/semantic-conventions-genai/pull/223) | trask |  | ✅ | ✅ | 19h |
+| [Mark generated files as linguist-generated (#224)](https://github.com/open-telemetry/semantic-conventions-genai/pull/224) | trask |  | ✅ | ✅ | 36m |
 
 ## Waiting on authors
 
@@ -29,11 +30,10 @@
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: add optional byte_size to multimodal content parts (#143)](https://github.com/open-telemetry/semantic-conventions-genai/pull/143) | Mandark-droid |  | ✅ | ❌ | 19d |
 | [gen-ai: make multimodal content optional and add stripped_reason (#144)](https://github.com/open-telemetry/semantic-conventions-genai/pull/144) | Mandark-droid |  | ✅ | ❌ | 19d |
-| [Add gen_ai.server.inter_token_latency metric (#164)](https://github.com/open-telemetry/semantic-conventions-genai/pull/164) | Jwrede |  | ✅ | ❌ | 11d |
+| [Add gen_ai.server.inter_token_latency metric (#164)](https://github.com/open-telemetry/semantic-conventions-genai/pull/164) | Jwrede |  | ✅ | ❌ | 12d |
 | [gen-ai: add evaluation operation name and gen_ai.evaluate.internal span (#185)](https://github.com/open-telemetry/semantic-conventions-genai/pull/185) | hippoley |  | ❌ | ✅ | 9d |
 | [Add experimental GenAI context selection event (#190)](https://github.com/open-telemetry/semantic-conventions-genai/pull/190) | caioribeiroclw-pixel |  | ❌ | ✅ | 8d |
 | [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao | lmolkova | ✅ | ✅ | 7d |
-| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 3d |
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 3d |
 | [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 3d |
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 3d |
@@ -41,6 +41,7 @@
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 2d |
 | [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 1d |
 | [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask |  | ✅ | ✅ | 17h |
+| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 5m |
 
 ## Waiting on external
 
@@ -54,7 +55,6 @@
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 8d |
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | 1d |
-| [Mark generated files as linguist-generated (#224)](https://github.com/open-telemetry/semantic-conventions-genai/pull/224) | trask | 4m |
 
 <details>
 <summary>Diagnostics</summary>
@@ -68,10 +68,9 @@ llm: PRRT_kwDOSUeMrM6FJXxu -> author (The reviewer requested a wording standardi
 llm: PRRT_kwDOSUeMrM6F5cXU -> author (The latest comment is a reviewer asking for a more concrete definition of "step" and suggesting possible convention changes, so the author needs to respond or update the PR.)
 
 PR #202
-llm: PRRT_kwDOSUeMrM6FJWXQ -> author (Reviewer flagged a schema inconsistency and explicitly asked to add missing `id` fields or regenerate the snapshot, so the author needs to act.)
-llm: PRRT_kwDOSUeMrM6FJWYO -> author (The reviewer pointed out a missing `id` field and requested a fix or regeneration of the snapshot, so the PR author needs to act.)
 llm: PRRT_kwDOSUeMrM6FJWY9 -> author (Reviewer requested a wording consistency change in `model/gen-ai/metrics.yaml`; the author needs to update the text or respond.)
 llm: PRRT_kwDOSUeMrM6FJWZf -> author (Reviewer asked to standardize the user-facing phrasing in `model/gen-ai/metrics.yaml`; the author needs to update the text or जवाब back.)
+llm: PRRT_kwDOSUeMrM6F5gYd -> author (A reviewer asked for a concrete change to the metric definition, so the PR author needs to जवाब/implement or push back.)
 
 PR #201
 llm: PRRT_kwDOSUeMrM6FYxtF -> author (The latest comment is a reviewer question/suggestion asking for an explanation to be added, so the PR author needs to respond or update the docs.)
@@ -87,14 +86,13 @@ llm: PRRT_kwDOSUeMrM6F1og7 -> author (The latest reviewer comment clarifies the 
 llm: pr-conversation -> author (The latest comment is a reviewer asking for follow-up on multiple design questions, so the PR author needs to respond.)
 
 PR #190
-llm: PRRT_kwDOSUeMrM6EO3GU -> author (The reviewer flagged an inconsistency in `schema-snapshot/registry.yaml` and suggested regenerating or fixing the snapshot, so the author needs to update it and respond.)
 llm: PRRT_kwDOSUeMrM6EO3Gw -> author (A reviewer raised a specific wording inconsistency in the changelog and asked to align it, so the author needs to respond or update the file.)
+llm: pr-conversation -> author (A reviewer asked the PR author to fill out the template and sign the CLA, so the author needs to act.)
 
 PR #188
-llm: PRRT_kwDOSUeMrM6EG_rG -> reviewer (The author जवाबed with a refusal and rationale, so the ball is back with the reviewer/maintainer to accept the explanation or respond further.)
 llm: PRRT_kwDOSUeMrM6EP5P6 -> reviewer (The reviewer asked where the data would come from in real instrumentation, and the author replied with a concrete ADK example and trace, so the ball is back with the reviewer to confirm or continue the review.)
 llm: PRRT_kwDOSUeMrM6EP9-D -> reviewer (The author replied with added scenarios and terminology findings, so the ball is back with the reviewer to review that update or respond.)
-llm: pr-conversation -> author (The author replied that this PR only partly resolves the issue and says they will handle the follow-up later, so the thread is still with the author.)
+llm: pr-conversation -> author (The author said the PR only partly resolves #187 and deferred the remaining event work to a follow-up, so the ball stays with the author.)
 
 PR #185
 llm: PRRT_kwDOSUeMrM6DuuPn -> author (Reviewer raised a naming inconsistency and suggested a spec alignment change; the author needs to respond or make the update.)

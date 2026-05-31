@@ -14,7 +14,7 @@
 | [Clarify MCP context propagation (#220)](https://github.com/open-telemetry/semantic-conventions-genai/pull/220) ✅ | trask |  | ✅ | ✅ | 1d |
 | [Fix automated Copilot review guidance (#222)](https://github.com/open-telemetry/semantic-conventions-genai/pull/222) ✅ | trask |  | ✅ | ✅ | 1d |
 | [dashboard: include top-level review bodies in pr-conversation thread (#223)](https://github.com/open-telemetry/semantic-conventions-genai/pull/223) ✅ | trask |  | ✅ | ✅ | 1d |
-| [Clarify dashboard self-deferral prompt (#225)](https://github.com/open-telemetry/semantic-conventions-genai/pull/225) ✅ | trask |  | ✅ | ✅ | 14h |
+| [Clarify dashboard self-deferral prompt (#225)](https://github.com/open-telemetry/semantic-conventions-genai/pull/225) ✅ | trask |  | ✅ | ✅ | 15h |
 
 ## Waiting on approvers
 
@@ -37,11 +37,11 @@
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 4d |
 | [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 3d |
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 3d |
-| [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 3d |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 2d |
 | [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 2d |
-| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 14h |
-| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | lmolkova | ✅ | ✅ | 13h |
+| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 15h |
+| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | lmolkova | ✅ | ✅ | 14h |
+| [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 44m |
 
 ## Waiting on external
 
@@ -73,10 +73,10 @@ llm: PRRT_kwDOSUeMrM6FJWZf -> author (Reviewer asked to standardize the user-fac
 llm: PRRT_kwDOSUeMrM6F5gYd -> author (A reviewer asked for a concrete change to the metric definition, so the PR author needs to जवाब/implement or push back.)
 
 PR #201
-llm: PRRT_kwDOSUeMrM6FY1gg -> author (A reviewer asked whether `gen_ai.agent.name` should be required and raised a substantive concern; the author needs to respond or adjust the metric definition.)
-llm: PRRT_kwDOSUeMrM6FY3VY -> author (Reviewer asked to add a reference scenario in this PR; the author needs to respond by implementing it or addressing the request.)
-llm: PRRT_kwDOSUeMrM6FY5Vy -> author (The latest comment is from a reviewer asking whether `gen_ai.tool.type` should also be added, so the author needs to जवाब/implement or push back.)
-llm: PRRT_kwDOSUeMrM6FYxtF -> author (Reviewer asked for the asymmetry to be stated; the author replied that it will be updated in the next push, so the author still needs to act.)
+llm: PRRT_kwDOSUeMrM6FYxtF -> author (The reviewer asked for clarification, and the author replied that they will add the explanatory sentence, so the next action is still on the author.)
+llm: PRRT_kwDOSUeMrM6FY1gg -> reviewer (The author replied with a question and a proposed compromise, so the ball is back with the reviewer to decide whether `recommended` or `required` is acceptable.)
+llm: PRRT_kwDOSUeMrM6FY5Vy -> reviewer (The author replied that the suggestion was added, so the ball is back with the reviewer to confirm or continue review.)
+llm: PRRT_kwDOSUeMrM6FY3VY -> reviewer (The author responded with an investigation and asked for confirmation on the approach, so the reviewer/maintainer needs to reply and align on next steps.)
 
 PR #197
 llm: PRRT_kwDOSUeMrM6E-Ear -> reviewer (The author responded with a preferred option and linked a commit; the ball is back with the reviewer to acknowledge or review the added change.)
@@ -101,8 +101,6 @@ llm: pr-conversation -> author (The reviewer added a clarification/suggestion ab
 
 PR #179
 llm: PRRT_kwDOSUeMrM6EP0dp -> author (The reviewer asked to add reference instrumentation scenarios, so the PR author needs to act on that request.)
-llm: PRRT_kwDOSUeMrM6EP1ZF -> author (A reviewer raised a specific missing-field concern, so the author needs to respond or update the change.)
-llm: PRRT_kwDOSUeMrM6EP2En -> author (Reviewer requested a documentation clarification about MCP prompt arguments mapping to variables, so the author needs to update or जवाब.)
 llm: pr-conversation -> author (A reviewer asked the PR author to update the title with Resolves #137 and complete the PR template, so the next action is on the author.)
 
 PR #173

@@ -14,7 +14,7 @@
 | [Clarify MCP context propagation (#220)](https://github.com/open-telemetry/semantic-conventions-genai/pull/220) ✅ | trask |  | ✅ | ✅ | 2d |
 | [Fix automated Copilot review guidance (#222)](https://github.com/open-telemetry/semantic-conventions-genai/pull/222) ✅ | trask |  | ✅ | ✅ | 1d |
 | [dashboard: include top-level review bodies in pr-conversation thread (#223)](https://github.com/open-telemetry/semantic-conventions-genai/pull/223) ✅ | trask |  | ✅ | ✅ | 1d |
-| [Clarify dashboard self-deferral prompt (#225)](https://github.com/open-telemetry/semantic-conventions-genai/pull/225) ✅ | trask |  | ✅ | ✅ | 19h |
+| [Clarify dashboard self-deferral prompt (#225)](https://github.com/open-telemetry/semantic-conventions-genai/pull/225) ✅ | trask |  | ✅ | ✅ | 20h |
 
 ## Waiting on approvers
 
@@ -39,9 +39,9 @@
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 4d |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 3d |
 | [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 2d |
-| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 18h |
-| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | lmolkova | ✅ | ✅ | 17h |
-| [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 4h |
+| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 20h |
+| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | lmolkova | ✅ | ✅ | 18h |
+| [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 5h |
 
 ## Waiting on external
 

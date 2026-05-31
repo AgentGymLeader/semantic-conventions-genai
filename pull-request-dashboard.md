@@ -14,7 +14,7 @@
 | [Clarify MCP context propagation (#220)](https://github.com/open-telemetry/semantic-conventions-genai/pull/220) ✅ | trask |  | ✅ | ✅ | 1d |
 | [Fix automated Copilot review guidance (#222)](https://github.com/open-telemetry/semantic-conventions-genai/pull/222) ✅ | trask |  | ✅ | ✅ | 1d |
 | [dashboard: include top-level review bodies in pr-conversation thread (#223)](https://github.com/open-telemetry/semantic-conventions-genai/pull/223) ✅ | trask |  | ✅ | ✅ | 1d |
-| [Clarify dashboard self-deferral prompt (#225)](https://github.com/open-telemetry/semantic-conventions-genai/pull/225) ✅ | trask |  | ✅ | ✅ | 7h |
+| [Clarify dashboard self-deferral prompt (#225)](https://github.com/open-telemetry/semantic-conventions-genai/pull/225) ✅ | trask |  | ✅ | ✅ | 9h |
 
 ## Waiting on approvers
 
@@ -39,9 +39,9 @@
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 3d |
 | [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 2d |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 2d |
-| [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 1d |
-| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 7h |
-| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | lmolkova | ✅ | ✅ | 6h |
+| [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 2d |
+| [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 8h |
+| [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | lmolkova | ✅ | ✅ | 7h |
 
 ## Waiting on external
 
@@ -114,6 +114,13 @@ llm: pr-conversation -> author (The latest comment is from the reviewer/approver
 
 PR #162
 llm: PRRT_kwDOSUeMrM6Fd-ZR -> author (The reviewer flagged a mismatch and requested either a code/docs fix or a description/changelog update, so the PR author needs to act next.)
+llm: PRRT_kwDOSUeMrM6F6wQj -> author (The reviewer asked whether this belongs in semantic conventions, so the author needs to जवाब/respond or justify it.)
+llm: PRRT_kwDOSUeMrM6F6ytk -> author (Reviewer left a nitpick suggestion on the line, so the author needs to revise or respond.)
+llm: PRRT_kwDOSUeMrM6F6y3q -> author (The reviewer asked whether compaction needs a definition in semconv and left a suggested wording change, so the author needs to जवाब/act on it.)
+llm: PRRT_kwDOSUeMrM6F6y_Z -> author (A reviewer left a suggested wording change, so the author needs to apply or respond to it.)
+llm: PRRT_kwDOSUeMrM6F6zL8 -> author (Reviewer asked whether the note override is needed; the author needs to जवाब/adjust the change.)
+llm: PRRT_kwDOSUeMrM6F6z9K -> author (Reviewer says Anthropic does not expose an id in the API and linked references support changing the code, so the author needs to update or respond.)
+llm: PRRT_kwDOSUeMrM6F60ZT -> author (Reviewer asked whether compacted items should also mark the conversation as compacted, so the author needs to პასუხ/adjust the code.)
 
 PR #144
 llm: PRRT_kwDOSUeMrM6BMiXX -> author (Reviewer flagged a mismatch between the comment and the Pydantic model and asked for either a validator or a clarification, so the author needs to respond or make a change.)

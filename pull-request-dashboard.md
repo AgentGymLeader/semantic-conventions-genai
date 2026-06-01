@@ -6,7 +6,7 @@
 | PR | Author | Assignees | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [Clarify that billed token counts should be reported for Cohere usage (#211)](https://github.com/open-telemetry/semantic-conventions-genai/pull/211) ✅ | trask |  | ✅ | ✅ | 3d |
-| [Generalize the `gen_ai.provider.name` description (#212)](https://github.com/open-telemetry/semantic-conventions-genai/pull/212) ✅ | trask |  | ✅ | ✅ | 2d |
+| [Generalize the `gen_ai.provider.name` description (#212)](https://github.com/open-telemetry/semantic-conventions-genai/pull/212) ✅ | trask |  | ✅ | ✅ | 3d |
 | [Relax `gen_ai.provider.name` on `gen_ai.client.operation.duration` to Conditionally Required (#214)](https://github.com/open-telemetry/semantic-conventions-genai/pull/214) ✅ | trask |  | ✅ | ✅ | 2d |
 | [Clarify GenAI span duration (#216)](https://github.com/open-telemetry/semantic-conventions-genai/pull/216) ✅ | trask |  | ✅ | ✅ | 2d |
 | [Clarify GenAI conversation ID fallbacks (#219)](https://github.com/open-telemetry/semantic-conventions-genai/pull/219) ✅ | trask |  | ✅ | ✅ | 2d |
@@ -20,7 +20,8 @@
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 4d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 2d |
-| [Update dependency aqua:grafana/flint to v0.22.4 (#227)](https://github.com/open-telemetry/semantic-conventions-genai/pull/227) | app/renovate |  | ✅ | ✅ | 1h |
+| [Update dependency aqua:grafana/flint to v0.22.4 (#227)](https://github.com/open-telemetry/semantic-conventions-genai/pull/227) | app/renovate |  | ✅ | ✅ | 2h |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 1m |
 
 ## Waiting on authors
 
@@ -40,9 +41,8 @@
 | [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) | hippoley |  | ✅ | ✅ | 3d |
 | [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 1d |
 | [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | lmolkova | ✅ | ✅ | 1d |
-| [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 4h |
-| [Replace Jupiter notebook with models with python file and add CI check that json schemas are up-to-date (#226)](https://github.com/open-telemetry/semantic-conventions-genai/pull/226) | lmolkova |  | ✅ | ✅ | 2h |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 17m |
+| [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 5h |
+| [Replace Jupiter notebook with models with python file and add CI check that json schemas are up-to-date (#226)](https://github.com/open-telemetry/semantic-conventions-genai/pull/226) | lmolkova |  | ✅ | ✅ | 1h |
 
 ## Draft pull requests
 
@@ -56,11 +56,7 @@
 
 ```text
 PR #226
-llm: PRRT_kwDOSUeMrM6F-lOV -> author (A reviewer flagged an inaccurate docstring and requested a correction; the author needs to update the PR.)
-llm: PRRT_kwDOSUeMrM6F-lOh -> author (The reviewer pointed out a type mismatch and asked for a change; the author needs to update the code or respond.)
-llm: PRRT_kwDOSUeMrM6F-lOk -> author (A reviewer pointed out that `MemoryRecord.score` defaults to `None` but is typed as `float`; the author needs to update the annotation or otherwise respond.)
-llm: PRRT_kwDOSUeMrM6F-lOq -> author (Reviewer flagged unpinned Pydantic in committed schema generation metadata and requested the PR change it; the author needs to respond by pinning it or pushing back.)
-llm: PRRT_kwDOSUeMrM6F-lOw -> author (A reviewer asked for an explicit file encoding/newline setting in committed JSON output, and the author has not responded yet.)
+llm: PRRT_kwDOSUeMrM6F-lOV -> author (The reviewer raised a docstring issue, and the author replied that they will update it in a follow-up, so the author still has the next action.)
 
 PR #215
 llm: PRRT_kwDOSUeMrM6Fl7mu -> author (Latest reviewer comment continues the design discussion and leaves an open choice on metric naming/bucketing, so the PR author needs to respond or implement a direction.)
@@ -116,10 +112,6 @@ PR #164
 llm: PRRT_kwDOSUeMrM6C-3Kb -> author (Reviewer asked for justification and suggested changing the metric definition; the author needs to respond or adjust the PR.)
 llm: pr-conversation -> author (The reviewer clarified the requested direction, so the author needs to update the metric description or respond to that feedback.)
 
-PR #162
-llm: PRRT_kwDOSUeMrM6F_Nsr -> author (Reviewer requested adding `compaction` to the finish reason enum, and the author has not replied yet.)
-llm: PRRT_kwDOSUeMrM6F_OT_ -> author (The reviewer asked whether the implementation can be modeled the same way and whether there are cases it would not work, so the author needs to जवाब/decide and respond.)
-
 PR #144
 llm: PRRT_kwDOSUeMrM6BMiXX -> author (A reviewer flagged a runtime/schema mismatch and asked the author to either add validation or reword the constraint; no author reply has resolved it yet.)
 llm: PRRT_kwDOSUeMrM6F1EMU -> author (The reviewer asked the PR author to split this work into a separate PR and narrow the current PR’s scope, so the author needs to respond or make the requested change.)
@@ -134,7 +126,7 @@ PR #112
 llm: pr-conversation -> author (Reviewer requested changes: the PR depends on google-adk relaxing its google-genai constraint and then bumping google-adk, so the author needs to update the PR or wait on that dependency.)
 
 PR #98
-llm: PRRT_kwDOSUeMrM6E9NFw -> reviewer (The author has replied with a substantive explanation and raised a remaining gap; the ball is back with the reviewer to acknowledge or continue the review.)
+llm: PRRT_kwDOSUeMrM6E9NFw -> reviewer (The author has already responded to the reviewer’s question with a substantive explanation; the ball is back with the reviewer to confirm, object, or close the thread.)
 
 ```
 

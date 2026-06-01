@@ -12,7 +12,7 @@
 | [Clarify GenAI conversation ID fallbacks (#219)](https://github.com/open-telemetry/semantic-conventions-genai/pull/219) ✅ | trask |  | ✅ | ✅ | 2d |
 | [Change `gen_ai.request.top_k` type to int and split out `gen_ai.retrieval.top_k` (#217)](https://github.com/open-telemetry/semantic-conventions-genai/pull/217) ✅ | trask |  | ✅ | ✅ | 2d |
 | [Clarify MCP context propagation (#220)](https://github.com/open-telemetry/semantic-conventions-genai/pull/220) ✅ | trask |  | ✅ | ✅ | 2d |
-| [Fix automated Copilot review guidance (#222)](https://github.com/open-telemetry/semantic-conventions-genai/pull/222) ✅ | trask |  | ✅ | ✅ | 1d |
+| [Fix automated Copilot review guidance (#222)](https://github.com/open-telemetry/semantic-conventions-genai/pull/222) ✅ | trask |  | ✅ | ✅ | 2d |
 
 ## Waiting on approvers
 
@@ -20,8 +20,7 @@
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 4d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 2d |
-| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 4h |
-| [Update dependency aqua:grafana/flint to v0.22.4 (#227)](https://github.com/open-telemetry/semantic-conventions-genai/pull/227) | app/renovate |  | ✅ | ✅ | 18m |
+| [Update dependency aqua:grafana/flint to v0.22.4 (#227)](https://github.com/open-telemetry/semantic-conventions-genai/pull/227) | app/renovate |  | ✅ | ✅ | 1h |
 
 ## Waiting on authors
 
@@ -41,8 +40,9 @@
 | [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) | hippoley |  | ✅ | ✅ | 3d |
 | [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 1d |
 | [Add modality, cache, and phase breakdowns for token usage (#197)](https://github.com/open-telemetry/semantic-conventions-genai/pull/197) | trask | lmolkova | ✅ | ✅ | 1d |
-| [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 3h |
+| [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 4h |
 | [Replace Jupiter notebook with models with python file and add CI check that json schemas are up-to-date (#226)](https://github.com/open-telemetry/semantic-conventions-genai/pull/226) | lmolkova |  | ✅ | ✅ | 2h |
+| [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 17m |
 
 ## Draft pull requests
 
@@ -115,6 +115,10 @@ llm: pr-conversation -> author (The latest reviewer comment reports a CI snapsho
 PR #164
 llm: PRRT_kwDOSUeMrM6C-3Kb -> author (Reviewer asked for justification and suggested changing the metric definition; the author needs to respond or adjust the PR.)
 llm: pr-conversation -> author (The reviewer clarified the requested direction, so the author needs to update the metric description or respond to that feedback.)
+
+PR #162
+llm: PRRT_kwDOSUeMrM6F_Nsr -> author (Reviewer requested adding `compaction` to the finish reason enum, and the author has not replied yet.)
+llm: PRRT_kwDOSUeMrM6F_OT_ -> author (The reviewer asked whether the implementation can be modeled the same way and whether there are cases it would not work, so the author needs to जवाब/decide and respond.)
 
 PR #144
 llm: PRRT_kwDOSUeMrM6BMiXX -> author (A reviewer flagged a runtime/schema mismatch and asked the author to either add validation or reword the constraint; no author reply has resolved it yet.)

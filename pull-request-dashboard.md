@@ -20,6 +20,7 @@
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 5d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 3d |
+| [Update GitHub Actions (#228)](https://github.com/open-telemetry/semantic-conventions-genai/pull/228) | app/renovate |  | ⏳ | ✅ | <1m |
 | [Update GitHub Actions (major) (#229)](https://github.com/open-telemetry/semantic-conventions-genai/pull/229) | app/renovate |  | ⏳ | ✅ | <1m |
 
 ## Waiting on authors
@@ -42,12 +43,6 @@
 | [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 1d |
 | [gen-ai: add optional byte_size to multimodal content parts (#143)](https://github.com/open-telemetry/semantic-conventions-genai/pull/143) | Mandark-droid |  | ✅ | ✅ | 7h |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) ✅ | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 38m |
-
-## Unknown
-
-| PR | Author | Assignees | CI | Conflicts | Age |
-|---|---|---|:---:|:---:|:---:|
-| [Update GitHub Actions (#228)](https://github.com/open-telemetry/semantic-conventions-genai/pull/228) | app/renovate |  | ? | ? | ? |
 
 ## Draft pull requests
 

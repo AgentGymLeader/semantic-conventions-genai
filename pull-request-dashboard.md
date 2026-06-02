@@ -14,7 +14,6 @@
 | [Replace Jupiter notebook with models with python file and add CI check that json schemas are up-to-date (#226)](https://github.com/open-telemetry/semantic-conventions-genai/pull/226) ✅ | lmolkova |  | ✅ | ✅ | 1d |
 | [Clarify MCP context propagation (#220)](https://github.com/open-telemetry/semantic-conventions-genai/pull/220) ✅ | trask |  | ✅ | ✅ | 16h |
 | [Update GitHub Actions (major) (#229)](https://github.com/open-telemetry/semantic-conventions-genai/pull/229) ✅ | app/renovate |  | ✅ | ✅ | 14h |
-| [Update reference implementation dependencies (non-major) (#230)](https://github.com/open-telemetry/semantic-conventions-genai/pull/230) ✅ | app/renovate |  | ✅ | ✅ | 6h |
 
 ## Waiting on approvers
 

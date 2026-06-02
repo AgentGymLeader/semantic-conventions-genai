@@ -20,7 +20,7 @@
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 5d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 3d |
-| [Update GitHub Actions (#228)](https://github.com/open-telemetry/semantic-conventions-genai/pull/228) | app/renovate |  | ✅ | ✅ | 14h |
+| [Update GitHub Actions (#228)](https://github.com/open-telemetry/semantic-conventions-genai/pull/228) | app/renovate |  | ✅ | ❌ | 14h |
 
 ## Waiting on authors
 

@@ -630,7 +630,7 @@
     },
     "230": {
       "facts": {
-        "approved": false,
+        "approved": true,
         "assignees": [],
         "author": "app/renovate",
         "ci_failing_count": 0,
@@ -639,8 +639,8 @@
         "created_at": "2026-06-02T08:31:56+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-06-02T14:45:59+00:00",
-        "last_approver_activity_at": "",
+        "last_activity_at": "2026-06-02T15:02:46+00:00",
+        "last_approver_activity_at": "2026-06-02T15:02:46+00:00",
         "last_author_activity_at": "",
         "last_external_activity_at": "",
         "waiting_age_basis": "created",
@@ -649,7 +649,7 @@
       "failed": false,
       "pr_number": 230,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/230",
-      "route": "approver"
+      "route": "maintainer"
     },
     "98": {
       "facts": {

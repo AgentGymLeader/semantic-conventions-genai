@@ -687,9 +687,9 @@
         "created_at": "2026-05-05T18:05:53+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-06-01T02:08:13+00:00",
+        "last_activity_at": "2026-06-02T20:21:57+00:00",
         "last_approver_activity_at": "2026-05-26T23:53:04+00:00",
-        "last_author_activity_at": "2026-06-01T02:08:11+00:00",
+        "last_author_activity_at": "2026-06-02T20:21:57+00:00",
         "last_external_activity_at": "2026-05-19T19:09:07+00:00",
         "waiting_age_basis": "oldest_pending_thread",
         "waiting_since": "2026-05-27T23:03:58+00:00"

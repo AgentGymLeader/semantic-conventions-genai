@@ -17,7 +17,6 @@
 | [Restrict GitHub Actions renovate schedule to a 4-hour window (#235)](https://github.com/open-telemetry/semantic-conventions-genai/pull/235) | trask |  | ✅ | ✅ | 1d |
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 1d |
 | [Clarify MCP context propagation (#220)](https://github.com/open-telemetry/semantic-conventions-genai/pull/220) ✅ | trask |  | ✅ | ✅ | 2h |
-| [Bump the python-security group across 9 directories with 1 update (#240)](https://github.com/open-telemetry/semantic-conventions-genai/pull/240) ✅ | app/dependabot |  | ✅ | ✅ | 1h |
 
 ## Waiting on authors
 

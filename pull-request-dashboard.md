@@ -22,6 +22,7 @@
 | [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 1d |
 | [Restrict GitHub Actions renovate schedule to a 4-hour window (#235)](https://github.com/open-telemetry/semantic-conventions-genai/pull/235) | trask |  | ✅ | ✅ | 1d |
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 23h |
+| [Bump the python-security group across 9 directories with 1 update (#240)](https://github.com/open-telemetry/semantic-conventions-genai/pull/240) | app/dependabot |  | ⏳ | ✅ | <1m |
 
 ## Waiting on authors
 

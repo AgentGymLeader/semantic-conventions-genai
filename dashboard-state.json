@@ -2,7 +2,7 @@
   "prs": {
     "112": {
       "facts": {
-        "approved": true,
+        "approval_count": 1,
         "assignees": [],
         "author": "app/renovate",
         "ci_failing_count": 1,
@@ -25,7 +25,7 @@
     },
     "143": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "Mandark-droid",
         "ci_failing_count": 0,
@@ -48,7 +48,7 @@
     },
     "144": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "Mandark-droid",
         "ci_failing_count": 0,
@@ -71,7 +71,7 @@
     },
     "162": {
       "facts": {
-        "approved": true,
+        "approval_count": 1,
         "assignees": [
           "lmolkova",
           "JWinermaSplunk"
@@ -97,7 +97,7 @@
     },
     "164": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "Jwrede",
         "ci_failing_count": 0,
@@ -120,7 +120,7 @@
     },
     "173": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "app/renovate",
         "ci_failing_count": 2,
@@ -143,7 +143,7 @@
     },
     "179": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [
           "lmolkova"
         ],
@@ -168,7 +168,7 @@
     },
     "184": {
       "facts": {
-        "approved": false,
+        "approval_count": 1,
         "assignees": [],
         "author": "hippoley",
         "ci_failing_count": 0,
@@ -191,7 +191,7 @@
     },
     "185": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "hippoley",
         "ci_failing_count": 2,
@@ -214,7 +214,7 @@
     },
     "188": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "RKest",
         "ci_failing_count": 0,
@@ -237,7 +237,7 @@
     },
     "190": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "caioribeiroclw-pixel",
         "ci_failing_count": 1,
@@ -260,7 +260,7 @@
     },
     "195": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "eternalcuriouslearner",
         "ci_failing_count": 0,
@@ -283,7 +283,7 @@
     },
     "197": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [
           "lmolkova"
         ],
@@ -308,7 +308,7 @@
     },
     "201": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "pvlsirotkin",
         "ci_failing_count": 0,
@@ -331,7 +331,7 @@
     },
     "202": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "pvlsirotkin",
         "ci_failing_count": 0,
@@ -354,7 +354,7 @@
     },
     "203": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "pvlsirotkin",
         "ci_failing_count": 0,
@@ -377,7 +377,7 @@
     },
     "211": {
       "facts": {
-        "approved": true,
+        "approval_count": 1,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -396,11 +396,11 @@
       "failed": false,
       "pr_number": 211,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/211",
-      "route": "maintainer"
+      "route": "approver"
     },
     "212": {
       "facts": {
-        "approved": true,
+        "approval_count": 1,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -419,11 +419,11 @@
       "failed": false,
       "pr_number": 212,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/212",
-      "route": "maintainer"
+      "route": "approver"
     },
     "214": {
       "facts": {
-        "approved": true,
+        "approval_count": 1,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -442,11 +442,11 @@
       "failed": false,
       "pr_number": 214,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/214",
-      "route": "maintainer"
+      "route": "approver"
     },
     "215": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -469,7 +469,7 @@
     },
     "216": {
       "facts": {
-        "approved": true,
+        "approval_count": 1,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -488,11 +488,11 @@
       "failed": false,
       "pr_number": 216,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/216",
-      "route": "maintainer"
+      "route": "approver"
     },
     "217": {
       "facts": {
-        "approved": true,
+        "approval_count": 1,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -511,11 +511,11 @@
       "failed": false,
       "pr_number": 217,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/217",
-      "route": "maintainer"
+      "route": "approver"
     },
     "219": {
       "facts": {
-        "approved": true,
+        "approval_count": 1,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -534,11 +534,11 @@
       "failed": false,
       "pr_number": 219,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/219",
-      "route": "maintainer"
+      "route": "approver"
     },
     "220": {
       "facts": {
-        "approved": true,
+        "approval_count": 1,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -557,11 +557,11 @@
       "failed": false,
       "pr_number": 220,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/220",
-      "route": "maintainer"
+      "route": "approver"
     },
     "226": {
       "facts": {
-        "approved": true,
+        "approval_count": 2,
         "assignees": [],
         "author": "lmolkova",
         "ci_failing_count": 0,
@@ -584,7 +584,7 @@
     },
     "235": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -605,55 +605,9 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/235",
       "route": "approver"
     },
-    "236": {
-      "facts": {
-        "approved": true,
-        "assignees": [],
-        "author": "trask",
-        "ci_failing_count": 0,
-        "ci_pending_count": 0,
-        "conflicts": "no",
-        "created_at": "2026-06-02T19:19:41+00:00",
-        "is_draft": false,
-        "is_otelbot_author": false,
-        "last_activity_at": "2026-06-03T21:11:24+00:00",
-        "last_approver_activity_at": "2026-06-03T21:11:24+00:00",
-        "last_author_activity_at": "2026-06-02T19:19:31+00:00",
-        "last_external_activity_at": "",
-        "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-06-02T19:19:31+00:00"
-      },
-      "failed": false,
-      "pr_number": 236,
-      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/236",
-      "route": "maintainer"
-    },
-    "237": {
-      "facts": {
-        "approved": true,
-        "assignees": [],
-        "author": "trask",
-        "ci_failing_count": 0,
-        "ci_pending_count": 0,
-        "conflicts": "no",
-        "created_at": "2026-06-02T20:09:08+00:00",
-        "is_draft": false,
-        "is_otelbot_author": false,
-        "last_activity_at": "2026-06-03T21:11:42+00:00",
-        "last_approver_activity_at": "2026-06-03T21:11:42+00:00",
-        "last_author_activity_at": "2026-06-02T20:08:58+00:00",
-        "last_external_activity_at": "",
-        "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-06-02T20:08:58+00:00"
-      },
-      "failed": false,
-      "pr_number": 237,
-      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/237",
-      "route": "maintainer"
-    },
     "238": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [],
         "author": "Nik-Reddy",
         "ci_failing_count": 0,
@@ -680,7 +634,7 @@
         "assignees": [],
         "author": "app/dependabot",
         "ci_failing_count": 0,
-        "ci_pending_count": 4,
+        "ci_pending_count": 0,
         "conflicts": "no",
         "created_at": "2026-06-03T21:34:04+00:00",
         "is_draft": false,
@@ -699,7 +653,7 @@
     },
     "98": {
       "facts": {
-        "approved": false,
+        "approval_count": 0,
         "assignees": [
           "lmolkova"
         ],

@@ -20,10 +20,10 @@
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ✅ | 6d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 4d |
 | [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 1d |
-| [Count approver approvals in PR dashboard (#236)](https://github.com/open-telemetry/semantic-conventions-genai/pull/236) | trask |  | ✅ | ✅ | 18h |
-| [Restrict GitHub Actions renovate schedule to a 4-hour window (#235)](https://github.com/open-telemetry/semantic-conventions-genai/pull/235) | trask |  | ✅ | ✅ | 18h |
-| [Fix dashboard deploy: add protected environment to access Netlify secrets (#237)](https://github.com/open-telemetry/semantic-conventions-genai/pull/237) | trask |  | ✅ | ✅ | 17h |
-| [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 15h |
+| [Count approver approvals in PR dashboard (#236)](https://github.com/open-telemetry/semantic-conventions-genai/pull/236) | trask |  | ✅ | ✅ | 20h |
+| [Restrict GitHub Actions renovate schedule to a 4-hour window (#235)](https://github.com/open-telemetry/semantic-conventions-genai/pull/235) | trask |  | ✅ | ✅ | 20h |
+| [Fix dashboard deploy: add protected environment to access Netlify secrets (#237)](https://github.com/open-telemetry/semantic-conventions-genai/pull/237) | trask |  | ✅ | ✅ | 19h |
+| [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 17h |
 
 ## Waiting on authors
 
@@ -35,7 +35,7 @@
 | [gen-ai: add evaluation operation name and gen_ai.evaluate.internal span (#185)](https://github.com/open-telemetry/semantic-conventions-genai/pull/185) | hippoley |  | ❌ | ✅ | 13d |
 | [Add experimental GenAI context selection event (#190)](https://github.com/open-telemetry/semantic-conventions-genai/pull/190) | caioribeiroclw-pixel |  | ❌ | ✅ | 11d |
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate |  | ❌ | ✅ | 7d |
-| [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao | lmolkova | ✅ | ✅ | 6d |
+| [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao | lmolkova | ✅ | ✅ | 7d |
 | [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin |  | ✅ | ✅ | 6d |
 | [gen-ai: add gen_ai.response.id to deepeval evaluation result event (#184)](https://github.com/open-telemetry/semantic-conventions-genai/pull/184) | hippoley |  | ✅ | ✅ | 6d |
 | [Add workflow node convention (#188)](https://github.com/open-telemetry/semantic-conventions-genai/pull/188) | RKest |  | ✅ | ❌ | 3d |
@@ -43,15 +43,15 @@
 | [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ✅ | 2d |
 | [gen-ai: add optional byte_size to multimodal content parts (#143)](https://github.com/open-telemetry/semantic-conventions-genai/pull/143) | Mandark-droid |  | ✅ | ✅ | 1d |
 | [semconv for compaction (#162)](https://github.com/open-telemetry/semantic-conventions-genai/pull/162) ✅ | eternalcuriouslearner | lmolkova, JWinermaSplunk | ✅ | ✅ | 1d |
-| [Replace Jupiter notebook with models with python file and add CI check that json schemas are up-to-date (#226)](https://github.com/open-telemetry/semantic-conventions-genai/pull/226) ✅ | lmolkova |  | ✅ | ✅ | 20h |
-| [Add gen_ai.agent.finish_reason attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy |  | ✅ | ✅ | 5h |
+| [Replace Jupiter notebook with models with python file and add CI check that json schemas are up-to-date (#226)](https://github.com/open-telemetry/semantic-conventions-genai/pull/226) ✅ | lmolkova |  | ✅ | ✅ | 22h |
+| [Add gen_ai.agent.finish_reason attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy |  | ✅ | ✅ | 7h |
 
 ## Draft pull requests
 
 | PR | Author | Updated |
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 11d |
-| [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | 4d |
+| [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | 5d |
 
 <details>
 <summary>Diagnostics</summary>

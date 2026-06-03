@@ -12,6 +12,7 @@
 | [Clarify GenAI conversation ID fallbacks (#219)](https://github.com/open-telemetry/semantic-conventions-genai/pull/219) ✅ | trask |  | ✅ | ✅ | 5d |
 | [Change `gen_ai.request.top_k` type to int and split out `gen_ai.retrieval.top_k` (#217)](https://github.com/open-telemetry/semantic-conventions-genai/pull/217) ✅ | trask |  | ✅ | ✅ | 5d |
 | [Count approver approvals in PR dashboard (#236)](https://github.com/open-telemetry/semantic-conventions-genai/pull/236) ✅ | trask |  | ✅ | ✅ | 1d |
+| [Fix dashboard deploy: add protected environment to access Netlify secrets (#237)](https://github.com/open-telemetry/semantic-conventions-genai/pull/237) ✅ | trask |  | ✅ | ✅ | 1d |
 | [Clarify MCP context propagation (#220)](https://github.com/open-telemetry/semantic-conventions-genai/pull/220) ✅ | trask |  | ✅ | ✅ | 1h |
 
 ## Waiting on approvers
@@ -22,7 +23,6 @@
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 4d |
 | [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 1d |
 | [Restrict GitHub Actions renovate schedule to a 4-hour window (#235)](https://github.com/open-telemetry/semantic-conventions-genai/pull/235) | trask |  | ✅ | ✅ | 1d |
-| [Fix dashboard deploy: add protected environment to access Netlify secrets (#237)](https://github.com/open-telemetry/semantic-conventions-genai/pull/237) | trask |  | ✅ | ✅ | 1d |
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 22h |
 
 ## Waiting on authors

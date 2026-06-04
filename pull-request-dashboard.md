@@ -14,7 +14,7 @@
 |---|---|---|:---:|:---:|:---:|
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ❌ | 7d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 5d |
-| [Fix Copilot review guidance comment not posting (#244)](https://github.com/open-telemetry/semantic-conventions-genai/pull/244) | trask |  | ✅ | ✅ | 47m |
+| [Fix Copilot review guidance comment not posting (#244)](https://github.com/open-telemetry/semantic-conventions-genai/pull/244) | trask |  | ✅ | ✅ | 49m |
 
 ## Waiting on authors
 

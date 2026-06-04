@@ -630,7 +630,7 @@
     },
     "241": {
       "facts": {
-        "approval_count": 0,
+        "approval_count": 1,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -639,8 +639,8 @@
         "created_at": "2026-06-04T00:31:10+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-06-04T00:32:09+00:00",
-        "last_approver_activity_at": "",
+        "last_activity_at": "2026-06-04T04:07:28+00:00",
+        "last_approver_activity_at": "2026-06-04T04:07:28+00:00",
         "last_author_activity_at": "2026-06-04T00:30:33+00:00",
         "last_external_activity_at": "2026-06-04T00:32:09+00:00",
         "waiting_age_basis": "last_author_activity",

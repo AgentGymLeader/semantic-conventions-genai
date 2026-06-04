@@ -15,6 +15,7 @@
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ❌ | 7d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 5d |
 | [Normalize requirement-level condition notes to capitalized sentences (#245)](https://github.com/open-telemetry/semantic-conventions-genai/pull/245) | trask |  | ✅ | ✅ | 1h |
+| [Bump the python-security group across 3 directories with 1 update (#246)](https://github.com/open-telemetry/semantic-conventions-genai/pull/246) | app/dependabot |  | ⏳ | ✅ | <1m |
 
 ## Waiting on authors
 

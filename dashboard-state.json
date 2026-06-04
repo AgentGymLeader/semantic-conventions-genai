@@ -643,13 +643,13 @@
         "last_approver_activity_at": "",
         "last_author_activity_at": "2026-06-04T00:30:33+00:00",
         "last_external_activity_at": "2026-06-04T00:32:09+00:00",
-        "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-06-04T00:32:09+00:00"
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-06-04T00:30:33+00:00"
       },
       "failed": false,
       "pr_number": 241,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/241",
-      "route": "author"
+      "route": "approver"
     },
     "98": {
       "facts": {

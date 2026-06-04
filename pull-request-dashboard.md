@@ -15,7 +15,7 @@
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova | ✅ | ❌ | 8d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 6d |
 | [Normalize requirement-level condition notes to capitalized sentences (#245)](https://github.com/open-telemetry/semantic-conventions-genai/pull/245) | trask |  | ✅ | ✅ | 7h |
-| [Route approved PRs with a pending reviewer thread to Waiting on approvers (#248)](https://github.com/open-telemetry/semantic-conventions-genai/pull/248) ✅ | trask |  | ✅ | ✅ | 2h |
+| [Route approved PRs with a pending reviewer thread to Waiting on approvers (#248)](https://github.com/open-telemetry/semantic-conventions-genai/pull/248) ✅ | trask |  | ✅ | ✅ | 3h |
 | [Add gen_ai.agent.invocation.id attribute for invoke_agent spans (#250)](https://github.com/open-telemetry/semantic-conventions-genai/pull/250) | singankit |  | ✅ | ✅ | 1h |
 
 ## Waiting on authors

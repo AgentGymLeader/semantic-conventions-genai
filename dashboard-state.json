@@ -630,7 +630,7 @@
     },
     "241": {
       "facts": {
-        "approval_count": 1,
+        "approval_count": 2,
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
@@ -639,8 +639,8 @@
         "created_at": "2026-06-04T00:31:10+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-06-04T11:19:47+00:00",
-        "last_approver_activity_at": "2026-06-04T04:07:28+00:00",
+        "last_activity_at": "2026-06-04T12:22:37+00:00",
+        "last_approver_activity_at": "2026-06-04T12:22:37+00:00",
         "last_author_activity_at": "2026-06-04T00:30:33+00:00",
         "last_external_activity_at": "2026-06-04T11:19:47+00:00",
         "waiting_age_basis": "last_author_activity",
@@ -649,7 +649,7 @@
       "failed": false,
       "pr_number": 241,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/241",
-      "route": "approver"
+      "route": "maintainer"
     },
     "242": {
       "facts": {

@@ -541,23 +541,23 @@
         "approval_count": 0,
         "assignees": [],
         "author": "singankit",
-        "ci_failing_count": 3,
-        "ci_pending_count": 0,
+        "ci_failing_count": 2,
+        "ci_pending_count": 30,
         "conflicts": "no",
         "created_at": "2026-06-04T21:55:38+00:00",
         "is_draft": false,
         "is_otelbot_author": false,
-        "last_activity_at": "2026-06-04T22:00:24+00:00",
+        "last_activity_at": "2026-06-04T22:09:32+00:00",
         "last_approver_activity_at": "",
         "last_author_activity_at": "2026-06-04T21:54:16+00:00",
         "last_external_activity_at": "2026-06-04T22:00:09+00:00",
-        "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-06-04T22:00:09+00:00"
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-06-04T21:54:16+00:00"
       },
       "failed": false,
       "pr_number": 250,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/250",
-      "route": "author"
+      "route": "approver"
     },
     "98": {
       "facts": {

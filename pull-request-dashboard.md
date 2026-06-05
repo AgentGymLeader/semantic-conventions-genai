@@ -16,7 +16,7 @@
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 6d |
 | [Normalize requirement-level condition notes to capitalized sentences (#245)](https://github.com/open-telemetry/semantic-conventions-genai/pull/245) | trask |  | ✅ | ✅ | 8h |
 | [Add gen_ai.agent.invocation.id attribute for invoke_agent spans (#250)](https://github.com/open-telemetry/semantic-conventions-genai/pull/250) | singankit |  | ✅ | ✅ | 2h |
-| [Add gen_ai.invoke_agent.server span (SERVER kind) (#252)](https://github.com/open-telemetry/semantic-conventions-genai/pull/252) | singankit |  | ⏳ | ✅ | 17m |
+| [Add gen_ai.invoke_agent.server span (SERVER kind) (#252)](https://github.com/open-telemetry/semantic-conventions-genai/pull/252) | singankit |  | ⏳ | ✅ | 18m |
 
 ## Waiting on authors
 
@@ -41,7 +41,7 @@
 | [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin |  | ✅ | ✅ | 11h |
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin |  | ✅ | ✅ | 10h |
 | [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask |  | ✅ | ❌ | 2h |
-| [Add Reviewers column to PR dashboard (#251)](https://github.com/open-telemetry/semantic-conventions-genai/pull/251) | trask |  | ✅ | ✅ | 1m |
+| [Add Reviewers column to PR dashboard (#251)](https://github.com/open-telemetry/semantic-conventions-genai/pull/251) | trask |  | ✅ | ✅ | 2m |
 
 ## Draft pull requests
 

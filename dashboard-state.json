@@ -344,6 +344,36 @@
         "last_approver_activity_at": "2026-06-05T15:06:33+00:00",
         "last_author_activity_at": "2026-06-02T22:03:44+00:00",
         "last_external_activity_at": "2026-05-27T15:33:09+00:00",
+        "reviewers": [
+          {
+            "approved": false,
+            "approved_non_team": false,
+            "changes_requested": false,
+            "login": "copilot-pull-request-reviewer",
+            "open_thread": true
+          },
+          {
+            "approved": false,
+            "approved_non_team": false,
+            "changes_requested": false,
+            "login": "lmolkova",
+            "open_thread": true
+          },
+          {
+            "approved": false,
+            "approved_non_team": false,
+            "changes_requested": true,
+            "login": "MikeGoldsmith",
+            "open_thread": true
+          },
+          {
+            "approved": false,
+            "approved_non_team": false,
+            "changes_requested": false,
+            "login": "trask",
+            "open_thread": false
+          }
+        ],
         "waiting_age_basis": "oldest_pending_thread",
         "waiting_since": "2026-06-04T13:11:49+00:00"
       },

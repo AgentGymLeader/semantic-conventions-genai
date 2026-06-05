@@ -825,14 +825,14 @@
         ],
         "author": "lmolkova",
         "ci_failing_count": 0,
-        "ci_pending_count": 0,
+        "ci_pending_count": 30,
         "conflicts": "no",
         "created_at": "2026-06-04T03:19:22+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-05T23:18:16+00:00",
+        "last_activity_at": "2026-06-05T23:20:10+00:00",
         "last_approver_activity_at": "2026-06-05T21:55:18+00:00",
-        "last_author_activity_at": "2026-06-05T23:15:03+00:00",
+        "last_author_activity_at": "2026-06-05T23:20:06+00:00",
         "last_external_activity_at": "2026-06-04T04:22:52+00:00",
         "reviewers": [
           {

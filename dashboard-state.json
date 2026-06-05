@@ -31,13 +31,13 @@
             "open_thread": false
           }
         ],
-        "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-05-19T16:11:36+00:00"
+        "waiting_age_basis": "created",
+        "waiting_since": "2026-05-08T02:33:37+00:00"
       },
       "failed": false,
       "pr_number": 112,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/112",
-      "route": "external"
+      "route": "maintainer"
     },
     "143": {
       "facts": {
@@ -650,7 +650,7 @@
         "assignees": [],
         "author": "trask",
         "ci_failing_count": 0,
-        "ci_pending_count": 31,
+        "ci_pending_count": 0,
         "conflicts": "no",
         "created_at": "2026-05-28T23:06:54+00:00",
         "is_draft": false,
@@ -683,45 +683,6 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/211",
       "route": "approver"
     },
-    "212": {
-      "facts": {
-        "approval_count": 2,
-        "assignees": [],
-        "author": "trask",
-        "ci_failing_count": 0,
-        "ci_pending_count": 0,
-        "conflicts": "no",
-        "created_at": "2026-05-28T23:19:34+00:00",
-        "is_draft": false,
-        "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-05T18:04:38+00:00",
-        "last_approver_activity_at": "2026-06-05T18:04:38+00:00",
-        "last_author_activity_at": "2026-06-05T17:59:44+00:00",
-        "last_external_activity_at": "",
-        "reviewers": [
-          {
-            "approved": true,
-            "approved_non_team": false,
-            "changes_requested": false,
-            "login": "lmolkova",
-            "open_thread": false
-          },
-          {
-            "approved": true,
-            "approved_non_team": false,
-            "changes_requested": false,
-            "login": "MikeGoldsmith",
-            "open_thread": false
-          }
-        ],
-        "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-06-05T17:59:44+00:00"
-      },
-      "failed": false,
-      "pr_number": 212,
-      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/212",
-      "route": "maintainer"
-    },
     "215": {
       "facts": {
         "approval_count": 0,
@@ -743,16 +704,23 @@
             "approved_non_team": false,
             "changes_requested": false,
             "login": "lmolkova",
-            "open_thread": false
+            "open_thread": true
+          },
+          {
+            "approved": false,
+            "approved_non_team": false,
+            "changes_requested": false,
+            "login": "Nik-Reddy",
+            "open_thread": true
           }
         ],
-        "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-05-29T04:49:56+00:00"
+        "waiting_age_basis": "oldest_pending_thread",
+        "waiting_since": "2026-06-04T21:42:58+00:00"
       },
       "failed": false,
       "pr_number": 215,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/215",
-      "route": "approver"
+      "route": "author"
     },
     "226": {
       "facts": {
@@ -768,12 +736,30 @@
         "last_activity_at": "2026-06-02T17:10:23+00:00",
         "last_approver_activity_at": "2026-06-02T17:10:23+00:00",
         "last_author_activity_at": "2026-06-02T15:53:09+00:00",
-        "last_external_activity_at": "2026-05-31T22:59:14+00:00"
+        "last_external_activity_at": "2026-05-31T22:59:14+00:00",
+        "reviewers": [
+          {
+            "approved": true,
+            "approved_non_team": false,
+            "changes_requested": false,
+            "login": "aabmass",
+            "open_thread": true
+          },
+          {
+            "approved": true,
+            "approved_non_team": false,
+            "changes_requested": false,
+            "login": "trask",
+            "open_thread": false
+          }
+        ],
+        "waiting_age_basis": "oldest_pending_thread",
+        "waiting_since": "2026-06-02T17:04:04+00:00"
       },
-      "failed": true,
+      "failed": false,
       "pr_number": 226,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/226",
-      "route": "unknown"
+      "route": "author"
     },
     "238": {
       "facts": {
@@ -853,7 +839,7 @@
         "author": "singankit",
         "ci_failing_count": 0,
         "ci_pending_count": 0,
-        "conflicts": "no",
+        "conflicts": "yes",
         "created_at": "2026-06-04T21:55:38+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,

@@ -10,7 +10,7 @@
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova<br>MikeGoldsmith&nbsp;🔴<br>trask&nbsp;💬 | ✅ | ❌ | 8d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 6d |
 | [Add gen_ai.agent.invocation.id attribute for invoke_agent spans (#250)](https://github.com/open-telemetry/semantic-conventions-genai/pull/250) | singankit | lmolkova&nbsp;💬 | ✅ | ✅ | 11h |
-| [Improve pull request dashboard bot routing (#255)](https://github.com/open-telemetry/semantic-conventions-genai/pull/255) | trask |  | ✅ | ✅ | 6m |
+| [Improve pull request dashboard bot routing (#255)](https://github.com/open-telemetry/semantic-conventions-genai/pull/255) | trask | MikeGoldsmith&nbsp;✅ | ✅ | ✅ | 7m |
 
 ## Waiting on authors
 

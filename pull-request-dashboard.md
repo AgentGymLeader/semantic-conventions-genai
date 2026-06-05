@@ -12,7 +12,7 @@
 | [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask | lmolkova | ✅ | ❌ | 7d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner |  | ✅ | ✅ | 6d |
 | [Add gen_ai.agent.invocation.id attribute for invoke_agent spans (#250)](https://github.com/open-telemetry/semantic-conventions-genai/pull/250) | singankit | lmolkova&nbsp;💬 | ✅ | ✅ | 12h |
-| [Clarify that billed token counts should be reported for Cohere usage (#211)](https://github.com/open-telemetry/semantic-conventions-genai/pull/211) | trask | lmolkova&nbsp;✅<br>MikeGoldsmith&nbsp;💬⁠✅ | ✅ | ❌ | <1m |
+| [Clarify that billed token counts should be reported for Cohere usage (#211)](https://github.com/open-telemetry/semantic-conventions-genai/pull/211) | trask | lmolkova&nbsp;✅<br>MikeGoldsmith&nbsp;💬⁠✅ | ⏳ | ✅ | 9m |
 
 ## Waiting on authors
 

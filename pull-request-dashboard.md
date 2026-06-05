@@ -11,7 +11,7 @@
 | [Clarify that billed token counts should be reported for Cohere usage (#211)](https://github.com/open-telemetry/semantic-conventions-genai/pull/211) ✅✅ | trask |  | ✅ | ✅ | 10h |
 | [Normalize requirement-level condition notes to capitalized sentences (#245)](https://github.com/open-telemetry/semantic-conventions-genai/pull/245) | trask |  | ✅ | ✅ | 9h |
 | [Add gen_ai.agent.invocation.id attribute for invoke_agent spans (#250)](https://github.com/open-telemetry/semantic-conventions-genai/pull/250) | singankit |  | ✅ | ✅ | 3h |
-| [Add Reviewers column to PR dashboard (#251)](https://github.com/open-telemetry/semantic-conventions-genai/pull/251) | trask |  | ⏳ | ✅ | <1m |
+| [Add Reviewers column to PR dashboard (#251)](https://github.com/open-telemetry/semantic-conventions-genai/pull/251) | trask |  | ✅ | ✅ | <1m |
 
 ## Waiting on authors
 

@@ -85,12 +85,12 @@
         "author": "Mandark-droid",
         "ci_failing_count": 0,
         "ci_pending_count": 0,
-        "conflicts": "no",
+        "conflicts": "yes",
         "created_at": "2026-05-11T16:14:59+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-05T22:25:14+00:00",
-        "last_approver_activity_at": "2026-05-30T01:49:50+00:00",
+        "last_activity_at": "2026-06-06T00:39:05+00:00",
+        "last_approver_activity_at": "2026-06-06T00:39:04+00:00",
         "last_author_activity_at": "2026-06-01T12:14:16+00:00",
         "last_external_activity_at": "2026-05-11T19:18:09+00:00",
         "reviewers": [
@@ -100,6 +100,13 @@
             "changes_requested": false,
             "login": "copilot-pull-request-reviewer",
             "open_thread": true
+          },
+          {
+            "approved": false,
+            "approved_non_team": false,
+            "changes_requested": false,
+            "login": "lmolkova",
+            "open_thread": false
           },
           {
             "approved": false,

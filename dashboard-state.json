@@ -752,7 +752,7 @@
         "assignees": [],
         "author": "Nik-Reddy",
         "ci_failing_count": 0,
-        "ci_pending_count": 30,
+        "ci_pending_count": 0,
         "conflicts": "no",
         "created_at": "2026-06-03T08:04:33+00:00",
         "is_draft": false,
@@ -762,13 +762,6 @@
         "last_author_activity_at": "2026-06-05T05:49:12+00:00",
         "last_external_activity_at": "2026-06-03T08:06:23+00:00",
         "reviewers": [
-          {
-            "approved": false,
-            "approved_non_team": false,
-            "changes_requested": false,
-            "login": "copilot-pull-request-reviewer",
-            "open_thread": true
-          },
           {
             "approved": false,
             "approved_non_team": false,

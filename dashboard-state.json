@@ -900,6 +900,30 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/257",
       "route": "approver"
     },
+    "258": {
+      "facts": {
+        "approval_count": 0,
+        "assignees": [],
+        "author": "katsuhisa91",
+        "ci_failing_count": 0,
+        "ci_pending_count": 0,
+        "conflicts": "no",
+        "created_at": "2026-06-06T09:06:09+00:00",
+        "is_draft": false,
+        "is_maintenance_bot": false,
+        "last_activity_at": "2026-06-06T09:15:09+00:00",
+        "last_approver_activity_at": "",
+        "last_author_activity_at": "2026-06-06T09:08:56+00:00",
+        "last_external_activity_at": "",
+        "reviewers": [],
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-06-06T09:08:56+00:00"
+      },
+      "failed": false,
+      "pr_number": 258,
+      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/258",
+      "route": "approver"
+    },
     "98": {
       "facts": {
         "approval_count": 0,

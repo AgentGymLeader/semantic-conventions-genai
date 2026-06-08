@@ -39,7 +39,7 @@
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 17d |
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | 10d |
-| [Fail systemic PR dashboard rebuild failures (#266)](https://github.com/open-telemetry/semantic-conventions-genai/pull/266) | trask | <1m |
+| [Fail systemic PR dashboard rebuild failures (#266)](https://github.com/open-telemetry/semantic-conventions-genai/pull/266) | trask | 1m |
 | [Fix PR dashboard reaction query limit (#265)](https://github.com/open-telemetry/semantic-conventions-genai/pull/265) | trask | <1m |
 
 <details>

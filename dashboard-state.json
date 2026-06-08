@@ -168,6 +168,13 @@
       "pr_url": "",
       "route": "unknown"
     },
+    "266": {
+      "facts": {},
+      "failed": true,
+      "pr_number": 266,
+      "pr_url": "",
+      "route": "unknown"
+    },
     "98": {
       "facts": {},
       "failed": true,

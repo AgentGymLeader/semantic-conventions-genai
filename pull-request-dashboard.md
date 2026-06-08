@@ -22,7 +22,8 @@
 | [Limit supported  part types  on `gen_ai.system_instructions` to text only (#257)](https://github.com/open-telemetry/semantic-conventions-genai/pull/257) | lmolkova |  | ✅ | ✅ | 2d |
 | [Add gen_ai.agent.finish_reason attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy | MikeGoldsmith&nbsp;🔴 | ✅ | ✅ | 1d |
 | [Add gen_ai.request.reasoning.level attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 | lmolkova | ✅ | ✅ | 20h |
-| [Update flint to v0.22.5 (#259)](https://github.com/open-telemetry/semantic-conventions-genai/pull/259) | app/renovate |  | ✅ | ✅ | 2h |
+| [Update flint to v0.22.5 (#259)](https://github.com/open-telemetry/semantic-conventions-genai/pull/259) | app/renovate |  | ✅ | ✅ | 3h |
+| [Avoid repeated initial PR dashboard Slack notifications (#261)](https://github.com/open-telemetry/semantic-conventions-genai/pull/261) | trask |  | ✅ | ✅ | 7m |
 
 ## Waiting on authors
 
@@ -44,14 +45,18 @@
 | [Add gen_ai.invoke_agent.server span (SERVER kind) (#252)](https://github.com/open-telemetry/semantic-conventions-genai/pull/252) | singankit | Copilot&nbsp;💬 | ✅ | ✅ | 3d |
 | [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao | lmolkova&nbsp;💬<br>trask | ✅ | ❌ | 2d |
 
+## Unknown
+
+| PR | Author | Reviewers | CI | Conflicts | Age |
+|---|---|---|:---:|:---:|:---:|
+| [Limit PR dashboard Slack notifications to weekdays (#260)](https://github.com/open-telemetry/semantic-conventions-genai/pull/260) | trask |  | ? | ? | ? |
+
 ## Draft pull requests
 
 | PR | Author | Updated |
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 16d |
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | 9d |
-| [Avoid repeated initial PR dashboard Slack notifications (#261)](https://github.com/open-telemetry/semantic-conventions-genai/pull/261) | trask | <1m |
-| [Limit PR dashboard Slack notifications to weekdays (#260)](https://github.com/open-telemetry/semantic-conventions-genai/pull/260) | trask | <1m |
 
 <details>
 <summary>Diagnostics</summary>

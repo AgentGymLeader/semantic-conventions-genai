@@ -936,6 +936,40 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/258",
       "route": "author"
     },
+    "262": {
+      "facts": {
+        "approval_count": 0,
+        "assignees": [
+          "aabmass"
+        ],
+        "author": "nagkumar91",
+        "ci_failing_count": 0,
+        "ci_pending_count": 0,
+        "conflicts": "yes",
+        "created_at": "2026-06-08T15:27:25+00:00",
+        "is_draft": false,
+        "is_maintenance_bot": false,
+        "last_activity_at": "2026-06-08T19:13:47+00:00",
+        "last_approver_activity_at": "",
+        "last_author_activity_at": "2026-06-08T18:40:14+00:00",
+        "last_external_activity_at": "",
+        "reviewers": [
+          {
+            "approved": false,
+            "approved_non_team": false,
+            "changes_requested": false,
+            "login": "aabmass",
+            "open_thread": false
+          }
+        ],
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-06-08T18:40:14+00:00"
+      },
+      "failed": false,
+      "pr_number": 262,
+      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/262",
+      "route": "approver"
+    },
     "263": {
       "facts": {
         "approval_count": 0,

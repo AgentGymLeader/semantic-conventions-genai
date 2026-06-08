@@ -21,9 +21,8 @@
 | [Clarify that billed token counts should be reported for Cohere usage (#211)](https://github.com/open-telemetry/semantic-conventions-genai/pull/211) | trask | lmolkova&nbsp;✅<br>MikeGoldsmith&nbsp;💬⁠✅ | ✅ | ✅ | 2d |
 | [Limit supported  part types  on `gen_ai.system_instructions` to text only (#257)](https://github.com/open-telemetry/semantic-conventions-genai/pull/257) | lmolkova |  | ✅ | ✅ | 2d |
 | [Add gen_ai.agent.finish_reason attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy | MikeGoldsmith&nbsp;🔴 | ✅ | ✅ | 1d |
-| [Add gen_ai.request.reasoning.level attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 | lmolkova | ✅ | ✅ | 20h |
+| [Add gen_ai.request.reasoning.level attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 | lmolkova | ✅ | ✅ | 21h |
 | [Update flint to v0.22.5 (#259)](https://github.com/open-telemetry/semantic-conventions-genai/pull/259) | app/renovate |  | ✅ | ✅ | 3h |
-| [Limit PR dashboard Slack follow-ups to weekdays (#260)](https://github.com/open-telemetry/semantic-conventions-genai/pull/260) | trask |  | ✅ | ✅ | 1m |
 
 ## Waiting on authors
 
@@ -43,8 +42,9 @@
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin | aabmass&nbsp;💬⁠✅<br>lmolkova&nbsp;💬<br>MikeGoldsmith&nbsp;🔴<br>trask | ✅ | ✅ | 3d |
 | [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask | lmolkova&nbsp;💬<br>Nik-Reddy&nbsp;💬 | ✅ | ❌ | 3d |
 | [Add gen_ai.invoke_agent.server span (SERVER kind) (#252)](https://github.com/open-telemetry/semantic-conventions-genai/pull/252) | singankit | Copilot&nbsp;💬 | ✅ | ✅ | 3d |
-| [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao | lmolkova&nbsp;💬<br>trask | ✅ | ❌ | 2d |
-| [Avoid repeated initial PR dashboard Slack notifications (#261)](https://github.com/open-telemetry/semantic-conventions-genai/pull/261) | trask | Copilot&nbsp;💬 | ✅ | ✅ | 10m |
+| [Add prompt versioning and variable support to GenAI attributes (#179)](https://github.com/open-telemetry/semantic-conventions-genai/pull/179) | steverao | lmolkova&nbsp;💬<br>trask | ✅ | ❌ | 3d |
+| [Avoid repeated initial PR dashboard Slack notifications (#261)](https://github.com/open-telemetry/semantic-conventions-genai/pull/261) | trask | Copilot&nbsp;💬 | ✅ | ✅ | 14m |
+| [Limit PR dashboard Slack follow-ups to weekdays (#260)](https://github.com/open-telemetry/semantic-conventions-genai/pull/260) | trask | Copilot&nbsp;💬 | ✅ | ✅ | <1m |
 
 ## Draft pull requests
 

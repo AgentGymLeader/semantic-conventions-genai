@@ -8,6 +8,7 @@
 | PR | Author | Reviewers | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [Fail PR dashboard refreshes on failures (#266)](https://github.com/open-telemetry/semantic-conventions-genai/pull/266) | trask |  | ? | ? | ? |
+| [Fix PR dashboard reaction query limit (#265)](https://github.com/open-telemetry/semantic-conventions-genai/pull/265) | trask |  | ? | ? | ? |
 | [gen-ai: add run guardrail span and security finding (#262)](https://github.com/open-telemetry/semantic-conventions-genai/pull/262) | nagkumar91 |  | ? | ? | ? |
 | [Add gen_ai.request.reasoning.level attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 |  | ? | ? | ? |
 | [Limit supported  part types  on `gen_ai.system_instructions` to text only (#257)](https://github.com/open-telemetry/semantic-conventions-genai/pull/257) | lmolkova |  | ? | ? | ? |
@@ -40,7 +41,6 @@
 |---|---|:---:|
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 17d |
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | 10d |
-| [Fix PR dashboard reaction query limit (#265)](https://github.com/open-telemetry/semantic-conventions-genai/pull/265) | trask | <1m |
 
 <details>
 <summary>Diagnostics</summary>

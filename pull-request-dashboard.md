@@ -23,8 +23,8 @@
 | [Add gen_ai.agent.finish_reason attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy | MikeGoldsmith&nbsp;🔴 | ✅ | ✅ | 1d |
 | [Add gen_ai.request.reasoning.level attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 | lmolkova | ✅ | ✅ | 21h |
 | [Update flint to v0.22.5 (#259)](https://github.com/open-telemetry/semantic-conventions-genai/pull/259) | app/renovate |  | ✅ | ✅ | 3h |
-| [Avoid repeated initial PR dashboard Slack notifications (#261)](https://github.com/open-telemetry/semantic-conventions-genai/pull/261) | trask |  | ✅ | ✅ | 5m |
-| [Limit PR dashboard Slack follow-ups to weekdays (#260)](https://github.com/open-telemetry/semantic-conventions-genai/pull/260) | trask |  | ✅ | ✅ | 1m |
+| [Avoid repeated initial PR dashboard Slack notifications (#261)](https://github.com/open-telemetry/semantic-conventions-genai/pull/261) | trask |  | ✅ | ✅ | 6m |
+| [Limit PR dashboard Slack follow-ups to weekdays (#260)](https://github.com/open-telemetry/semantic-conventions-genai/pull/260) | trask |  | ✅ | ✅ | 2m |
 
 ## Waiting on authors
 

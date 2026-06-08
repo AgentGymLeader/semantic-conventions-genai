@@ -8,8 +8,7 @@
 | PR | Author | Reviewers | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [Update dependency google-genai to v2 (#112)](https://github.com/open-telemetry/semantic-conventions-genai/pull/112) | app/renovate | DylanRussell&nbsp;💬<br>lmolkova&nbsp;✅ | ❌ | ✅ | 31d |
-| [Update flint to v0.22.5 (#259)](https://github.com/open-telemetry/semantic-conventions-genai/pull/259) | app/renovate | MikeGoldsmith&nbsp;✅ | ✅ | ✅ | 15h |
-| [Avoid repeated initial PR dashboard Slack notifications (#261)](https://github.com/open-telemetry/semantic-conventions-genai/pull/261) | trask | JWinermaSplunk&nbsp;✅<br>MikeGoldsmith&nbsp;✅ | ✅ | ✅ | 12h |
+| [Update flint to v0.22.5 (#259)](https://github.com/open-telemetry/semantic-conventions-genai/pull/259) | app/renovate | MikeGoldsmith&nbsp;✅ | ✅ | ✅ | 16h |
 | [Limit PR dashboard Slack follow-ups to weekdays (#260)](https://github.com/open-telemetry/semantic-conventions-genai/pull/260) | trask | JWinermaSplunk&nbsp;✅<br>MikeGoldsmith&nbsp;✅ | ✅ | ✅ | 12h |
 
 ## Waiting on reviewers
@@ -44,7 +43,7 @@
 | [Add gen_ai.agent.invocation.id attribute for invoke_agent spans (#250)](https://github.com/open-telemetry/semantic-conventions-genai/pull/250) | singankit | lmolkova&nbsp;💬<br>MikeGoldsmith&nbsp;🔴 | ✅ | ❌ | 2h |
 | [Limit supported  part types  on `gen_ai.system_instructions` to text only (#257)](https://github.com/open-telemetry/semantic-conventions-genai/pull/257) | lmolkova | MikeGoldsmith&nbsp;💬⁠✅ | ✅ | ✅ | 2h |
 | [Add gen_ai.agent.finish_reason attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy | MikeGoldsmith&nbsp;💬⁠✅ | ✅ | ✅ | 1h |
-| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner | aabmass<br>JWinermaSplunk&nbsp;💬 | ✅ | ✅ | 15m |
+| [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner | aabmass<br>JWinermaSplunk&nbsp;💬 | ✅ | ✅ | 22m |
 
 ## Draft pull requests
 

@@ -1002,14 +1002,14 @@
         ],
         "author": "nagkumar91",
         "ci_failing_count": 0,
-        "ci_pending_count": 0,
+        "ci_pending_count": 21,
         "conflicts": "no",
         "created_at": "2026-06-08T15:27:25+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-09T15:48:31+00:00",
+        "last_activity_at": "2026-06-09T20:37:00+00:00",
         "last_approver_activity_at": "",
-        "last_author_activity_at": "2026-06-09T15:19:07+00:00",
+        "last_author_activity_at": "2026-06-09T20:36:55+00:00",
         "last_external_activity_at": "2026-06-09T15:48:31+00:00",
         "reviewers": [
           {
@@ -1023,12 +1023,12 @@
             "approved": false,
             "approved_non_team": false,
             "changes_requested": false,
-            "login": "copilot-pull-request-reviewer",
+            "login": "AgentGymLeader",
             "open_thread": true
           }
         ],
         "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-06-09T15:48:31+00:00"
+        "waiting_since": "2026-06-08T22:41:28+00:00"
       },
       "failed": false,
       "pr_number": 262,

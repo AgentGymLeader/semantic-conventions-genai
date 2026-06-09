@@ -14,6 +14,7 @@
 | [Add gen_ai.request.reasoning.level attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 | JWinermaSplunk<br>lmolkova | ✅ | ✅ | 17h |
 | [Avoid reviewer badges from PR conversation (#272)](https://github.com/open-telemetry/semantic-conventions-genai/pull/272) | trask |  | ✅ | ✅ | 1h |
 | [Improve Slack PR notification links (#271)](https://github.com/open-telemetry/semantic-conventions-genai/pull/271) | trask |  | ✅ | ✅ | 1h |
+| [Support entity rendering in Weaver v2 (#273)](https://github.com/open-telemetry/semantic-conventions-genai/pull/273) | aabmass |  | ⏳ | ✅ | <1m |
 
 ## Waiting on authors
 
@@ -38,7 +39,6 @@
 | [gen-ai: add run guardrail span and security finding (#262)](https://github.com/open-telemetry/semantic-conventions-genai/pull/262) | nagkumar91 | aabmass<br>Copilot&nbsp;💬 | ✅ | ✅ | 4h |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner | aabmass&nbsp;💬<br>JWinermaSplunk&nbsp;💬<br>pwkowalski&nbsp;💬<br>trask&nbsp;💬 | ✅ | ✅ | 3h |
 | [Add `gen_ai.agent.finish_reason` attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy | aabmass&nbsp;✅<br>Copilot&nbsp;💬<br>MikeGoldsmith&nbsp;✅<br>trask&nbsp;💬 | ✅ | ✅ | 2h |
-| [Support entity rendering in Weaver v2 (#273)](https://github.com/open-telemetry/semantic-conventions-genai/pull/273) | aabmass | Copilot&nbsp;💬 | ✅ | ✅ | 18m |
 
 ## Waiting on external
 
@@ -53,7 +53,7 @@
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 18d |
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | 11d |
 | [Add time_budget value for gen_ai.agent.finish_reason (#267)](https://github.com/open-telemetry/semantic-conventions-genai/pull/267) | Nik-Reddy | 13h |
-| [Propose GenAI agent entity (#270)](https://github.com/open-telemetry/semantic-conventions-genai/pull/270) | aabmass | 1m |
+| [Propose GenAI agent entity (#270)](https://github.com/open-telemetry/semantic-conventions-genai/pull/270) | aabmass | 2m |
 
 <details>
 <summary>Diagnostics</summary>

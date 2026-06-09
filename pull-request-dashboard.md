@@ -37,7 +37,7 @@
 | [gen-ai: add run guardrail span and security finding (#262)](https://github.com/open-telemetry/semantic-conventions-genai/pull/262) | nagkumar91 | aabmass<br>Copilot&nbsp;💬 | ✅ | ✅ | 3h |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner | aabmass&nbsp;💬<br>JWinermaSplunk&nbsp;💬<br>pwkowalski&nbsp;💬<br>trask&nbsp;💬 | ✅ | ✅ | 2h |
 | [Add `gen_ai.agent.finish_reason` attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy | aabmass&nbsp;✅<br>Copilot&nbsp;💬<br>MikeGoldsmith&nbsp;✅<br>trask&nbsp;💬 | ✅ | ✅ | 1h |
-| [Support entity rendering in Weaver v2 (#273)](https://github.com/open-telemetry/semantic-conventions-genai/pull/273) | aabmass | Copilot&nbsp;💬 | ✅ | ✅ | <1m |
+| [Support entity rendering in Weaver v2 (#273)](https://github.com/open-telemetry/semantic-conventions-genai/pull/273) | aabmass | Copilot&nbsp;💬 | ✅ | ✅ | 1m |
 
 ## Waiting on external
 
@@ -53,7 +53,7 @@
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | 11d |
 | [Add time_budget value for gen_ai.agent.finish_reason (#267)](https://github.com/open-telemetry/semantic-conventions-genai/pull/267) | Nik-Reddy | 12h |
 | [Improve Slack PR notification links (#271)](https://github.com/open-telemetry/semantic-conventions-genai/pull/271) | trask | 4m |
-| [Propose GenAI agent entity (#270)](https://github.com/open-telemetry/semantic-conventions-genai/pull/270) | aabmass | 3m |
+| [Propose GenAI agent entity (#270)](https://github.com/open-telemetry/semantic-conventions-genai/pull/270) | aabmass | 4m |
 
 <details>
 <summary>Diagnostics</summary>

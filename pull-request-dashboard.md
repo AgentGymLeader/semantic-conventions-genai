@@ -3,13 +3,18 @@
 >
 > Reviewers column: ✅ approved · ✔️ approved (non-code-owner) · 💬 open thread · 🔴 changes requested.
 
+## Waiting on maintainers
+
+| PR | Author | Reviewers | CI | Conflicts | Age |
+|---|---|---|:---:|:---:|:---:|
+| [Limit gen_ai.agent.id to stable / static identifiers (#242)](https://github.com/open-telemetry/semantic-conventions-genai/pull/242) | lmolkova | aabmass&nbsp;✅<br>MikeGoldsmith&nbsp;✅ | ✅ | ✅ | 1m |
+
 ## Waiting on reviewers
 
 | PR | Author | Reviewers | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
 | [Update dependency google-adk to v2 (#173)](https://github.com/open-telemetry/semantic-conventions-genai/pull/173) | app/renovate | MikeGoldsmith&nbsp;💬 | ❌ | ✅ | 21d |
 | [Clarify scope of `gen_ai.client.operation.duration` metric (#215)](https://github.com/open-telemetry/semantic-conventions-genai/pull/215) | trask | lmolkova | ✅ | ❌ | 11d |
-| [Limit gen_ai.agent.id to stable / static identifiers (#242)](https://github.com/open-telemetry/semantic-conventions-genai/pull/242) | lmolkova | aabmass&nbsp;✅<br>MikeGoldsmith&nbsp;✅ | ⏳ | ✅ | 5d |
 | [Add gen_ai.agent.invocation.id attribute for invoke_agent spans (#250)](https://github.com/open-telemetry/semantic-conventions-genai/pull/250) | singankit | lmolkova&nbsp;💬<br>MikeGoldsmith&nbsp;🔴 | ✅ | ✅ | 4d |
 | [gen-ai: model agent-to-agent handoff as execute_tool span (#98)](https://github.com/open-telemetry/semantic-conventions-genai/pull/98) | Krishnachaitanyakc | lmolkova<br>MikeGoldsmith&nbsp;✅<br>trask | ✅ | ❌ | 1d |
 | [Avoid reviewer badges from PR conversation (#272)](https://github.com/open-telemetry/semantic-conventions-genai/pull/272) | trask | lmolkova&nbsp;✅ | ✅ | ✅ | 5h |
@@ -37,9 +42,9 @@
 | [Add gen_ai.agent.invocation.duration and gen_ai.tool.execution.duration metrics (#201)](https://github.com/open-telemetry/semantic-conventions-genai/pull/201) | pvlsirotkin | lmolkova&nbsp;💬<br>MikeGoldsmith&nbsp;🔴 | ✅ | ❌ | 1d |
 | [semconv for a2a protocol (#195)](https://github.com/open-telemetry/semantic-conventions-genai/pull/195) | eternalcuriouslearner | aabmass&nbsp;💬<br>JWinermaSplunk&nbsp;💬<br>pwkowalski&nbsp;💬<br>trask&nbsp;💬 | ✅ | ✅ | 8h |
 | [Add `gen_ai.agent.finish_reason` attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy | aabmass&nbsp;✅<br>AgentGymLeader&nbsp;💬<br>Copilot&nbsp;💬<br>MikeGoldsmith&nbsp;✅<br>trask&nbsp;💬 | ✅ | ✅ | 6h |
-| [gen-ai: add run guardrail span and security finding (#262)](https://github.com/open-telemetry/semantic-conventions-genai/pull/262) | nagkumar91 | aabmass<br>Copilot&nbsp;💬 | ✅ | ✅ | 2h |
+| [gen-ai: add run guardrail span and security finding (#262)](https://github.com/open-telemetry/semantic-conventions-genai/pull/262) | nagkumar91 | aabmass<br>Copilot&nbsp;💬 | ✅ | ✅ | 3h |
 | [Support entity rendering in Weaver v2 (#273)](https://github.com/open-telemetry/semantic-conventions-genai/pull/273) | aabmass | lmolkova&nbsp;💬 | ✅ | ✅ | 1h |
-| [\[chore\] Small improvements to markdown templates (#274)](https://github.com/open-telemetry/semantic-conventions-genai/pull/274) | lmolkova | Copilot&nbsp;💬 | ✅ | ✅ | 17m |
+| [\[chore\] Small improvements to markdown templates (#274)](https://github.com/open-telemetry/semantic-conventions-genai/pull/274) | lmolkova | Copilot&nbsp;💬 | ✅ | ✅ | 18m |
 
 ## Waiting on external
 

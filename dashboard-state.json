@@ -38,12 +38,12 @@
         "assignees": [],
         "author": "Mandark-droid",
         "ci_failing_count": 0,
-        "ci_pending_count": 0,
-        "conflicts": "yes",
+        "ci_pending_count": 30,
+        "conflicts": "no",
         "created_at": "2026-05-11T16:14:54+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-10T19:02:10+00:00",
+        "last_activity_at": "2026-06-10T19:50:21+00:00",
         "last_approver_activity_at": "2026-06-10T19:02:10+00:00",
         "last_author_activity_at": "2026-06-01T12:30:40+00:00",
         "last_external_activity_at": "2026-05-11T19:11:15+00:00",
@@ -64,7 +64,7 @@
           }
         ],
         "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-05-30T01:44:38+00:00"
+        "waiting_since": "2026-06-01T16:40:14+00:00"
       },
       "failed": false,
       "pr_number": 143,

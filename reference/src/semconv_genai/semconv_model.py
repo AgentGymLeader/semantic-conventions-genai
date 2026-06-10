@@ -24,12 +24,12 @@ _MODEL_DIR = MODEL_ROOT / "gen-ai"
 
 def _load_groups() -> dict[str, dict]:
     """Load all source files under ``model/gen-ai/`` and return a unified
-    lookup keyed by a synthetic id covering attribute groups, spans, and
-    events.
+    lookup keyed by a synthetic id covering attribute groups, spans, events,
+    and metrics.
 
-    Spans are keyed by ``type:`` and events by ``name:``; we prepend
-    ``span.`` / ``event.`` here so callers can address them with stable
-    ids like ``span.gen_ai.inference.client``."""
+    Spans are keyed by ``type:`` and events/metrics by ``name:``; we prepend
+    ``span.`` / ``event.`` / ``metric.`` here so callers can address them with
+    stable ids like ``span.gen_ai.inference.client``."""
     groups: dict[str, dict] = {}
     for path in sorted(_MODEL_DIR.glob("*.yaml")):
         doc = yaml.safe_load(path.read_text("utf-8")) or {}
@@ -42,6 +42,9 @@ def _load_groups() -> dict[str, dict]:
         for event in doc.get("events", []) or []:
             if "name" in event:
                 groups[f"event.{event['name']}"] = event
+        for metric in doc.get("metrics", []) or []:
+            if "name" in metric:
+                groups[f"metric.{metric['name']}"] = metric
     return groups
 
 
@@ -214,8 +217,15 @@ EVENT_SPECS: dict[str, AttributeSpec] = {
     ),
 }
 
-# No METRIC_SPECS yet: gen_ai.* metrics are deliberately omitted from the reference
-# coverage matrix because the two non-streaming metrics
-# (`gen_ai.client.operation.duration`, `gen_ai.client.token.usage`) are
-# derivable from data already present on inference spans (span start/end and
-# `gen_ai.usage.{input,output}_tokens`). Reference scenarios emit spans only.
+METRIC_SPECS: dict[str, AttributeSpec] = {
+    "gen_ai.client.token.usage": _from_yaml(
+        _groups,
+        "metric.gen_ai.client.token.usage",
+        label="Client Token Usage",
+    ),
+    "gen_ai.client.operation.duration": _from_yaml(
+        _groups,
+        "metric.gen_ai.client.operation.duration",
+        label="Client Operation Duration",
+    ),
+}

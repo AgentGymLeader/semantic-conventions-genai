@@ -28,6 +28,11 @@ def reference_tracer(name: str = GENAI_REFERENCE_INSTRUMENTATION) -> trace.Trace
     return trace.get_tracer(name)
 
 
+def reference_meter(name: str = GENAI_REFERENCE_INSTRUMENTATION) -> metrics.Meter:
+    """Return the meter used by reference scenarios to emit gen_ai.* metrics."""
+    return metrics.get_meter(name)
+
+
 def reference_event_logger(name: str = GENAI_REFERENCE_INSTRUMENTATION):
     """Return the Logger used by reference scenarios to emit gen_ai.* events."""
     return get_logger_provider().get_logger(name)

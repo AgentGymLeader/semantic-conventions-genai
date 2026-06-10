@@ -19,7 +19,7 @@ from semconv_genai import (
     reference_results_dir,
 )
 from semconv_genai.attribute_spec import AttributeSpec, RequirementLevel
-from semconv_genai.classify import classify_span
+from semconv_genai.classify import classify_metric, classify_span
 from semconv_genai.parse_results import (
     ScenarioResult,
     merge_signal_counts,
@@ -27,6 +27,7 @@ from semconv_genai.parse_results import (
 )
 from semconv_genai.semconv_model import (
     EVENT_SPECS,
+    METRIC_SPECS,
     SPAN_SPECS,
 )
 
@@ -50,6 +51,12 @@ SPAN_TYPE_ORDER = [
 EVENT_TYPE_ORDER = [
     "gen_ai.client.inference.operation.details",
     "gen_ai.evaluation.result",
+]
+
+# Display order for metric types in reports.
+METRIC_TYPE_ORDER = [
+    "gen_ai.client.token.usage",
+    "gen_ai.client.operation.duration",
 ]
 
 _REQUIREMENT_LEVELS = (
@@ -171,6 +178,28 @@ def _build_event_type_present_names(result: ScenarioResult) -> dict[str, list[st
     )
 
 
+def _metric_type_present_attributes(
+    result: ScenarioResult,
+    metric_name: str,
+    level: RequirementLevel,
+) -> set[str]:
+    """Return attrs present for a metric type at the requested requirement level."""
+    all_present = _present_attributes(result)
+    if level is RequirementLevel.REQUIRED:
+        return result.detected.metric_attrs.get(metric_name, all_present)
+    return result.detected.metric_any_attrs.get(metric_name, all_present)
+
+
+def _build_metric_type_present_names(result: ScenarioResult) -> dict[str, list[str]]:
+    """Return sparse per-metric-type attribute lists for detected metrics."""
+    merged = merge_signal_counts(result.observed.metrics, result.detected.metrics)
+    return _build_signal_type_present_names(
+        METRIC_SPECS,
+        merged,
+        lambda name, level: _metric_type_present_attributes(result, name, level),
+    )
+
+
 # ── Scenario data types and generation ──────────────────────────────
 
 
@@ -179,6 +208,7 @@ class ScenarioDataEntry:
     library: str
     spans: dict[str, dict[str, str]]
     events: dict[str, dict[str, str]]
+    metrics: dict[str, dict[str, str]]
 
 
 def _normalize_generated_scenario_payload(data: dict[str, object]) -> dict[str, object]:
@@ -194,25 +224,31 @@ def _normalize_generated_scenario_payload(data: dict[str, object]) -> dict[str, 
         normalized["events"] = {
             name: sorted(attrs) if isinstance(attrs, (list, set)) else [] for name, attrs in events.items()
         }
+    metrics = data.get("metrics")
+    if isinstance(metrics, dict) and metrics:
+        normalized["metrics"] = {
+            name: sorted(attrs) if isinstance(attrs, (list, set)) else [] for name, attrs in metrics.items()
+        }
     return normalized
 
 
 def _build_single_scenario_data(result: ScenarioResult) -> tuple[dict[str, object], bool]:
     """Build committed status-report data from a parsed Weaver result."""
     event_present = _build_event_type_present_names(result)
+    metric_present = _build_metric_type_present_names(result)
     spans = _build_span_type_present_names(result)
 
-    data: dict[str, object] = {"events": event_present}
+    data: dict[str, object] = {"events": event_present, "metrics": metric_present}
     if spans:
         data["spans"] = spans
 
-    return _normalize_generated_scenario_payload(data), bool(spans) or bool(event_present)
+    return _normalize_generated_scenario_payload(data), bool(spans) or bool(event_present) or bool(metric_present)
 
 
 def write_generated_scenario_data(library: str) -> Path:
     """Write committed status-report data for one library and return the data.json path."""
     result_dir = reference_results_dir(library)
-    result = parse_result_dir(result_dir, library, classify_span)
+    result = parse_result_dir(result_dir, library, classify_span, classify_metric)
     if result is None:
         raise ValueError(f"Could not parse Weaver results for library: {library}")
 
@@ -255,6 +291,7 @@ def _normalize_scenario_data_entry(entry: dict[str, object], library: str) -> Sc
         library=library,
         spans=_normalize_attr_data(entry.get("spans"), SPAN_SPECS),
         events=_normalize_attr_data(entry.get("events"), EVENT_SPECS),
+        metrics=_normalize_attr_data(entry.get("metrics"), METRIC_SPECS),
     )
 
 

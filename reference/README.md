@@ -41,4 +41,11 @@ Run `uv run update-reports` to regenerate.
 | --- | --- |
 | [Inference Operation Details](reports/gen-ai-client-inference-operation-details-event.md) | anthropic, autogen, aws-bedrock, azure-ai-inference, cohere, dspy, google-genai, groq, instructor, litellm, llamaindex, mistralai, openai, pydantic-ai, vertexai |
 | [Evaluation Result](reports/gen-ai-evaluation-result-event.md) | azure-ai-evaluation, deepeval, dspy |
+
+### Metrics
+
+| Metric | Libraries |
+| --- | --- |
+| [Client Token Usage](reports/gen-ai-client-token-usage-metric.md) | anthropic |
+| [Client Operation Duration](reports/gen-ai-client-operation-duration-metric.md) | anthropic |
 <!-- status:end -->

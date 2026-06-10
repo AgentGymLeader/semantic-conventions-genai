@@ -6,11 +6,13 @@ against a mock Anthropic server, with manual OTel spans.
 
 import json
 import os
+import time
 
 from reference_shared import (
     flush_and_shutdown,
     mock_server_host_port,
     reference_event_logger,
+    reference_meter,
     reference_tracer,
     setup_otel,
 )
@@ -29,6 +31,9 @@ def run_chat():
     request_max_tokens = 100
     messages = [{"role": "user", "content": "Say hello."}]
     client = anthropic.Anthropic(base_url=MOCK_BASE_URL, api_key="mock-key")
+    meter = reference_meter()
+    token_usage_histogram = meter.create_histogram("gen_ai.client.token.usage", unit="{token}")
+    operation_duration_histogram = meter.create_histogram("gen_ai.client.operation.duration", unit="s")
 
     host, port = mock_server_host_port(MOCK_BASE_URL)
     span_attributes = {
@@ -46,11 +51,35 @@ def run_chat():
             "gen_ai.input.messages",
             json.dumps([{"role": m["role"], "parts": [{"type": "text", "content": m["content"]}]} for m in messages]),
         )
+        start_time = time.perf_counter()
         resp = client.messages.create(
             model=request_model,
             max_tokens=request_max_tokens,
             messages=messages,
         )
+        elapsed = time.perf_counter() - start_time
+        metric_attributes = {
+            "gen_ai.operation.name": "chat",
+            "gen_ai.provider.name": "anthropic",
+            "gen_ai.request.model": request_model,
+        }
+        response_model = getattr(resp, "model", None)
+        if response_model:
+            metric_attributes["gen_ai.response.model"] = response_model
+        if host:
+            metric_attributes["server.address"] = host
+        if port is not None:
+            metric_attributes["server.port"] = port
+        if resp.usage:
+            token_usage_histogram.record(
+                resp.usage.input_tokens,
+                attributes={**metric_attributes, "gen_ai.token.type": "input"},
+            )
+            token_usage_histogram.record(
+                resp.usage.output_tokens,
+                attributes={**metric_attributes, "gen_ai.token.type": "output"},
+            )
+        operation_duration_histogram.record(elapsed, attributes=metric_attributes)
         span.set_attribute("gen_ai.response.model", resp.model)
         span.set_attribute("gen_ai.response.id", resp.id)
         span.set_attribute("gen_ai.response.finish_reasons", [resp.stop_reason])

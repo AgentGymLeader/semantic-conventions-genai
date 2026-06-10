@@ -38,7 +38,7 @@
         "assignees": [],
         "author": "Mandark-droid",
         "ci_failing_count": 0,
-        "ci_pending_count": 30,
+        "ci_pending_count": 0,
         "conflicts": "no",
         "created_at": "2026-05-11T16:14:54+00:00",
         "is_draft": false,
@@ -64,7 +64,7 @@
           }
         ],
         "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-06-01T16:40:14+00:00"
+        "waiting_since": "2026-05-30T01:44:38+00:00"
       },
       "failed": false,
       "pr_number": 143,
@@ -82,8 +82,8 @@
         "created_at": "2026-05-11T16:14:59+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-06T00:41:03+00:00",
-        "last_approver_activity_at": "2026-06-06T00:41:03+00:00",
+        "last_activity_at": "2026-06-10T19:02:08+00:00",
+        "last_approver_activity_at": "2026-06-10T19:02:08+00:00",
         "last_author_activity_at": "2026-06-01T12:14:16+00:00",
         "last_external_activity_at": "2026-05-11T19:18:09+00:00",
         "reviewers": [
@@ -441,8 +441,8 @@
         "created_at": "2026-05-22T21:06:37+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-05T22:25:16+00:00",
-        "last_approver_activity_at": "2026-05-30T21:37:23+00:00",
+        "last_activity_at": "2026-06-10T19:01:58+00:00",
+        "last_approver_activity_at": "2026-06-10T19:01:58+00:00",
         "last_author_activity_at": "2026-05-26T22:01:56+00:00",
         "last_external_activity_at": "2026-05-26T02:55:03+00:00",
         "reviewers": [
@@ -482,8 +482,8 @@
         "created_at": "2026-05-26T13:02:51+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-09T16:09:36+00:00",
-        "last_approver_activity_at": "2026-06-09T02:07:34+00:00",
+        "last_activity_at": "2026-06-10T19:01:56+00:00",
+        "last_approver_activity_at": "2026-06-10T19:01:56+00:00",
         "last_author_activity_at": "2026-06-09T16:09:36+00:00",
         "last_external_activity_at": "2026-06-09T05:21:29+00:00",
         "reviewers": [
@@ -510,7 +510,7 @@
           }
         ],
         "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-06-09T16:09:36+00:00"
+        "waiting_since": "2026-06-10T19:01:56+00:00"
       },
       "failed": false,
       "pr_number": 195,
@@ -668,8 +668,8 @@
         "created_at": "2026-05-27T10:55:50+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-10T15:31:50+00:00",
-        "last_approver_activity_at": "2026-06-05T22:25:12+00:00",
+        "last_activity_at": "2026-06-10T19:01:48+00:00",
+        "last_approver_activity_at": "2026-06-10T19:01:48+00:00",
         "last_author_activity_at": "2026-06-10T15:57:41+00:00",
         "last_external_activity_at": "2026-05-27T15:34:20+00:00",
         "reviewers": [
@@ -703,12 +703,12 @@
           }
         ],
         "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-06-10T15:18:36+00:00"
+        "waiting_since": "2026-06-10T19:01:48+00:00"
       },
       "failed": false,
       "pr_number": 203,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/203",
-      "route": "approver"
+      "route": "author"
     },
     "215": {
       "facts": {
@@ -721,9 +721,9 @@
         "created_at": "2026-05-29T04:15:40+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-09T07:03:05+00:00",
+        "last_activity_at": "2026-06-10T19:01:46+00:00",
         "last_approver_activity_at": "2026-06-04T21:42:58+00:00",
-        "last_author_activity_at": "2026-05-29T04:49:56+00:00",
+        "last_author_activity_at": "2026-06-10T19:01:46+00:00",
         "last_external_activity_at": "2026-06-09T07:03:05+00:00",
         "reviewers": [
           {
@@ -734,13 +734,13 @@
             "open_thread": false
           }
         ],
-        "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-05-29T04:49:56+00:00"
+        "waiting_age_basis": "oldest_pending_thread",
+        "waiting_since": "2026-06-10T19:01:46+00:00"
       },
       "failed": false,
       "pr_number": 215,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/215",
-      "route": "approver"
+      "route": "author"
     },
     "238": {
       "facts": {
@@ -980,8 +980,8 @@
         "created_at": "2026-06-08T15:27:25+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-09T21:12:28+00:00",
-        "last_approver_activity_at": "",
+        "last_activity_at": "2026-06-10T19:01:35+00:00",
+        "last_approver_activity_at": "2026-06-10T19:01:35+00:00",
         "last_author_activity_at": "2026-06-09T20:36:55+00:00",
         "last_external_activity_at": "2026-06-09T21:12:28+00:00",
         "reviewers": [
@@ -998,6 +998,13 @@
             "changes_requested": false,
             "login": "copilot-pull-request-reviewer",
             "open_thread": true
+          },
+          {
+            "approved": false,
+            "approved_non_team": false,
+            "changes_requested": false,
+            "login": "trask",
+            "open_thread": false
           }
         ],
         "waiting_age_basis": "oldest_pending_thread",
@@ -1062,7 +1069,7 @@
         ],
         "author": "Krishnachaitanyakc",
         "ci_failing_count": 0,
-        "ci_pending_count": 30,
+        "ci_pending_count": 0,
         "conflicts": "no",
         "created_at": "2026-05-05T18:05:53+00:00",
         "is_draft": false,

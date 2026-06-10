@@ -608,9 +608,9 @@
         "created_at": "2026-05-27T10:55:44+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-10T14:27:49+00:00",
+        "last_activity_at": "2026-06-10T14:40:47+00:00",
         "last_approver_activity_at": "2026-06-05T15:06:33+00:00",
-        "last_author_activity_at": "2026-06-10T14:33:03+00:00",
+        "last_author_activity_at": "2026-06-10T14:40:47+00:00",
         "last_external_activity_at": "2026-05-27T15:33:09+00:00",
         "reviewers": [
           {
@@ -643,7 +643,7 @@
           }
         ],
         "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-06-04T13:11:49+00:00"
+        "waiting_since": "2026-06-05T04:32:11+00:00"
       },
       "failed": false,
       "pr_number": 202,

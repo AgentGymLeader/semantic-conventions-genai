@@ -14,7 +14,7 @@
 | [Avoid reviewer badges from PR conversation (#272)](https://github.com/open-telemetry/semantic-conventions-genai/pull/272) | trask | lmolkova&nbsp;✅ | ✅ | ✅ | 6h |
 | [Improve Slack PR notification links (#271)](https://github.com/open-telemetry/semantic-conventions-genai/pull/271) | trask | lmolkova&nbsp;✅ | ✅ | ✅ | 6h |
 | [\[chore\] Small improvements to markdown templates (#274)](https://github.com/open-telemetry/semantic-conventions-genai/pull/274) | lmolkova |  | ✅ | ✅ | 51m |
-| [Add gen_ai.request.reasoning.level attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 | JWinermaSplunk<br>lmolkova | ✅ | ✅ | 35m |
+| [Add gen_ai.request.reasoning.level attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 | JWinermaSplunk<br>lmolkova | ✅ | ✅ | 36m |
 
 ## Waiting on authors
 

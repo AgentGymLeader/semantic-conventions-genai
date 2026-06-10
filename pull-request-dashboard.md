@@ -7,7 +7,7 @@
 
 | PR | Author | Reviewers | CI | Conflicts | Age |
 |---|---|---|:---:|:---:|:---:|
-| [Update dependency towncrier to v25 (#277)](https://github.com/open-telemetry/semantic-conventions-genai/pull/277) | app/renovate | trask&nbsp;✅ | ✅ | ✅ | <1m |
+| [Update dependency towncrier to v25 (#277)](https://github.com/open-telemetry/semantic-conventions-genai/pull/277) | app/renovate | trask&nbsp;✅ | ✅ | ✅ | 1m |
 
 ## Waiting on reviewers
 
@@ -20,6 +20,7 @@
 | [Add `gen_ai.request.reasoning.level` attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 | JWinermaSplunk<br>lmolkova | ✅ | ✅ | 15h |
 | [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin | lmolkova<br>MikeGoldsmith&nbsp;🔴<br>trask | ✅ | ✅ | 1h |
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin | aabmass&nbsp;✅<br>lmolkova<br>MikeGoldsmith&nbsp;🔴<br>trask | ✅ | ✅ | 1h |
+| [Remove obsolete split model docs helper (#278)](https://github.com/open-telemetry/semantic-conventions-genai/pull/278) | trask |  | ✅ | ✅ | 3m |
 
 ## Waiting on authors
 
@@ -56,8 +57,7 @@
 | [proposal: agent.threat.detection.* attributes + event (closes #132) (#165)](https://github.com/open-telemetry/semantic-conventions-genai/pull/165) | eeee2345 | 18d |
 | [genai: add `gen_ai.token.cache` and `gen_ai.token.reasoning` metric attributes (#96)](https://github.com/open-telemetry/semantic-conventions-genai/pull/96) | Nik-Reddy | 12d |
 | [Add time_budget value for gen_ai.agent.finish_reason (#267)](https://github.com/open-telemetry/semantic-conventions-genai/pull/267) | Nik-Reddy | 1d |
-| [Remove obsolete split model docs helper (#278)](https://github.com/open-telemetry/semantic-conventions-genai/pull/278) | trask | 1m |
-| [Filter Slack reviewer notifications (#279)](https://github.com/open-telemetry/semantic-conventions-genai/pull/279) | trask | <1m |
+| [Filter Slack reviewer notifications (#279)](https://github.com/open-telemetry/semantic-conventions-genai/pull/279) | trask | 1m |
 
 <details>
 <summary>Diagnostics</summary>

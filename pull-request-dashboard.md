@@ -36,7 +36,7 @@
 | [Add `gen_ai.agent.finish_reason` attribute for agent loop termination (#238)](https://github.com/open-telemetry/semantic-conventions-genai/pull/238) | Nik-Reddy | aabmass&nbsp;✅<br>Copilot&nbsp;💬<br>MikeGoldsmith&nbsp;✅<br>trask | ✅ | ❌ | 10h |
 | [gen-ai: add run guardrail span and security finding (#262)](https://github.com/open-telemetry/semantic-conventions-genai/pull/262) | nagkumar91 | aabmass<br>Copilot&nbsp;💬 | ✅ | ❌ | 7h |
 | [Propose GenAI agent entity (#270)](https://github.com/open-telemetry/semantic-conventions-genai/pull/270) | aabmass | Copilot&nbsp;💬<br>lmolkova&nbsp;💬 | ✅ | ✅ | 4h |
-| [Add Towncrier changelog management (#275)](https://github.com/open-telemetry/semantic-conventions-genai/pull/275) | trask | lmolkova&nbsp;💬⁠✅ | ✅ | ✅ | 8m |
+| [Add Towncrier changelog management (#275)](https://github.com/open-telemetry/semantic-conventions-genai/pull/275) | trask | lmolkova&nbsp;💬⁠✅ | ✅ | ✅ | 9m |
 
 ## Waiting on external
 

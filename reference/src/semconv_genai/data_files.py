@@ -19,7 +19,7 @@ from semconv_genai import (
     reference_results_dir,
 )
 from semconv_genai.attribute_spec import AttributeSpec, RequirementLevel
-from semconv_genai.classify import classify_span
+from semconv_genai.classify import classify_metric, classify_span
 from semconv_genai.parse_results import (
     ScenarioResult,
     merge_signal_counts,
@@ -55,6 +55,8 @@ EVENT_TYPE_ORDER = [
 
 # Display order for metric types in reports.
 METRIC_TYPE_ORDER = [
+    "gen_ai.client.token.usage",
+    "gen_ai.client.operation.duration",
     "gen_ai.invoke_agent.inference_calls",
     "gen_ai.invoke_agent.tool_calls",
 ]
@@ -244,14 +246,13 @@ def _build_single_scenario_data(result: ScenarioResult) -> tuple[dict[str, objec
     if metrics:
         data["metrics"] = metrics
 
-    has_relevant_data = bool(spans) or bool(event_present) or bool(metrics)
-    return _normalize_generated_scenario_payload(data), has_relevant_data
+    return _normalize_generated_scenario_payload(data), bool(spans) or bool(event_present) or bool(metrics)
 
 
 def write_generated_scenario_data(library: str) -> Path:
     """Write committed status-report data for one library and return the data.json path."""
     result_dir = reference_results_dir(library)
-    result = parse_result_dir(result_dir, library, classify_span)
+    result = parse_result_dir(result_dir, library, classify_span, classify_metric)
     if result is None:
         raise ValueError(f"Could not parse Weaver results for library: {library}")
 

@@ -28,6 +28,7 @@ class DetectedSignals:
 
 
 ClassifySpan = Callable[[str, str, dict[str, object]], set[str]]
+ClassifyMetric = Callable[[str, dict[str, object]], set[str]]
 
 
 def _attributes_by_name(
@@ -67,35 +68,27 @@ def _attribute_names(
     return names
 
 
-def _metric_attribute_names(
-    metric: dict[str, object],
-    include_attr: Callable[[dict[str, object]], bool] | None = None,
-) -> set[str]:
-    names: set[str] = set()
-    raw_points = metric.get("data_points", [])
+def _metric_data_points(metric: dict[str, object]) -> list[dict[str, object]]:
+    """Return metric data points from either known Weaver metric shapes."""
+    raw_points = metric.get("data_points")
     if not isinstance(raw_points, list):
-        return names
-    for dp in raw_points:
-        if not isinstance(dp, dict):
-            continue
-        raw_attrs = dp.get("attributes", [])
-        if not isinstance(raw_attrs, list):
-            continue
-        for attr in raw_attrs:
-            if not isinstance(attr, dict):
-                continue
-            name = attr.get("name")
-            if not isinstance(name, str) or not name:
-                continue
-            if include_attr is not None and not include_attr(attr):
-                continue
-            names.add(name)
-    return names
+        raw_data = metric.get("data")
+        if isinstance(raw_data, dict):
+            raw_points = raw_data.get("data_points")
+    if not isinstance(raw_points, list):
+        return []
+    return [dp for dp in raw_points if isinstance(dp, dict)]
+
+
+def _classify_genai_metric(metric_name: str, metric_attrs: dict[str, object]) -> set[str]:
+    del metric_attrs
+    return {metric_name} if metric_name.startswith("gen_ai.") else set()
 
 
 def _summarize_samples(
     all_objects: list[dict],
     classify_span: ClassifySpan,
+    classify_metric: ClassifyMetric,
     include_attr: Callable[[dict[str, object]], bool] | None = None,
 ) -> tuple[SpanClassification, DetectedSignals]:
     """Scan sample payloads once and collect detected spans, events, and metrics."""
@@ -137,14 +130,21 @@ def _summarize_samples(
             metric = sample.get("metric")
             if metric:
                 metric_name = metric.get("name", "")
-                if metric_name.startswith("gen_ai."):
-                    signals.metrics[metric_name] = signals.metrics.get(metric_name, 0) + 1
-                    attr_names = _metric_attribute_names(metric, include_attr)
-                    if metric_name not in signals.metric_attrs:
-                        signals.metric_attrs[metric_name] = set(attr_names)
-                    else:
-                        signals.metric_attrs[metric_name].intersection_update(attr_names)
-                    signals.metric_any_attrs.setdefault(metric_name, set()).update(attr_names)
+                if isinstance(metric_name, str) and metric_name:
+                    data_points = _metric_data_points(metric)
+                    observations = data_points if data_points else [metric]
+                    for observation in observations:
+                        metric_attrs = _attributes_by_name(observation, include_attr)
+                        attr_names = set(metric_attrs)
+                        for metric_type in classify_metric(metric_name, metric_attrs):
+                            if not metric_type.startswith("gen_ai."):
+                                continue
+                            signals.metrics[metric_type] = signals.metrics.get(metric_type, 0) + 1
+                            if metric_type not in signals.metric_attrs:
+                                signals.metric_attrs[metric_type] = set(attr_names)
+                            else:
+                                signals.metric_attrs[metric_type].intersection_update(attr_names)
+                            signals.metric_any_attrs.setdefault(metric_type, set()).update(attr_names)
 
     return spans, signals
 
@@ -353,11 +353,13 @@ def _detected_signals_from_samples(
     all_objects: list[dict],
     statistics: dict | None,
     classify_span: ClassifySpan,
+    classify_metric: ClassifyMetric,
 ) -> tuple[SpanClassification, DetectedSignals]:
     """Classify spans and supplement detected signal counts from statistics."""
     span_classification, detected = _summarize_samples(
         all_objects,
         classify_span,
+        classify_metric,
         include_attr=_attribute_counts_as_present,
     )
     stats = statistics or {}
@@ -380,6 +382,7 @@ def parse_result_dir(
     result_dir: Path,
     library: str,
     classify_span: ClassifySpan,
+    classify_metric: ClassifyMetric = _classify_genai_metric,
 ) -> ScenarioResult | None:
     """Parse a single library's Weaver output directory into a ScenarioResult."""
     if not result_dir.is_dir():
@@ -388,7 +391,9 @@ def parse_result_dir(
     all_objects = _load_result_objects(result_dir)
     statistics = _extract_statistics(all_objects)
     observed = _observed_telemetry_from_statistics(statistics, all_objects)
-    span_classification, detected = _detected_signals_from_samples(all_objects, statistics, classify_span)
+    span_classification, detected = _detected_signals_from_samples(
+        all_objects, statistics, classify_span, classify_metric
+    )
     return ScenarioResult(
         library=library,
         statistics=statistics,

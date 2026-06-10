@@ -14,9 +14,8 @@
 | [Add `gen_ai.request.reasoning.level` attribute (#258)](https://github.com/open-telemetry/semantic-conventions-genai/pull/258) | katsuhisa91 | JWinermaSplunk<br>lmolkova | ✅ | ✅ | 16h |
 | [Add gen_ai.agent.request.size and gen_ai.agent.response.size metrics (#202)](https://github.com/open-telemetry/semantic-conventions-genai/pull/202) | pvlsirotkin | lmolkova<br>MikeGoldsmith&nbsp;🔴<br>trask | ✅ | ✅ | 2h |
 | [Add gen_ai.workflow.steps metric (#203)](https://github.com/open-telemetry/semantic-conventions-genai/pull/203) | pvlsirotkin | aabmass&nbsp;✅<br>lmolkova<br>MikeGoldsmith&nbsp;🔴<br>trask | ✅ | ✅ | 1h |
-| [Remove obsolete split model docs helper (#278)](https://github.com/open-telemetry/semantic-conventions-genai/pull/278) | trask |  | ✅ | ✅ | 18m |
-| [Filter Slack reviewer notifications (#279)](https://github.com/open-telemetry/semantic-conventions-genai/pull/279) | trask |  | ✅ | ✅ | 16m |
-| [Reduce Renovate PR frequency (#280)](https://github.com/open-telemetry/semantic-conventions-genai/pull/280) | trask | lmolkova&nbsp;✅ | ✅ | ✅ | 7m |
+| [Remove obsolete split model docs helper (#278)](https://github.com/open-telemetry/semantic-conventions-genai/pull/278) | trask |  | ✅ | ✅ | 23m |
+| [Filter Slack reviewer notifications (#279)](https://github.com/open-telemetry/semantic-conventions-genai/pull/279) | trask |  | ✅ | ✅ | 22m |
 
 ## Waiting on authors
 

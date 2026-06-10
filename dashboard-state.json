@@ -968,14 +968,14 @@
         ],
         "author": "katsuhisa91",
         "ci_failing_count": 0,
-        "ci_pending_count": 0,
+        "ci_pending_count": 4,
         "conflicts": "no",
         "created_at": "2026-06-06T09:06:09+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-09T23:08:49+00:00",
+        "last_activity_at": "2026-06-10T00:37:16+00:00",
         "last_approver_activity_at": "2026-06-08T18:34:07+00:00",
-        "last_author_activity_at": "2026-06-09T23:08:47+00:00",
+        "last_author_activity_at": "2026-06-10T00:36:50+00:00",
         "last_external_activity_at": "2026-06-06T09:16:39+00:00",
         "reviewers": [
           {
@@ -994,7 +994,7 @@
           }
         ],
         "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-06-09T23:08:47+00:00"
+        "waiting_since": "2026-06-10T00:36:50+00:00"
       },
       "failed": false,
       "pr_number": 258,

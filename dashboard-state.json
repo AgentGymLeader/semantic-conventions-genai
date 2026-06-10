@@ -478,7 +478,7 @@
         "author": "eternalcuriouslearner",
         "ci_failing_count": 0,
         "ci_pending_count": 0,
-        "conflicts": "no",
+        "conflicts": "yes",
         "created_at": "2026-05-26T13:02:51+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
@@ -756,7 +756,7 @@
         "author": "Nik-Reddy",
         "ci_failing_count": 0,
         "ci_pending_count": 0,
-        "conflicts": "no",
+        "conflicts": "yes",
         "created_at": "2026-06-03T08:04:33+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
@@ -771,13 +771,6 @@
             "changes_requested": false,
             "login": "aabmass",
             "open_thread": false
-          },
-          {
-            "approved": false,
-            "approved_non_team": false,
-            "changes_requested": false,
-            "login": "AgentGymLeader",
-            "open_thread": true
           },
           {
             "approved": false,
@@ -798,7 +791,7 @@
             "approved_non_team": false,
             "changes_requested": false,
             "login": "trask",
-            "open_thread": true
+            "open_thread": false
           }
         ],
         "waiting_age_basis": "oldest_pending_thread",
@@ -809,47 +802,6 @@
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/238",
       "route": "author"
     },
-    "242": {
-      "facts": {
-        "approval_count": 2,
-        "assignees": [
-          "aabmass"
-        ],
-        "author": "lmolkova",
-        "ci_failing_count": 0,
-        "ci_pending_count": 0,
-        "conflicts": "no",
-        "created_at": "2026-06-04T03:19:22+00:00",
-        "is_draft": false,
-        "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-10T00:11:11+00:00",
-        "last_approver_activity_at": "2026-06-08T11:23:23+00:00",
-        "last_author_activity_at": "2026-06-10T00:11:03+00:00",
-        "last_external_activity_at": "2026-06-04T04:22:52+00:00",
-        "reviewers": [
-          {
-            "approved": true,
-            "approved_non_team": false,
-            "changes_requested": false,
-            "login": "aabmass",
-            "open_thread": false
-          },
-          {
-            "approved": true,
-            "approved_non_team": false,
-            "changes_requested": false,
-            "login": "MikeGoldsmith",
-            "open_thread": false
-          }
-        ],
-        "waiting_age_basis": "last_author_activity",
-        "waiting_since": "2026-06-10T00:11:03+00:00"
-      },
-      "failed": false,
-      "pr_number": 242,
-      "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/242",
-      "route": "maintainer"
-    },
     "250": {
       "facts": {
         "approval_count": 0,
@@ -857,7 +809,7 @@
         "author": "singankit",
         "ci_failing_count": 0,
         "ci_pending_count": 0,
-        "conflicts": "no",
+        "conflicts": "yes",
         "created_at": "2026-06-04T21:55:38+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
@@ -968,7 +920,7 @@
         ],
         "author": "katsuhisa91",
         "ci_failing_count": 0,
-        "ci_pending_count": 4,
+        "ci_pending_count": 0,
         "conflicts": "no",
         "created_at": "2026-06-06T09:06:09+00:00",
         "is_draft": false,
@@ -1010,7 +962,7 @@
         "author": "nagkumar91",
         "ci_failing_count": 0,
         "ci_pending_count": 0,
-        "conflicts": "no",
+        "conflicts": "yes",
         "created_at": "2026-06-08T15:27:25+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
@@ -1144,7 +1096,7 @@
         "assignees": [],
         "author": "lmolkova",
         "ci_failing_count": 0,
-        "ci_pending_count": 31,
+        "ci_pending_count": 0,
         "conflicts": "no",
         "created_at": "2026-06-09T23:51:29+00:00",
         "is_draft": false,

@@ -1008,7 +1008,7 @@
             "approved_non_team": false,
             "changes_requested": false,
             "login": "lmolkova",
-            "open_thread": true
+            "open_thread": false
           }
         ],
         "waiting_age_basis": "oldest_pending_thread",

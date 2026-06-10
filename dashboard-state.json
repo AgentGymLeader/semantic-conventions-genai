@@ -1014,18 +1014,11 @@
         "created_at": "2026-06-10T02:26:49+00:00",
         "is_draft": false,
         "is_maintenance_bot": false,
-        "last_activity_at": "2026-06-10T15:00:39+00:00",
+        "last_activity_at": "2026-06-10T15:39:00+00:00",
         "last_approver_activity_at": "2026-06-10T04:04:56+00:00",
-        "last_author_activity_at": "2026-06-10T14:54:20+00:00",
+        "last_author_activity_at": "2026-06-10T15:38:58+00:00",
         "last_external_activity_at": "2026-06-10T15:00:39+00:00",
         "reviewers": [
-          {
-            "approved": false,
-            "approved_non_team": false,
-            "changes_requested": false,
-            "login": "copilot-pull-request-reviewer",
-            "open_thread": true
-          },
           {
             "approved": true,
             "approved_non_team": false,
@@ -1034,13 +1027,13 @@
             "open_thread": false
           }
         ],
-        "waiting_age_basis": "oldest_pending_thread",
-        "waiting_since": "2026-06-10T15:00:39+00:00"
+        "waiting_age_basis": "last_author_activity",
+        "waiting_since": "2026-06-10T15:38:58+00:00"
       },
       "failed": false,
       "pr_number": 275,
       "pr_url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/275",
-      "route": "author"
+      "route": "approver"
     },
     "98": {
       "facts": {

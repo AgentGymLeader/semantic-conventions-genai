@@ -7,6 +7,8 @@ from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .classify import classify_metric as _default_classify_metric
+
 # ── Span classification types ──────────────────────────────────────
 
 
@@ -42,9 +44,12 @@ def _attributes_by_name(
     for attr in raw_attrs:
         if not isinstance(attr, dict):
             continue
+        name = attr.get("name")
+        if not isinstance(name, str) or not name:
+            continue
         if include_attr is not None and not include_attr(attr):
             continue
-        attrs[attr.get("name", "")] = attr.get("value")
+        attrs[name] = attr.get("value")
     return attrs
 
 
@@ -78,11 +83,6 @@ def _metric_data_points(metric: dict[str, object]) -> list[dict[str, object]]:
     if not isinstance(raw_points, list):
         return []
     return [dp for dp in raw_points if isinstance(dp, dict)]
-
-
-def _classify_genai_metric(metric_name: str, metric_attrs: dict[str, object]) -> set[str]:
-    del metric_attrs
-    return {metric_name} if metric_name.startswith("gen_ai.") else set()
 
 
 def _summarize_samples(
@@ -382,7 +382,7 @@ def parse_result_dir(
     result_dir: Path,
     library: str,
     classify_span: ClassifySpan,
-    classify_metric: ClassifyMetric = _classify_genai_metric,
+    classify_metric: ClassifyMetric = _default_classify_metric,
 ) -> ScenarioResult | None:
     """Parse a single library's Weaver output directory into a ScenarioResult."""
     if not result_dir.is_dir():

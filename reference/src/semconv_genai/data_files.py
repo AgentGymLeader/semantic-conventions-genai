@@ -184,10 +184,9 @@ def _metric_type_present_attributes(
     level: RequirementLevel,
 ) -> set[str]:
     """Return attrs present for a metric type at the requested requirement level."""
-    all_present = _present_attributes(result)
     if level is RequirementLevel.REQUIRED:
-        return result.detected.metric_attrs.get(metric_name, all_present)
-    return result.detected.metric_any_attrs.get(metric_name, all_present)
+        return result.detected.metric_attrs.get(metric_name, set())
+    return result.detected.metric_any_attrs.get(metric_name, set())
 
 
 def _build_metric_type_present_names(result: ScenarioResult) -> dict[str, list[str]]:

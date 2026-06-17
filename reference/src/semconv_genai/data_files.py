@@ -54,10 +54,7 @@ EVENT_TYPE_ORDER = [
 ]
 
 # Display order for metric types in reports.
-METRIC_TYPE_ORDER = [
-    "gen_ai.client.token.usage",
-    "gen_ai.client.operation.duration",
-]
+METRIC_TYPE_ORDER = tuple(METRIC_SPECS)
 
 _REQUIREMENT_LEVELS = (
     RequirementLevel.REQUIRED,

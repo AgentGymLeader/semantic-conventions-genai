@@ -23,6 +23,21 @@ refinements:
           id: other
           stability: stable
           value: _OTHER
+    - brief: Indicates whether the effective conversation context used for this operation is a compacted view of a prior conversation.
+      examples:
+      - true
+      key: gen_ai.conversation.compacted
+      note: |
+        This attribute is a positive indicator of context compaction. Instrumentations
+        SHOULD set it to `true` only when they can reliably determine that context
+        compaction was applied. Instrumentations SHOULD NOT set it to `false`; they
+        SHOULD leave it unset otherwise.
+      provenance:
+        path: ./model/gen-ai/registry.yaml
+      requirement_level:
+        recommended: when available
+      stability: development
+      type: boolean
     - brief: The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation.
       examples:
       - conv_5j66UpCpwteGg4YSxUnt7lPY
@@ -4160,6 +4175,21 @@ refinements:
           id: other
           stability: stable
           value: _OTHER
+    - brief: Indicates whether the effective conversation context used for this operation is a compacted view of a prior conversation.
+      examples:
+      - true
+      key: gen_ai.conversation.compacted
+      note: |
+        This attribute is a positive indicator of context compaction. Instrumentations
+        SHOULD set it to `true` only when they can reliably determine that context
+        compaction was applied. Instrumentations SHOULD NOT set it to `false`; they
+        SHOULD leave it unset otherwise.
+      provenance:
+        path: ./model/gen-ai/registry.yaml
+      requirement_level:
+        recommended: when available
+      stability: development
+      type: boolean
     - brief: The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation.
       examples:
       - conv_5j66UpCpwteGg4YSxUnt7lPY
@@ -4876,6 +4906,21 @@ refinements:
           id: other
           stability: stable
           value: _OTHER
+    - brief: Indicates whether the effective conversation context used for this operation is a compacted view of a prior conversation.
+      examples:
+      - true
+      key: gen_ai.conversation.compacted
+      note: |
+        This attribute is a positive indicator of context compaction. Instrumentations
+        SHOULD set it to `true` only when they can reliably determine that context
+        compaction was applied. Instrumentations SHOULD NOT set it to `false`; they
+        SHOULD leave it unset otherwise.
+      provenance:
+        path: ./model/gen-ai/registry.yaml
+      requirement_level:
+        recommended: when available
+      stability: development
+      type: boolean
     - brief: The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation.
       examples:
       - conv_5j66UpCpwteGg4YSxUnt7lPY
@@ -5588,6 +5633,21 @@ refinements:
           id: other
           stability: stable
           value: _OTHER
+    - brief: Indicates whether the effective conversation context used for this operation is a compacted view of a prior conversation.
+      examples:
+      - true
+      key: gen_ai.conversation.compacted
+      note: |
+        This attribute is a positive indicator of context compaction. Instrumentations
+        SHOULD set it to `true` only when they can reliably determine that context
+        compaction was applied. Instrumentations SHOULD NOT set it to `false`; they
+        SHOULD leave it unset otherwise.
+      provenance:
+        path: ./model/gen-ai/registry.yaml
+      requirement_level:
+        recommended: when available
+      stability: development
+      type: boolean
     - brief: The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation.
       examples:
       - conv_5j66UpCpwteGg4YSxUnt7lPY
@@ -7144,6 +7204,21 @@ refinements:
           id: other
           stability: stable
           value: _OTHER
+    - brief: Indicates whether the effective conversation context used for this operation is a compacted view of a prior conversation.
+      examples:
+      - true
+      key: gen_ai.conversation.compacted
+      note: |
+        This attribute is a positive indicator of context compaction. Instrumentations
+        SHOULD set it to `true` only when they can reliably determine that context
+        compaction was applied. Instrumentations SHOULD NOT set it to `false`; they
+        SHOULD leave it unset otherwise.
+      provenance:
+        path: ./model/gen-ai/registry.yaml
+      requirement_level:
+        recommended: when available
+      stability: development
+      type: boolean
     - brief: The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation.
       examples:
       - conv_5j66UpCpwteGg4YSxUnt7lPY
@@ -11126,6 +11201,21 @@ refinements:
           id: other
           stability: stable
           value: _OTHER
+    - brief: Indicates whether the effective conversation context used for this operation is a compacted view of a prior conversation.
+      examples:
+      - true
+      key: gen_ai.conversation.compacted
+      note: |
+        This attribute is a positive indicator of context compaction. Instrumentations
+        SHOULD set it to `true` only when they can reliably determine that context
+        compaction was applied. Instrumentations SHOULD NOT set it to `false`; they
+        SHOULD leave it unset otherwise.
+      provenance:
+        path: ./model/gen-ai/registry.yaml
+      requirement_level:
+        recommended: when available
+      stability: development
+      type: boolean
     - brief: The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation.
       examples:
       - conv_5j66UpCpwteGg4YSxUnt7lPY
@@ -11926,6 +12016,19 @@ registry:
       path: ./model/gen-ai/registry.yaml
     stability: development
     type: string
+  - brief: Indicates whether the effective conversation context used for this operation is a compacted view of a prior conversation.
+    examples:
+    - true
+    key: gen_ai.conversation.compacted
+    note: |
+      This attribute is a positive indicator of context compaction. Instrumentations
+      SHOULD set it to `true` only when they can reliably determine that context
+      compaction was applied. Instrumentations SHOULD NOT set it to `false`; they
+      SHOULD leave it unset otherwise.
+    provenance:
+      path: ./model/gen-ai/registry.yaml
+    stability: development
+    type: boolean
   - brief: The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation.
     examples:
     - conv_5j66UpCpwteGg4YSxUnt7lPY
@@ -13067,6 +13170,21 @@ registry:
           id: other
           stability: stable
           value: _OTHER
+    - brief: Indicates whether the effective conversation context used for this operation is a compacted view of a prior conversation.
+      examples:
+      - true
+      key: gen_ai.conversation.compacted
+      note: |
+        This attribute is a positive indicator of context compaction. Instrumentations
+        SHOULD set it to `true` only when they can reliably determine that context
+        compaction was applied. Instrumentations SHOULD NOT set it to `false`; they
+        SHOULD leave it unset otherwise.
+      provenance:
+        path: ./model/gen-ai/registry.yaml
+      requirement_level:
+        recommended: when available
+      stability: development
+      type: boolean
     - brief: The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation.
       examples:
       - conv_5j66UpCpwteGg4YSxUnt7lPY
@@ -17487,6 +17605,21 @@ registry:
           id: other
           stability: stable
           value: _OTHER
+    - brief: Indicates whether the effective conversation context used for this operation is a compacted view of a prior conversation.
+      examples:
+      - true
+      key: gen_ai.conversation.compacted
+      note: |
+        This attribute is a positive indicator of context compaction. Instrumentations
+        SHOULD set it to `true` only when they can reliably determine that context
+        compaction was applied. Instrumentations SHOULD NOT set it to `false`; they
+        SHOULD leave it unset otherwise.
+      provenance:
+        path: ./model/gen-ai/registry.yaml
+      requirement_level:
+        recommended: when available
+      stability: development
+      type: boolean
     - brief: The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation.
       examples:
       - conv_5j66UpCpwteGg4YSxUnt7lPY

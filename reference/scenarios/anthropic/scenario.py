@@ -71,8 +71,11 @@ def run_chat():
         if port is not None:
             metric_attributes["server.port"] = port
         if resp.usage:
+            cache_creation = getattr(resp.usage, "cache_creation_input_tokens", None) or 0
+            cache_read = getattr(resp.usage, "cache_read_input_tokens", None) or 0
+            total_input = resp.usage.input_tokens + cache_creation + cache_read
             token_usage_histogram.record(
-                resp.usage.input_tokens,
+                total_input,
                 attributes={**metric_attributes, "gen_ai.token.type": "input"},
             )
             token_usage_histogram.record(

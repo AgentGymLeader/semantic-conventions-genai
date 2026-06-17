@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import json
+import logging
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
 from pathlib import Path
 
 from .classify import classify_metric as _default_classify_metric
+
+_LOGGER = logging.getLogger(__name__)
 
 # ── Span classification types ──────────────────────────────────────
 
@@ -73,16 +76,37 @@ def _attribute_names(
     return names
 
 
-def _metric_data_points(metric: dict[str, object]) -> list[dict[str, object]]:
+def _metric_data_points(metric: dict[str, object]) -> list[dict[str, object]] | None:
     """Return metric data points from either known Weaver metric shapes."""
-    raw_points = metric.get("data_points")
-    if not isinstance(raw_points, list):
-        raw_data = metric.get("data")
+    marker = object()
+    raw_points = metric.get("data_points", marker)
+    if raw_points is marker:
+        raw_data = metric.get("data", marker)
         if isinstance(raw_data, dict):
-            raw_points = raw_data.get("data_points")
-    if not isinstance(raw_points, list):
-        return []
-    return [dp for dp in raw_points if isinstance(dp, dict)]
+            raw_points = raw_data.get("data_points", marker)
+    if raw_points is marker:
+        return [metric]
+    if isinstance(raw_points, dict):
+        return [raw_points]
+    if isinstance(raw_points, list):
+        data_points: list[dict[str, object]] = []
+        for data_point in raw_points:
+            if isinstance(data_point, dict):
+                data_points.append(data_point)
+                continue
+            _LOGGER.warning(
+                "Skipping non-dict data point for metric %r: %r",
+                metric.get("name", ""),
+                data_point,
+            )
+        return data_points
+
+    _LOGGER.warning(
+        "Skipping metric %r with invalid data_points: expected dict or list, got %s",
+        metric.get("name", ""),
+        type(raw_points).__name__,
+    )
+    return None
 
 
 def _summarize_samples(
@@ -130,21 +154,41 @@ def _summarize_samples(
             metric = sample.get("metric")
             if metric:
                 metric_name = metric.get("name", "")
-                if isinstance(metric_name, str) and metric_name:
-                    data_points = _metric_data_points(metric)
-                    observations = data_points if data_points else [metric]
-                    for observation in observations:
-                        metric_attrs = _attributes_by_name(observation, include_attr)
-                        attr_names = set(metric_attrs)
-                        for metric_type in classify_metric(metric_name, metric_attrs):
-                            if not metric_type.startswith("gen_ai."):
-                                continue
-                            signals.metrics[metric_type] = signals.metrics.get(metric_type, 0) + 1
-                            if metric_type not in signals.metric_attrs:
-                                signals.metric_attrs[metric_type] = set(attr_names)
-                            else:
-                                signals.metric_attrs[metric_type].intersection_update(attr_names)
-                            signals.metric_any_attrs.setdefault(metric_type, set()).update(attr_names)
+                if not isinstance(metric_name, str) or not metric_name:
+                    _LOGGER.warning("Skipping metric with invalid name: %r", metric_name)
+                    continue
+
+                observations = _metric_data_points(metric)
+                if observations is None or not observations:
+                    continue
+
+                metric_attrs_by_type: dict[str, set[str]] = {}
+                metric_any_attrs_by_type: dict[str, set[str]] = {}
+                for observation in observations:
+                    metric_attrs = _attributes_by_name(observation, include_attr)
+                    attr_names = set(metric_attrs)
+                    for metric_type in classify_metric(metric_name, metric_attrs):
+                        if not metric_type.startswith("gen_ai."):
+                            continue
+                        if metric_type not in metric_attrs_by_type:
+                            metric_attrs_by_type[metric_type] = set(attr_names)
+                        else:
+                            metric_attrs_by_type[metric_type].intersection_update(attr_names)
+                        metric_any_attrs_by_type.setdefault(metric_type, set()).update(attr_names)
+
+                if not metric_attrs_by_type:
+                    _LOGGER.warning("Skipping unrecognized metric: %s", metric_name)
+                    continue
+
+                for metric_type, attr_names in metric_attrs_by_type.items():
+                    signals.metrics[metric_type] = signals.metrics.get(metric_type, 0) + 1
+                    if metric_type not in signals.metric_attrs:
+                        signals.metric_attrs[metric_type] = set(attr_names)
+                    else:
+                        signals.metric_attrs[metric_type].intersection_update(attr_names)
+                    signals.metric_any_attrs.setdefault(metric_type, set()).update(
+                        metric_any_attrs_by_type.get(metric_type, set())
+                    )
 
     return spans, signals
 

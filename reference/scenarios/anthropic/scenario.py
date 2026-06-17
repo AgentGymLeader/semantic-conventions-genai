@@ -18,8 +18,16 @@ from reference_shared import (
 )
 
 MOCK_BASE_URL = os.environ["MOCK_LLM_URL"]
+TOKEN_BUCKET_BOUNDARIES = [1, 4, 16, 64, 256, 1024, 4096]
 
 _reference_tracer = reference_tracer()
+_reference_meter = reference_meter()
+_token_usage_histogram = _reference_meter.create_histogram(
+    "gen_ai.client.token.usage",
+    unit="{token}",
+    explicit_bucket_boundaries_advisory=TOKEN_BUCKET_BOUNDARIES,
+)
+_operation_duration_histogram = _reference_meter.create_histogram("gen_ai.client.operation.duration", unit="s")
 
 
 def response_has_compaction_block(response):
@@ -109,9 +117,6 @@ def run_chat():
     messages = [{"role": "user", "content": "Say hello."}]
     input_messages_json = json.dumps(input_messages(messages))
     client = anthropic.Anthropic(base_url=MOCK_BASE_URL, api_key="mock-key")
-    meter = reference_meter()
-    token_usage_histogram = meter.create_histogram("gen_ai.client.token.usage", unit="{token}")
-    operation_duration_histogram = meter.create_histogram("gen_ai.client.operation.duration", unit="s")
 
     host, port = mock_server_host_port(MOCK_BASE_URL)
     span_attributes = {
@@ -154,15 +159,15 @@ def run_chat():
             cache_creation = getattr(resp.usage, "cache_creation_input_tokens", None) or 0
             cache_read = getattr(resp.usage, "cache_read_input_tokens", None) or 0
             total_input = resp.usage.input_tokens + cache_creation + cache_read
-            token_usage_histogram.record(
+            _token_usage_histogram.record(
                 total_input,
                 attributes={**metric_attributes, "gen_ai.token.type": "input"},
             )
-            token_usage_histogram.record(
+            _token_usage_histogram.record(
                 resp.usage.output_tokens,
                 attributes={**metric_attributes, "gen_ai.token.type": "output"},
             )
-        operation_duration_histogram.record(elapsed, attributes=metric_attributes)
+        _operation_duration_histogram.record(elapsed, attributes=metric_attributes)
         span.set_attribute("gen_ai.response.model", resp.model)
         span.set_attribute("gen_ai.response.id", resp.id)
         span.set_attribute("gen_ai.response.finish_reasons", [resp.stop_reason])

@@ -12,6 +12,7 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
+| error.type | [anthropic] |
 | gen_ai.provider.name | [anthropic] |
 | gen_ai.request.model | [anthropic] |
 | server.port | [anthropic] |

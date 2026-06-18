@@ -152,7 +152,7 @@ def _render_signal_section(
 
     used_libraries: set[str] = set()
     for level in LEVEL_ORDER:
-        attr_names = [a for a in spec.attrs_for_requirement_level(level) if a not in DISPLAY_HIDDEN_ATTRS]
+        attr_names = [a for a in spec.attrs_for_requirement_level(level) if a not in DISPLAY_HIDDEN_ATTRS or _supporting_libraries(entries, type_key, a, by_signal)]
         if not attr_names:
             continue
 

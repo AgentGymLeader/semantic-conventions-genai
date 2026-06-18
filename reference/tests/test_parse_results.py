@@ -83,3 +83,30 @@ def test_unrecognized_metric_warns(tmp_path: Path, caplog):
 
     assert "unrecognized metric" in caplog.text
     assert "gen_ai.client.not_a_metric" in caplog.text
+
+
+def test_error_path_metric_records_error_type(tmp_path: Path):
+    """An operation.duration data point with error.type is detected as an exercised attribute."""
+    result = _parse_samples(
+        tmp_path,
+        [
+            {
+                "metric": {
+                    "name": "gen_ai.client.operation.duration",
+                    "data_points": [
+                        {
+                            "attributes": [
+                                {"name": "gen_ai.operation.name", "value": "chat"},
+                                {"name": "gen_ai.provider.name", "value": "anthropic"},
+                                {"name": "gen_ai.request.model", "value": "claude-sonnet-4-20250514"},
+                                {"name": "error.type", "value": "APIConnectionError"},
+                            ]
+                        }
+                    ],
+                }
+            }
+        ],
+    )
+
+    assert result.detected.metrics["gen_ai.client.operation.duration"] == 1
+    assert "error.type" in result.detected.metric_attrs.get("gen_ai.client.operation.duration", set())

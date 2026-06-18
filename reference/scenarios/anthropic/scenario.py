@@ -244,6 +244,42 @@ def run_chat_with_document_input():
         print(f"    -> {resp.content[0].text[:60]}")
 
 
+def run_chat_error():
+    """Scenario: error path — records operation duration with error.type.
+
+    Connects to an unreachable address so the Anthropic SDK raises
+    APIConnectionError, exercising the error.type attribute on the
+    gen_ai.client.operation.duration metric.
+    """
+    import anthropic
+
+    print("  [chat_error] error path (reference implementation)")
+    request_model = "claude-sonnet-4-20250514"
+    # Point to a port that is not listening so the SDK raises APIConnectionError.
+    bad_url = "http://127.0.0.1:1"
+    client = anthropic.Anthropic(base_url=bad_url, api_key="mock-key")
+
+    metric_attributes = {
+        "gen_ai.operation.name": "chat",
+        "gen_ai.provider.name": "anthropic",
+        "gen_ai.request.model": request_model,
+    }
+    start_time = time.perf_counter()
+    try:
+        client.messages.create(
+            model=request_model,
+            max_tokens=100,
+            messages=[{"role": "user", "content": "Say hello."}],
+        )
+    except anthropic.APIError as exc:
+        elapsed = time.perf_counter() - start_time
+        _operation_duration_histogram.record(
+            elapsed,
+            attributes={**metric_attributes, "error.type": type(exc).__qualname__},
+        )
+        print(f"    -> error recorded: {type(exc).__qualname__}")
+
+
 def main():
     print("=== Reference Implementation: Anthropic Reference Implementation ===")
 
@@ -251,6 +287,7 @@ def main():
 
     run_chat()
     run_chat_with_document_input()
+    run_chat_error()
 
     flush_and_shutdown(tp, lp, mp)
 

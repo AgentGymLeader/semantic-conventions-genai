@@ -97,7 +97,7 @@ refinements:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -4431,7 +4431,7 @@ refinements:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -5177,7 +5177,7 @@ refinements:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -5920,7 +5920,7 @@ refinements:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -7507,7 +7507,7 @@ refinements:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -8294,7 +8294,7 @@ refinements:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -8984,7 +8984,7 @@ refinements:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -9479,7 +9479,7 @@ refinements:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -11520,7 +11520,7 @@ refinements:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -12388,7 +12388,7 @@ registry:
           "parts": [
             {
               "type": "tool_call_response",
-              "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+              "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
               "response": "rainy, 57°F"
             }
           ]
@@ -13518,7 +13518,7 @@ registry:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -18133,7 +18133,7 @@ registry:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -18919,7 +18919,7 @@ registry:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -19608,7 +19608,7 @@ registry:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]
@@ -20102,7 +20102,7 @@ registry:
             "parts": [
               {
                 "type": "tool_call_response",
-                "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+                "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
                 "response": "rainy, 57°F"
               }
             ]

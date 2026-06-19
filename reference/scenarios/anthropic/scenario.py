@@ -286,7 +286,7 @@ def run_chat_with_document_input(handler):
 def run_chat_error(handler):
     """Scenario: error path."""
     print("  [chat_error] error path (util-genai handler)")
-    request_model = "claude-sonnet-4-20250514"
+    request_model = ""
     client = anthropic.Anthropic(base_url=MOCK_BASE_URL, api_key="mock-key")
 
     host, port = mock_server_host_port(MOCK_BASE_URL)

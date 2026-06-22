@@ -18,7 +18,7 @@ from reference_shared import (
 )
 
 MOCK_BASE_URL = os.environ["MOCK_LLM_URL"]
-TOKEN_BUCKET_BOUNDARIES = [1, 4, 16, 64, 256, 1024, 4096]
+TOKEN_BUCKET_BOUNDARIES = [1, 4, 16, 64, 256, 1024, 4096, 16384, 65536, 262144, 1048576, 4194304, 16777216, 67108864]
 
 _reference_tracer = reference_tracer()
 _reference_meter = reference_meter()

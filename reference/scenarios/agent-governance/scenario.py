@@ -117,8 +117,6 @@ def run_allowed_reference(client, gate: GovernanceGate) -> None:
             if output_messages:
                 chat_span.set_attribute("gen_ai.output.messages", json.dumps(output_messages))
 
-            agent_span.set_attribute("gen_ai.response.model", resp.model)
-            agent_span.set_attribute("gen_ai.response.id", resp.id)
             agent_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
             if resp.usage:
                 agent_span.set_attribute("gen_ai.usage.input_tokens", resp.usage.prompt_tokens)
@@ -139,6 +137,74 @@ def run_allowed_reference(client, gate: GovernanceGate) -> None:
             tool_span.set_attribute("gen_ai.tool.call.result", tool_result)
 
         print(f"    -> {decision.outcome}: get_weather")
+
+
+def run_allowed_internal_reference(client, gate: GovernanceGate) -> None:
+    """Demonstrate the same decision join point on an in-process (internal) agent invocation."""
+    print("  [invoke_agent internal] allowed governance decision")
+    prompt = "Summarize today's weather checks."
+    decision = gate.decide("weather.lookup")
+    messages = [{"role": "user", "content": prompt}]
+    input_messages = _input_messages(prompt)
+
+    agent_attributes = {
+        "gen_ai.operation.name": "invoke_agent",
+        "gen_ai.provider.name": "openai",
+        "gen_ai.request.model": REQUEST_MODEL,
+        "gen_ai.agent.name": AGENT_NAME,
+        "gen_ai.agent.decision.id": decision.decision_id,
+        "gen_ai.agent.decision.outcome": decision.outcome,
+        "gen_ai.agent.governance.ref": decision.governance_ref,
+    }
+
+    with _reference_tracer.start_as_current_span(
+        f"invoke_agent {AGENT_NAME}",
+        kind=SpanKind.INTERNAL,
+        attributes=agent_attributes,
+    ) as agent_span:
+        agent_span.set_attribute("gen_ai.input.messages", input_messages)
+
+        host, port = mock_server_host_port(MOCK_BASE_URL)
+        chat_attributes = {
+            "gen_ai.operation.name": "chat",
+            "gen_ai.provider.name": "openai",
+            "gen_ai.request.model": REQUEST_MODEL,
+        }
+        if host:
+            chat_attributes["server.address"] = host
+        if port is not None:
+            chat_attributes["server.port"] = port
+        with _reference_tracer.start_as_current_span("chat gpt-4o-mini", attributes=chat_attributes) as chat_span:
+            chat_span.set_attribute("gen_ai.input.messages", input_messages)
+            resp = client.chat.completions.create(model=REQUEST_MODEL, messages=messages)
+            finish_reasons = [choice.finish_reason for choice in resp.choices]
+            output_messages = [
+                {
+                    "role": choice.message.role,
+                    "parts": [{"type": "text", "content": choice.message.content}],
+                    "finish_reason": choice.finish_reason,
+                }
+                for choice in resp.choices
+                if choice.message.content
+            ]
+
+            chat_span.set_attribute("gen_ai.response.model", resp.model)
+            chat_span.set_attribute("gen_ai.response.id", resp.id)
+            chat_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
+            if resp.usage:
+                chat_span.set_attribute("gen_ai.usage.input_tokens", resp.usage.prompt_tokens)
+                chat_span.set_attribute("gen_ai.usage.output_tokens", resp.usage.completion_tokens)
+            if output_messages:
+                chat_span.set_attribute("gen_ai.output.messages", json.dumps(output_messages))
+
+            agent_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
+            if resp.usage:
+                agent_span.set_attribute("gen_ai.usage.input_tokens", resp.usage.prompt_tokens)
+                agent_span.set_attribute("gen_ai.usage.output_tokens", resp.usage.completion_tokens)
+            if output_messages:
+                agent_span.set_attribute("gen_ai.output.messages", json.dumps(output_messages))
+
+        print(f"    -> {decision.outcome}: chat")
 
 
 def run_denied_reference(gate: GovernanceGate) -> None:
@@ -188,6 +254,7 @@ def main() -> None:
     )
 
     run_allowed_reference(client, gate)
+    run_allowed_internal_reference(client, gate)
     run_denied_reference(gate)
 
     flush_and_shutdown(tp, lp, mp)

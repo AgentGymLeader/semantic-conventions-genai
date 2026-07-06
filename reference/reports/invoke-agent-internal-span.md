@@ -24,6 +24,7 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
+| gen_ai.agent.decision.outcome | (none) |
 | gen_ai.request.frequency_penalty | [agent-framework], [autogen], [crewai], [google-adk], [pydantic-ai] |
 | gen_ai.request.max_tokens | [agent-framework], [autogen], [crewai], [google-adk], [pydantic-ai] |
 | gen_ai.request.model | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
@@ -41,6 +42,8 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
+| gen_ai.agent.decision.id | (none) |
+| gen_ai.agent.governance.ref | (none) |
 | gen_ai.input.messages | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
 | gen_ai.output.messages | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
 | gen_ai.system_instructions | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |

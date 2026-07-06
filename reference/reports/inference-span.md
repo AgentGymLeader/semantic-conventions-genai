@@ -6,8 +6,8 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.operation.name | [agent-framework], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
-| gen_ai.provider.name | [agent-framework], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
+| gen_ai.operation.name | [agent-framework], [agent-governance], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
+| gen_ai.provider.name | [agent-framework], [agent-governance], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
 
 ## Conditionally Required
 
@@ -18,11 +18,11 @@
 | gen_ai.prompt.name | [aws-bedrock], [openai] |
 | gen_ai.prompt.version | [aws-bedrock], [openai] |
 | gen_ai.request.choice.count | [agent-framework], [crewai], [google-adk], [llamaindex], [openai] |
-| gen_ai.request.model | [agent-framework], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
+| gen_ai.request.model | [agent-framework], [agent-governance], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
 | gen_ai.request.seed | [autogen], [crewai], [openai], [pydantic-ai] |
 | gen_ai.request.stream | [openai] |
 | gen_ai.request.top_k | [google-adk] |
-| server.port | [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [cohere], [crewai], [google-adk], [langchain], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai] |
+| server.port | [agent-governance], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [cohere], [crewai], [google-adk], [langchain], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai] |
 
 ## Recommended
 
@@ -36,28 +36,29 @@
 | gen_ai.request.stop_sequences | [autogen], [crewai], [google-adk], [openai], [pydantic-ai] |
 | gen_ai.request.temperature | [autogen], [crewai], [google-adk], [llamaindex], [openai], [pydantic-ai] |
 | gen_ai.request.top_p | [autogen], [crewai], [google-adk], [openai], [pydantic-ai] |
-| gen_ai.response.finish_reasons | [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [pydantic-ai], [vertexai] |
-| gen_ai.response.id | [agent-framework], [anthropic], [autogen], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai] |
-| gen_ai.response.model | [agent-framework], [anthropic], [autogen], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [crewai], [dspy], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai] |
+| gen_ai.response.finish_reasons | [agent-governance], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [pydantic-ai], [vertexai] |
+| gen_ai.response.id | [agent-framework], [agent-governance], [anthropic], [autogen], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai] |
+| gen_ai.response.model | [agent-framework], [agent-governance], [anthropic], [autogen], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [crewai], [dspy], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai] |
 | gen_ai.response.time_to_first_chunk | (none) |
 | gen_ai.usage.cache_creation.input_tokens | [anthropic] |
 | gen_ai.usage.cache_read.input_tokens | [agent-framework], [anthropic] |
-| gen_ai.usage.input_tokens | [agent-framework], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
-| gen_ai.usage.output_tokens | [agent-framework], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
+| gen_ai.usage.input_tokens | [agent-framework], [agent-governance], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
+| gen_ai.usage.output_tokens | [agent-framework], [agent-governance], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [claude-agent-sdk], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
 | gen_ai.usage.reasoning.output_tokens | [agent-framework] |
-| server.address | [agent-framework], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [cohere], [crewai], [google-adk], [langchain], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai] |
+| server.address | [agent-framework], [agent-governance], [anthropic], [autogen], [aws-bedrock], [azure-ai-inference], [azure-openai], [cohere], [crewai], [google-adk], [langchain], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai] |
 
 ## Opt-In
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.input.messages | [agent-framework], [anthropic], [autogen], [aws-bedrock], [claude-agent-sdk], [crewai], [dspy], [google-adk], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [pydantic-ai] |
-| gen_ai.output.messages | [agent-framework], [anthropic], [autogen], [aws-bedrock], [claude-agent-sdk], [crewai], [dspy], [google-adk], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [pydantic-ai] |
+| gen_ai.input.messages | [agent-framework], [agent-governance], [anthropic], [autogen], [aws-bedrock], [claude-agent-sdk], [crewai], [dspy], [google-adk], [groq], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [pydantic-ai] |
+| gen_ai.output.messages | [agent-framework], [agent-governance], [anthropic], [autogen], [aws-bedrock], [claude-agent-sdk], [crewai], [dspy], [google-adk], [instructor], [langchain], [litellm], [llamaindex], [mistralai], [openai], [pydantic-ai] |
 | gen_ai.prompt.variable | (none) |
 | gen_ai.system_instructions | [agent-framework], [autogen], [crewai], [google-adk], [langchain], [openai], [pydantic-ai] |
 | gen_ai.tool.definitions | [autogen], [aws-bedrock], [azure-ai-inference], [cohere], [crewai], [dspy], [google-adk], [google-genai], [groq], [instructor], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [pydantic-ai], [vertexai] |
 
 [agent-framework]: ../scenarios/agent-framework/scenario.py
+[agent-governance]: ../scenarios/agent-governance/scenario.py
 [anthropic]: ../scenarios/anthropic/scenario.py
 [autogen]: ../scenarios/autogen/scenario.py
 [aws-bedrock]: ../scenarios/aws-bedrock/scenario.py

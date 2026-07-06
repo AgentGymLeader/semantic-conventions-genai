@@ -1,77 +1,102 @@
-"""Reference implementation: agent governance decision join point with manual instrumentation.
+"""Reference implementation: agent governance decision join point instrumented over the
+OpenAI Agents SDK guardrail runtime.
 
-Exercises: invoke_agent with a producer-emitted governance decision
-(gen_ai.agent.decision.id / gen_ai.agent.decision.outcome /
-gen_ai.agent.governance.ref) against a mock chat completions server, with
-manual span instrumentation.
+Exercises: invoke_agent with a governance decision (gen_ai.agent.decision.outcome /
+gen_ai.agent.governance.ref) against a mock chat completions server, with manual span
+instrumentation.
 
-This scenario is a synthetic, manually instrumented stand-in for a
-producer-side governance gate (for example a policy, approval, or
-execution-context check) that runs before or around an agent invocation. It
-does not integrate with, name, or imply any specific third-party governance
-or policy product; the GovernanceGate class below is a minimal in-process
-allow/block lookup used only to make the two scenarios below deterministic.
+The decision join point instrumented here is the SDK's own input guardrail evaluation
+(InputGuardrail / Runner.run), a library-owned runtime object, not a hand-rolled gate. The
+guardrail function below is a deterministic plain function (no extra LLM call) so both the
+allow and block paths are reproducible against the mock server.
 """
 
 import json
 import os
-from dataclasses import dataclass
 
+from agents import Agent, GuardrailFunctionOutput, InputGuardrail, RunContextWrapper, Runner, function_tool
+from agents.exceptions import InputGuardrailTripwireTriggered
+from agents.models.openai_chatcompletions import OpenAIChatCompletionsModel
+from agents.tool import FunctionTool, ToolContext
 from opentelemetry.trace import SpanKind
 from reference_shared import flush_and_shutdown, mock_server_host_port, reference_tracer, setup_otel
 
 MOCK_BASE_URL = os.environ["MOCK_LLM_URL"] + "/v1"
 REQUEST_MODEL = "gpt-4o-mini"
 AGENT_NAME = "governance_agent"
-GOVERNANCE_REF = "ctx_7f3a9c"
 
 _reference_tracer = reference_tracer()
 
 
-@dataclass(frozen=True)
-class GovernanceDecision:
-    allow: bool
-    decision_id: str
-    outcome: str
-    governance_ref: str
+def _blocked_topic_guardrail_function(
+    ctx: RunContextWrapper[None], agent: Agent, input_text: str | list
+) -> GuardrailFunctionOutput:
+    """Deterministic input guardrail: trips on billing/refund requests, no LLM call."""
+    text = input_text if isinstance(input_text, str) else json.dumps(input_text)
+    tripwire_triggered = "refund" in text.lower()
+    return GuardrailFunctionOutput(
+        output_info={"checked_topic": "billing.refund"},
+        tripwire_triggered=tripwire_triggered,
+    )
 
 
-class GovernanceGate:
-    def __init__(self, allowed_capabilities: set[str], decision_ids: dict[str, str], governance_ref: str):
-        self._allowed_capabilities = allowed_capabilities
-        self._decision_ids = decision_ids
-        self._governance_ref = governance_ref
-
-    def decide(self, capability: str) -> GovernanceDecision:
-        allow = capability in self._allowed_capabilities
-        return GovernanceDecision(
-            allow=allow,
-            decision_id=self._decision_ids[capability],
-            outcome="allow" if allow else "block",
-            governance_ref=self._governance_ref,
-        )
+# run_in_parallel=False makes this guardrail sequential: it runs and can raise
+# InputGuardrailTripwireTriggered before the agent's first model turn starts, so a
+# tripwire on the blocked run provably prevents any model call.
+blocked_topic_guardrail = InputGuardrail(
+    guardrail_function=_blocked_topic_guardrail_function,
+    run_in_parallel=False,
+)
 
 
 def _input_messages(prompt: str) -> str:
     return json.dumps([{"role": "user", "parts": [{"type": "text", "content": prompt}]}])
 
 
-def run_allowed_reference(client, gate: GovernanceGate) -> None:
+@function_tool
+def get_weather(ctx: ToolContext[None], location: str) -> str:
+    """Get the current weather for a location."""
+    tool_span_attributes = {
+        "gen_ai.operation.name": "execute_tool",
+        "gen_ai.tool.name": "get_weather",
+        "gen_ai.tool.type": "function",
+    }
+    with _reference_tracer.start_as_current_span(
+        "execute_tool get_weather", attributes=tool_span_attributes
+    ) as tool_span:
+        tool_span.set_attribute("gen_ai.tool.description", get_weather.description)
+        if ctx.agent is not None and ctx.agent.name:
+            tool_span.set_attribute("gen_ai.agent.name", ctx.agent.name)
+        tool_span.set_attribute("gen_ai.tool.call.id", ctx.tool_call_id)
+        tool_span.set_attribute("gen_ai.tool.call.arguments", json.dumps({"location": location}))
+        result = "Sunny, 72°F"
+        tool_span.set_attribute("gen_ai.tool.call.result", result)
+        return result
+
+
+async def run_allowed_reference(client) -> None:
+    """Allowed governance decision: guardrail does not trip, agent runs and calls a tool."""
     print("  [invoke_agent] allowed governance decision")
     prompt = "Check the weather in Seattle."
-    decision = gate.decide("weather.lookup")
-    messages = [{"role": "user", "content": prompt}]
     input_messages = _input_messages(prompt)
+
+    request_model = REQUEST_MODEL
+    model = OpenAIChatCompletionsModel(model=request_model, openai_client=client)
+    tools = [get_weather]
+    agent = Agent(
+        name=AGENT_NAME,
+        instructions="You are a helpful assistant.",
+        model=model,
+        tools=tools,
+        input_guardrails=[blocked_topic_guardrail],
+    )
 
     host, port = mock_server_host_port(MOCK_BASE_URL)
     agent_attributes = {
         "gen_ai.operation.name": "invoke_agent",
         "gen_ai.provider.name": "openai",
-        "gen_ai.request.model": REQUEST_MODEL,
-        "gen_ai.agent.name": AGENT_NAME,
-        "gen_ai.agent.decision.id": decision.decision_id,
-        "gen_ai.agent.decision.outcome": decision.outcome,
-        "gen_ai.agent.governance.ref": decision.governance_ref,
+        "gen_ai.request.model": request_model,
+        "gen_ai.agent.name": agent.name,
     }
     if host:
         agent_attributes["server.address"] = host
@@ -84,143 +109,112 @@ def run_allowed_reference(client, gate: GovernanceGate) -> None:
         attributes=agent_attributes,
     ) as agent_span:
         agent_span.set_attribute("gen_ai.input.messages", input_messages)
+        agent_span.set_attribute(
+            "gen_ai.tool.definitions",
+            json.dumps(
+                [
+                    {
+                        "type": "function",
+                        "function": {"name": t.name, "description": t.description, "parameters": t.params_json_schema},
+                    }
+                    for t in tools
+                    if isinstance(t, FunctionTool)
+                ]
+            ),
+        )
 
         chat_attributes = {
             "gen_ai.operation.name": "chat",
             "gen_ai.provider.name": "openai",
-            "gen_ai.request.model": REQUEST_MODEL,
+            "gen_ai.request.model": request_model,
         }
         if host:
             chat_attributes["server.address"] = host
         if port is not None:
             chat_attributes["server.port"] = port
-        with _reference_tracer.start_as_current_span("chat gpt-4o-mini", attributes=chat_attributes) as chat_span:
-            chat_span.set_attribute("gen_ai.input.messages", input_messages)
-            resp = client.chat.completions.create(model=REQUEST_MODEL, messages=messages)
-            finish_reasons = [choice.finish_reason for choice in resp.choices]
-            output_messages = [
-                {
-                    "role": choice.message.role,
-                    "parts": [{"type": "text", "content": choice.message.content}],
-                    "finish_reason": choice.finish_reason,
-                }
-                for choice in resp.choices
-                if choice.message.content
-            ]
+        with _reference_tracer.start_as_current_span("chat gpt-4o-mini", attributes=chat_attributes) as span:
+            original_create = client.chat.completions.create
+            captured_responses = []
 
-            chat_span.set_attribute("gen_ai.response.model", resp.model)
-            chat_span.set_attribute("gen_ai.response.id", resp.id)
-            chat_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
-            if resp.usage:
-                chat_span.set_attribute("gen_ai.usage.input_tokens", resp.usage.prompt_tokens)
-                chat_span.set_attribute("gen_ai.usage.output_tokens", resp.usage.completion_tokens)
-            if output_messages:
-                chat_span.set_attribute("gen_ai.output.messages", json.dumps(output_messages))
+            async def _capture_create(*args, **kwargs):
+                response = await original_create(*args, **kwargs)
+                captured_responses.append(response)
+                return response
 
-            agent_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
-            if resp.usage:
-                agent_span.set_attribute("gen_ai.usage.input_tokens", resp.usage.prompt_tokens)
-                agent_span.set_attribute("gen_ai.usage.output_tokens", resp.usage.completion_tokens)
-            if output_messages:
-                agent_span.set_attribute("gen_ai.output.messages", json.dumps(output_messages))
+            client.chat.completions.create = _capture_create
+            try:
+                result = await Runner.run(agent, prompt)
+            finally:
+                client.chat.completions.create = original_create
 
-        tool_span_attributes = {
-            "gen_ai.operation.name": "execute_tool",
-            "gen_ai.tool.name": "get_weather",
-            "gen_ai.tool.type": "function",
-        }
-        with _reference_tracer.start_as_current_span(
-            "execute_tool get_weather", attributes=tool_span_attributes
-        ) as tool_span:
-            tool_span.set_attribute("gen_ai.tool.call.arguments", json.dumps({"location": "Seattle"}))
-            tool_result = "Sunny in Seattle"
-            tool_span.set_attribute("gen_ai.tool.call.result", tool_result)
+            # The guardrail result is read from the SDK's own RunResult, not a local
+            # dataclass: result.input_guardrail_results[0].guardrail is the InputGuardrail
+            # instance the SDK actually ran, and .get_name() is the SDK's own naming logic
+            # (explicit name, falling back to the guardrail function's __name__).
+            guardrail_result = result.input_guardrail_results[0]
+            agent_span.set_attribute("gen_ai.agent.decision.outcome", "allow")
+            agent_span.set_attribute("gen_ai.agent.governance.ref", guardrail_result.guardrail.get_name())
+            # gen_ai.agent.decision.id is intentionally omitted: the SDK's InputGuardrailResult
+            # / GuardrailFunctionOutput exposes no natural runtime decision identifier (only a
+            # guardrail name and an output_info payload). A producer-side governance gate could
+            # supply one via output_info as an opt-in extension; this reference does not mint a
+            # synthetic id to fill the attribute.
 
-        print(f"    -> {decision.outcome}: get_weather")
-
-
-def run_allowed_internal_reference(client, gate: GovernanceGate) -> None:
-    """Demonstrate the same decision join point on an in-process (internal) agent invocation."""
-    print("  [invoke_agent internal] allowed governance decision")
-    prompt = "Summarize today's weather checks."
-    decision = gate.decide("weather.lookup")
-    messages = [{"role": "user", "content": prompt}]
-    input_messages = _input_messages(prompt)
-
-    agent_attributes = {
-        "gen_ai.operation.name": "invoke_agent",
-        "gen_ai.provider.name": "openai",
-        "gen_ai.request.model": REQUEST_MODEL,
-        "gen_ai.agent.name": AGENT_NAME,
-        "gen_ai.agent.decision.id": decision.decision_id,
-        "gen_ai.agent.decision.outcome": decision.outcome,
-        "gen_ai.agent.governance.ref": decision.governance_ref,
-    }
-
-    with _reference_tracer.start_as_current_span(
-        f"invoke_agent {AGENT_NAME}",
-        kind=SpanKind.INTERNAL,
-        attributes=agent_attributes,
-    ) as agent_span:
-        agent_span.set_attribute("gen_ai.input.messages", input_messages)
-
-        host, port = mock_server_host_port(MOCK_BASE_URL)
-        chat_attributes = {
-            "gen_ai.operation.name": "chat",
-            "gen_ai.provider.name": "openai",
-            "gen_ai.request.model": REQUEST_MODEL,
-        }
-        if host:
-            chat_attributes["server.address"] = host
-        if port is not None:
-            chat_attributes["server.port"] = port
-        with _reference_tracer.start_as_current_span("chat gpt-4o-mini", attributes=chat_attributes) as chat_span:
-            chat_span.set_attribute("gen_ai.input.messages", input_messages)
-            resp = client.chat.completions.create(model=REQUEST_MODEL, messages=messages)
-            finish_reasons = [choice.finish_reason for choice in resp.choices]
-            output_messages = [
-                {
-                    "role": choice.message.role,
-                    "parts": [{"type": "text", "content": choice.message.content}],
-                    "finish_reason": choice.finish_reason,
-                }
-                for choice in resp.choices
-                if choice.message.content
-            ]
-
-            chat_span.set_attribute("gen_ai.response.model", resp.model)
-            chat_span.set_attribute("gen_ai.response.id", resp.id)
-            chat_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
-            if resp.usage:
-                chat_span.set_attribute("gen_ai.usage.input_tokens", resp.usage.prompt_tokens)
-                chat_span.set_attribute("gen_ai.usage.output_tokens", resp.usage.completion_tokens)
-            if output_messages:
-                chat_span.set_attribute("gen_ai.output.messages", json.dumps(output_messages))
-
-            agent_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
-            if resp.usage:
-                agent_span.set_attribute("gen_ai.usage.input_tokens", resp.usage.prompt_tokens)
-                agent_span.set_attribute("gen_ai.usage.output_tokens", resp.usage.completion_tokens)
-            if output_messages:
-                agent_span.set_attribute("gen_ai.output.messages", json.dumps(output_messages))
-
-        print(f"    -> {decision.outcome}: chat")
+            usage = result.context_wrapper.usage
+            if usage.total_tokens:
+                span.set_attribute("gen_ai.usage.input_tokens", usage.input_tokens)
+                span.set_attribute("gen_ai.usage.output_tokens", usage.output_tokens)
+                agent_span.set_attribute("gen_ai.usage.input_tokens", usage.input_tokens)
+                agent_span.set_attribute("gen_ai.usage.output_tokens", usage.output_tokens)
+            if captured_responses:
+                last_response = captured_responses[-1]
+                if getattr(last_response, "id", None):
+                    span.set_attribute("gen_ai.response.id", last_response.id)
+                if getattr(last_response, "model", None):
+                    span.set_attribute("gen_ai.response.model", last_response.model)
+                finish_reasons = [
+                    choice.finish_reason
+                    for choice in getattr(last_response, "choices", []) or []
+                    if getattr(choice, "finish_reason", None)
+                ]
+                if finish_reasons:
+                    agent_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
+            if result.final_output:
+                agent_span.set_attribute(
+                    "gen_ai.output.messages",
+                    json.dumps(
+                        [
+                            {
+                                "role": "assistant",
+                                "parts": [{"type": "text", "content": str(result.final_output)}],
+                            }
+                        ]
+                    ),
+                )
+            print(f"    -> allow: {str(result.final_output)[:60]}")
 
 
-def run_denied_reference(gate: GovernanceGate) -> None:
+async def run_denied_reference(client) -> None:
+    """Blocked governance decision: guardrail trips, agent makes no model call."""
     print("  [invoke_agent] blocked governance decision")
     prompt = "Refund the current invoice."
-    decision = gate.decide("billing.refund")
+    input_messages = _input_messages(prompt)
+
+    request_model = REQUEST_MODEL
+    model = OpenAIChatCompletionsModel(model=request_model, openai_client=client)
+    agent = Agent(
+        name=AGENT_NAME,
+        instructions="You are a helpful assistant.",
+        model=model,
+        input_guardrails=[blocked_topic_guardrail],
+    )
 
     host, port = mock_server_host_port(MOCK_BASE_URL)
     agent_attributes = {
         "gen_ai.operation.name": "invoke_agent",
         "gen_ai.provider.name": "openai",
-        "gen_ai.request.model": REQUEST_MODEL,
-        "gen_ai.agent.name": AGENT_NAME,
-        "gen_ai.agent.decision.id": decision.decision_id,
-        "gen_ai.agent.decision.outcome": decision.outcome,
-        "gen_ai.agent.governance.ref": decision.governance_ref,
+        "gen_ai.request.model": request_model,
+        "gen_ai.agent.name": agent.name,
     }
     if host:
         agent_attributes["server.address"] = host
@@ -232,8 +226,19 @@ def run_denied_reference(gate: GovernanceGate) -> None:
         kind=SpanKind.CLIENT,
         attributes=agent_attributes,
     ) as agent_span:
-        agent_span.set_attribute("gen_ai.input.messages", _input_messages(prompt))
-        print(f"    -> {decision.outcome}: billing.refund")
+        agent_span.set_attribute("gen_ai.input.messages", input_messages)
+        try:
+            await Runner.run(agent, prompt)
+        except InputGuardrailTripwireTriggered as exc:
+            # The tripped guardrail is read straight off the SDK's own exception payload
+            # (exc.guardrail_result.guardrail), the same InputGuardrail instance registered
+            # on the agent above -- no third-party product name, no synthetic identifier.
+            agent_span.set_attribute("gen_ai.agent.decision.outcome", "block")
+            agent_span.set_attribute("gen_ai.agent.governance.ref", exc.guardrail_result.guardrail.get_name())
+            # No model call happened (run_in_parallel=False on the guardrail stopped the
+            # run before the first turn) and no execute_tool child span is emitted: the
+            # decision is terminal at the invoke_agent span itself.
+            print("    -> block: refund request stopped before any model call")
 
 
 def main() -> None:
@@ -241,21 +246,17 @@ def main() -> None:
 
     tp, lp, mp = setup_otel()
 
+    import asyncio
+
     import openai
 
-    client = openai.OpenAI(base_url=MOCK_BASE_URL, api_key="mock-key")
-    gate = GovernanceGate(
-        allowed_capabilities={"weather.lookup"},
-        decision_ids={
-            "weather.lookup": "decision_01J8Z3K5G4QYX9V2XQ9K7YXTAM",
-            "billing.refund": "decision_01J8Z3N2R8S6VT4MZ3YXK9B7QC",
-        },
-        governance_ref=GOVERNANCE_REF,
-    )
+    client = openai.AsyncOpenAI(base_url=MOCK_BASE_URL, api_key="mock-key")
 
-    run_allowed_reference(client, gate)
-    run_allowed_internal_reference(client, gate)
-    run_denied_reference(gate)
+    async def _run_all():
+        await run_allowed_reference(client)
+        await run_denied_reference(client)
+
+    asyncio.run(_run_all())
 
     flush_and_shutdown(tp, lp, mp)
 

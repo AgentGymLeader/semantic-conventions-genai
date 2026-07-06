@@ -24,28 +24,28 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.agent.decision.outcome | [agent-governance] |
+| gen_ai.agent.decision.outcome | (none) |
 | gen_ai.request.frequency_penalty | [agent-framework], [autogen], [crewai], [google-adk], [pydantic-ai] |
 | gen_ai.request.max_tokens | [agent-framework], [autogen], [crewai], [google-adk], [pydantic-ai] |
-| gen_ai.request.model | [agent-framework], [agent-governance], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
+| gen_ai.request.model | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
 | gen_ai.request.presence_penalty | [agent-framework], [autogen], [crewai], [google-adk], [pydantic-ai] |
 | gen_ai.request.stop_sequences | [agent-framework], [autogen], [crewai], [google-adk], [pydantic-ai] |
 | gen_ai.request.temperature | [agent-framework], [autogen], [crewai], [google-adk], [pydantic-ai] |
 | gen_ai.request.top_p | [agent-framework], [autogen], [crewai], [google-adk], [pydantic-ai] |
-| gen_ai.response.finish_reasons | [agent-governance], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
+| gen_ai.response.finish_reasons | [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
 | gen_ai.usage.cache_creation.input_tokens | (none) |
 | gen_ai.usage.cache_read.input_tokens | [agent-framework] |
-| gen_ai.usage.input_tokens | [agent-framework], [agent-governance], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
-| gen_ai.usage.output_tokens | [agent-framework], [agent-governance], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
+| gen_ai.usage.input_tokens | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
+| gen_ai.usage.output_tokens | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
 
 ## Opt-In
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.agent.decision.id | [agent-governance] |
-| gen_ai.agent.governance.ref | [agent-governance] |
-| gen_ai.input.messages | [agent-framework], [agent-governance], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
-| gen_ai.output.messages | [agent-framework], [agent-governance], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
+| gen_ai.agent.decision.id | (none) |
+| gen_ai.agent.governance.ref | (none) |
+| gen_ai.input.messages | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
+| gen_ai.output.messages | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
 | gen_ai.system_instructions | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
 | gen_ai.tool.definitions | [agent-framework], [autogen], [crewai], [google-adk], [openai-agents], [pydantic-ai] |
 

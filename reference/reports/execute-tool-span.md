@@ -13,14 +13,14 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.agent.name | [google-adk], [openai-agents], [pydantic-ai] |
+| gen_ai.agent.name | [agent-governance], [google-adk], [openai-agents], [pydantic-ai] |
 
 ## Recommended
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.tool.call.id | [agent-framework], [autogen], [google-adk], [groq], [instructor], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [openai-assistants], [pydantic-ai] |
-| gen_ai.tool.description | [agent-framework], [autogen], [crewai], [google-adk], [groq], [instructor], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [openai-assistants], [pydantic-ai] |
+| gen_ai.tool.call.id | [agent-framework], [agent-governance], [autogen], [google-adk], [groq], [instructor], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [openai-assistants], [pydantic-ai] |
+| gen_ai.tool.description | [agent-framework], [agent-governance], [autogen], [crewai], [google-adk], [groq], [instructor], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [openai-assistants], [pydantic-ai] |
 | gen_ai.tool.type | [agent-framework], [agent-governance], [autogen], [crewai], [google-adk], [groq], [instructor], [litellm], [llamaindex], [mistralai], [openai], [openai-agents], [openai-assistants], [pydantic-ai] |
 
 ## Opt-In

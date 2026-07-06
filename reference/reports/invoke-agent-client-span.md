@@ -47,12 +47,12 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.agent.decision.id | [agent-governance] |
+| gen_ai.agent.decision.id | (none) |
 | gen_ai.agent.governance.ref | [agent-governance] |
 | gen_ai.input.messages | [agent-governance], [aws-bedrock-agent], [azure-ai-foundry], [openai-assistants] |
 | gen_ai.output.messages | [agent-governance], [aws-bedrock-agent], [azure-ai-foundry], [openai-assistants] |
 | gen_ai.system_instructions | [azure-ai-foundry], [openai-assistants] |
-| gen_ai.tool.definitions | [azure-ai-foundry], [openai-assistants] |
+| gen_ai.tool.definitions | [agent-governance], [azure-ai-foundry], [openai-assistants] |
 
 [agent-governance]: ../scenarios/agent-governance/scenario.py
 [aws-bedrock-agent]: ../scenarios/aws-bedrock-agent/scenario.py

@@ -1,9 +1,10 @@
 """Reference implementation: agent governance decision join point instrumented over the
 OpenAI Agents SDK guardrail runtime.
 
-Exercises: invoke_agent with a governance decision (gen_ai.agent.decision.outcome /
-gen_ai.agent.governance.ref) against a mock chat completions server, with manual span
-instrumentation.
+Exercises: invoke_agent around the SDK's own input guardrail evaluation, against a mock
+chat completions server, with manual span instrumentation. No gen_ai.agent.governance.ref
+is emitted here: its first attachment point is the guardrail evaluation span proposed in
+open-telemetry/semantic-conventions-genai#262, which does not exist upstream yet.
 
 The decision join point instrumented here is the SDK's own input guardrail evaluation
 (InputGuardrail / Runner.run), a library-owned runtime object, not a hand-rolled gate. The
@@ -147,18 +148,9 @@ async def run_allowed_reference(client) -> None:
             finally:
                 client.chat.completions.create = original_create
 
-            # The guardrail result is read from the SDK's own RunResult, not a local
-            # dataclass: result.input_guardrail_results[0].guardrail is the InputGuardrail
-            # instance the SDK actually ran, and .get_name() is the SDK's own naming logic
-            # (explicit name, falling back to the guardrail function's __name__).
-            guardrail_result = result.input_guardrail_results[0]
-            agent_span.set_attribute("gen_ai.agent.decision.outcome", "allow")
-            agent_span.set_attribute("gen_ai.agent.governance.ref", guardrail_result.guardrail.get_name())
-            # gen_ai.agent.decision.id is intentionally omitted: the SDK's InputGuardrailResult
-            # / GuardrailFunctionOutput exposes no natural runtime decision identifier (only a
-            # guardrail name and an output_info payload). A producer-side governance gate could
-            # supply one via output_info as an opt-in extension; this reference does not mint a
-            # synthetic id to fill the attribute.
+            # gen_ai.agent.governance.ref will be recorded on the span representing the
+            # guardrail evaluation itself once that span type exists upstream (see PR #262);
+            # it is deliberately not copied onto this agent span.
 
             usage = result.context_wrapper.usage
             if usage.total_tokens:
@@ -229,12 +221,7 @@ async def run_denied_reference(client) -> None:
         agent_span.set_attribute("gen_ai.input.messages", input_messages)
         try:
             await Runner.run(agent, prompt)
-        except InputGuardrailTripwireTriggered as exc:
-            # The tripped guardrail is read straight off the SDK's own exception payload
-            # (exc.guardrail_result.guardrail), the same InputGuardrail instance registered
-            # on the agent above -- no third-party product name, no synthetic identifier.
-            agent_span.set_attribute("gen_ai.agent.decision.outcome", "block")
-            agent_span.set_attribute("gen_ai.agent.governance.ref", exc.guardrail_result.guardrail.get_name())
+        except InputGuardrailTripwireTriggered:
             # No model call happened (run_in_parallel=False on the guardrail stopped the
             # run before the first turn) and no execute_tool child span is emitted: the
             # decision is terminal at the invoke_agent span itself.

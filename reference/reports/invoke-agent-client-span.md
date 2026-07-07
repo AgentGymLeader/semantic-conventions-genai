@@ -28,7 +28,6 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.agent.decision.outcome | [agent-governance] |
 | gen_ai.request.frequency_penalty | (none) |
 | gen_ai.request.max_tokens | [azure-ai-foundry], [openai-assistants] |
 | gen_ai.request.model | [agent-governance], [azure-ai-foundry], [openai-assistants] |
@@ -47,8 +46,6 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.agent.decision.id | (none) |
-| gen_ai.agent.governance.ref | [agent-governance] |
 | gen_ai.input.messages | [agent-governance], [aws-bedrock-agent], [azure-ai-foundry], [openai-assistants] |
 | gen_ai.output.messages | [agent-governance], [aws-bedrock-agent], [azure-ai-foundry], [openai-assistants] |
 | gen_ai.system_instructions | [azure-ai-foundry], [openai-assistants] |

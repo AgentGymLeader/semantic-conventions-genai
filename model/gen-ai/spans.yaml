@@ -136,16 +136,6 @@ attribute_groups:
         brief: The free-form description of the invoked GenAI agent.
         requirement_level:
           conditionally_required: When available.
-      # Producer-emitted governance decision join point. Opt-in: only emitted by
-      # instrumentations that sit at a governance decision point for the agent
-      # invocation (policy, review, approval, or execution-context evaluation).
-      - ref: gen_ai.agent.decision.id
-        requirement_level: opt_in
-      - ref: gen_ai.agent.decision.outcome
-        requirement_level:
-          recommended: If `gen_ai.agent.decision.id` is set.
-      - ref: gen_ai.agent.governance.ref
-        requirement_level: opt_in
 
 
   - id: attributes.gen_ai.execute_tool.common

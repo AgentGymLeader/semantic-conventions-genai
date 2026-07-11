@@ -5,12 +5,11 @@ requires-python = ">=3.12"
 dependencies = [
     "anthropic==0.117.0",
     "genai-reference-shared",
-    "opentelemetry-util-genai",
+    "opentelemetry-util-genai==1.0b0",
 ]
 
 [tool.uv.sources]
 genai-reference-shared = { path = "../../shared", editable = true }
-opentelemetry-util-genai = { git = "https://github.com/open-telemetry/opentelemetry-python-genai", rev = "8e048780fd8754ea8b64b53bec7f561c7ca60066", subdirectory = "util/opentelemetry-util-genai" }
 
 [tool.uv]
 package = false

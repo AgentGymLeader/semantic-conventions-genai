@@ -6,21 +6,23 @@
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.operation.name | [anthropic] |
+| gen_ai.operation.name | [agent-framework], [anthropic], [google-adk] |
 
 ## Conditionally Required
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.provider.name | [anthropic] |
-| gen_ai.request.model | [anthropic] |
+| gen_ai.provider.name | [agent-framework], [anthropic], [google-adk] |
+| gen_ai.request.model | [agent-framework], [anthropic], [google-adk] |
 | server.port | [anthropic] |
 
 ## Recommended
 
 | Attribute | Supporting Libraries |
 | --- | --- |
-| gen_ai.response.model | [anthropic] |
-| server.address | [anthropic] |
+| gen_ai.response.model | [agent-framework], [anthropic], [google-adk] |
+| server.address | [agent-framework], [anthropic] |
 
+[agent-framework]: ../scenarios/agent-framework/scenario.py
 [anthropic]: ../scenarios/anthropic/scenario.py
+[google-adk]: ../scenarios/google-adk/scenario.py

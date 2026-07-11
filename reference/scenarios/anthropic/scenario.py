@@ -107,7 +107,10 @@ def run_compaction(handler):
     InferenceInvocation does not have a first-class property for it yet.
     Compaction blocks in input/output messages are serialised manually
     via inv.attributes["gen_ai.input.messages"] because opentelemetry-util-genai
-    does not have a CompactionPart type.
+    does not have a CompactionPart type. The compaction parts stay type-only
+    (no `content`): Anthropic only exposes an encrypted, opaque compaction
+    state here, never the unencrypted summary CompactionPart.content
+    documents, so it would be dishonest to fabricate one.
     """
     print("  [chat_compaction] chat with server-side compaction (util-genai handler)")
     request_model = "claude-sonnet-4-20250514"
@@ -140,12 +143,7 @@ def run_compaction(handler):
             [
                 {
                     "role": "assistant",
-                    "parts": [
-                        {
-                            "type": "compaction",
-                            "content": "opaque encrypted compaction state from a prior turn",
-                        }
-                    ],
+                    "parts": [{"type": "compaction"}],
                 },
                 {"role": "user", "parts": [{"type": "text", "content": "Continue this long conversation."}]},
             ]
@@ -184,11 +182,10 @@ def run_compaction(handler):
             if block_type == "text" and getattr(block, "text", None):
                 output_parts.append({"type": "text", "content": block.text})
             elif block_type == "compaction":
-                part = {"type": "compaction"}
-                compaction_content = getattr(block, "content", None)
-                if compaction_content:
-                    part["content"] = compaction_content
-                output_parts.append(part)
+                # Anthropic only ever returns `encrypted_content` here, never the
+                # unencrypted summary CompactionPart.content documents, so this part
+                # stays type-only.
+                output_parts.append({"type": "compaction"})
         if output_parts:
             inv.attributes["gen_ai.output.messages"] = json.dumps(  # -> gen_ai.output.messages
                 [{"role": "assistant", "parts": output_parts, "finish_reason": resp.stop_reason}]

@@ -37,8 +37,12 @@ def _result_with_tool_calls_metric() -> ScenarioResult:
 
 def test_metric_specs_expose_recommended_agent_name():
     assert METRIC_SPECS, "expected at least one tracked metric"
-    for name, spec in METRIC_SPECS.items():
-        assert "gen_ai.agent.name" in spec.recommended, name
+    # Only the per-invocation agent metrics are agent-scoped; gen_ai.client.*
+    # metrics (token usage, operation duration) are not dimensioned by
+    # gen_ai.agent.name, so this checks the invoke_agent metrics specifically
+    # rather than every entry in METRIC_SPECS.
+    for name in (_INFERENCE_CALLS, _TOOL_CALLS):
+        assert "gen_ai.agent.name" in METRIC_SPECS[name].recommended, name
 
 
 def test_emitted_metric_is_persisted():

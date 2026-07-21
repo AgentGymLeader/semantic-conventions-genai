@@ -2,21 +2,16 @@
 
 import os
 
-os.environ["OTEL_SEMCONV_STABILITY_OPT_IN"] = "gen_ai_latest_experimental"
 os.environ["OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"] = "SPAN_AND_EVENT"
 os.environ["OTEL_INSTRUMENTATION_GENAI_EMIT_EVENT"] = "true"
 
-from opentelemetry.instrumentation._semconv import _OpenTelemetrySemanticConventionStability
+import base64
+import json
 
-_OpenTelemetrySemanticConventionStability._initialize()
-
-import base64  # noqa: E402
-import json  # noqa: E402
-
-import anthropic  # noqa: E402
-from opentelemetry.util.genai.handler import get_telemetry_handler  # noqa: E402
-from opentelemetry.util.genai.types import Blob, InputMessage, OutputMessage, Text  # noqa: E402
-from reference_shared import flush_and_shutdown, mock_server_host_port, setup_otel  # noqa: E402
+import anthropic
+from opentelemetry.util.genai.handler import get_telemetry_handler
+from opentelemetry.util.genai.types import Blob, InputMessage, OutputMessage, Text
+from reference_shared import flush_and_shutdown, mock_server_host_port, setup_otel
 
 MOCK_BASE_URL = os.environ["MOCK_LLM_URL"]
 

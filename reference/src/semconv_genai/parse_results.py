@@ -75,36 +75,29 @@ def _attribute_names(
 
 
 def _metric_data_points(metric: dict[str, object]) -> list[dict[str, object]] | None:
-    """Return metric data points from either known Weaver metric shapes."""
-    marker = object()
-    raw_points = metric.get("data_points", marker)
-    if raw_points is marker:
-        raw_data = metric.get("data", marker)
-        if isinstance(raw_data, dict):
-            raw_points = raw_data.get("data_points", marker)
-    if raw_points is marker:
-        return [metric]
-    if isinstance(raw_points, dict):
-        return [raw_points]
-    if isinstance(raw_points, list):
-        data_points: list[dict[str, object]] = []
-        for data_point in raw_points:
-            if isinstance(data_point, dict):
-                data_points.append(data_point)
-                continue
-            _LOGGER.warning(
-                "Skipping non-dict data point for metric %r: %r",
-                metric.get("name", ""),
-                data_point,
-            )
-        return data_points
+    """Return the metric's data points, or None if `data_points` is unusable."""
+    raw_points = metric.get("data_points")
+    if raw_points is None:
+        return []
+    if not isinstance(raw_points, list):
+        _LOGGER.warning(
+            "Skipping metric %r with invalid data_points: expected list, got %s",
+            metric.get("name", ""),
+            type(raw_points).__name__,
+        )
+        return None
 
-    _LOGGER.warning(
-        "Skipping metric %r with invalid data_points: expected dict or list, got %s",
-        metric.get("name", ""),
-        type(raw_points).__name__,
-    )
-    return None
+    data_points: list[dict[str, object]] = []
+    for data_point in raw_points:
+        if isinstance(data_point, dict):
+            data_points.append(data_point)
+            continue
+        _LOGGER.warning(
+            "Skipping non-dict data point for metric %r: %r",
+            metric.get("name", ""),
+            data_point,
+        )
+    return data_points
 
 
 def _summarize_samples(

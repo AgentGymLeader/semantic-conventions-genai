@@ -5,6 +5,10 @@ Runnable directly (``python tests/test_metrics.py``) or under pytest.
 
 from __future__ import annotations
 
+import logging
+from collections.abc import Iterator
+from contextlib import contextmanager
+
 from semconv_genai.classify import classify_metric
 from semconv_genai.data_files import (
     _build_single_scenario_data,
@@ -88,6 +92,37 @@ def test_untracked_metric_is_ignored():
     assert signals.metrics == {}
 
 
+class _ListHandler(logging.Handler):
+    """Minimal logging handler that stores emitted records in a list."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.records: list[logging.LogRecord] = []
+
+    def emit(self, record: logging.LogRecord) -> None:
+        self.records.append(record)
+
+
+@contextmanager
+def _captured_warnings() -> Iterator[list[logging.LogRecord]]:
+    """Collect WARNING+ records logged by ``semconv_genai.parse_results``.
+
+    A small stand-in for pytest's ``caplog`` fixture, so tests using it also
+    run under ``python tests/test_metrics.py`` and not only under pytest.
+    """
+    logger = logging.getLogger("semconv_genai.parse_results")
+    handler = _ListHandler()
+    handler.setLevel(logging.WARNING)
+    previous_level = logger.level
+    logger.setLevel(logging.WARNING)
+    logger.addHandler(handler)
+    try:
+        yield handler.records
+    finally:
+        logger.removeHandler(handler)
+        logger.setLevel(previous_level)
+
+
 def test_statistics_only_metric_reports_no_supporting_attributes():
     """A metric counted only via statistics has no sample-backed attributes to report.
 
@@ -106,6 +141,14 @@ def test_statistics_only_metric_reports_no_supporting_attributes():
     assert data["metrics"][_TOOL_CALLS] == []
 
 
+def test_null_data_points_is_skipped_without_warning():
+    metric = {"name": _TOKEN_USAGE, "data_points": None}
+    with _captured_warnings() as records:
+        _, signals = _summarize_samples(_samples(metric), _no_spans, classify_metric)
+    assert signals.metrics == {}
+    assert records == []
+
+
 if __name__ == "__main__":
     test_metric_specs_expose_recommended_agent_name()
     test_emitted_metric_is_persisted()
@@ -113,4 +156,5 @@ if __name__ == "__main__":
     test_metric_attrs_intersect_across_data_points()
     test_untracked_metric_is_ignored()
     test_statistics_only_metric_reports_no_supporting_attributes()
+    test_null_data_points_is_skipped_without_warning()
     print("ok")

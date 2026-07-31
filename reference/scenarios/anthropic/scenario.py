@@ -6,7 +6,6 @@ os.environ["OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"] = "SPAN_AND_EVE
 os.environ["OTEL_INSTRUMENTATION_GENAI_EMIT_EVENT"] = "true"
 
 import base64
-import json
 
 import anthropic
 from opentelemetry.util.genai.handler import get_telemetry_handler
@@ -100,12 +99,13 @@ def run_compaction(handler):
 
     gen_ai.conversation.compacted is set via inv.attributes since
     InferenceInvocation does not have a first-class property for it yet.
-    Compaction blocks in input/output messages are serialised manually
-    via inv.attributes["gen_ai.input.messages"] because opentelemetry-util-genai
-    does not have a CompactionPart type. The compaction parts stay type-only
-    (no `content`): Anthropic only exposes an encrypted, opaque compaction
-    state here, never the unencrypted summary CompactionPart.content
-    documents, so it would be dishonest to fabricate one.
+    Compaction blocks have no util-genai part type (`GenericPart` would serialize
+    as `{"type": "generic", ...}`, not the semconv shape), so they are emitted as
+    plain dict parts inside `InputMessage`/`OutputMessage`; `dataclasses.asdict`
+    recurses into them, so the span and the event carry the same shape. The
+    compaction parts stay type-only (no `content`): Anthropic only exposes an
+    encrypted, opaque compaction state here, never the unencrypted summary
+    CompactionPart.content documents, so it would be dishonest to fabricate one.
     """
     print("  [chat_compaction] chat with server-side compaction (util-genai handler)")
     request_model = "claude-sonnet-4-20250514"
@@ -133,16 +133,14 @@ def run_compaction(handler):
     ) as inv:
         inv.max_tokens = request_max_tokens  # -> gen_ai.request.max_tokens
 
-        # Compaction blocks have no util-genai type yet; set gen_ai.input.messages manually.
-        inv.attributes["gen_ai.input.messages"] = json.dumps(  # -> gen_ai.input.messages
-            [
-                {
-                    "role": "assistant",
-                    "parts": [{"type": "compaction"}],
-                },
-                {"role": "user", "parts": [{"type": "text", "content": "Continue this long conversation."}]},
-            ]
-        )
+        # Compaction blocks have no util-genai part type, but `dataclasses.asdict`
+        # recurses into plain dicts, so a dict part reaches the span and the event
+        # in the same semconv shape.
+        compaction_message, user_message = messages
+        inv.input_messages = [  # -> gen_ai.input.messages
+            InputMessage(role=compaction_message["role"], parts=[{"type": "compaction"}]),
+            InputMessage(role=user_message["role"], parts=[Text(content=user_message["content"])]),
+        ]
 
         resp = client.beta.messages.create(
             model=request_model,
@@ -182,9 +180,9 @@ def run_compaction(handler):
                 # stays type-only.
                 output_parts.append({"type": "compaction"})
         if output_parts:
-            inv.attributes["gen_ai.output.messages"] = json.dumps(  # -> gen_ai.output.messages
-                [{"role": "assistant", "parts": output_parts, "finish_reason": resp.stop_reason}]
-            )
+            inv.output_messages = [  # -> gen_ai.output.messages
+                OutputMessage(role="assistant", parts=output_parts, finish_reason=resp.stop_reason),
+            ]
 
     print(f"    -> compacted: {conversation_compacted}")
 

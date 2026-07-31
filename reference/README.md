@@ -46,8 +46,6 @@ Run `uv run update-reports` to regenerate.
 
 | Metric | Libraries |
 | --- | --- |
-| [Client Token Usage](reports/gen-ai-client-token-usage-metric.md) | agent-framework, anthropic, google-adk |
-| [Client Operation Duration](reports/gen-ai-client-operation-duration-metric.md) | agent-framework, anthropic, google-adk |
 | [Invoke Agent Inference Calls](reports/gen-ai-invoke-agent-inference-calls-metric.md) | google-adk |
 | [Invoke Agent Tool Calls](reports/gen-ai-invoke-agent-tool-calls-metric.md) | google-adk |
 <!-- status:end -->

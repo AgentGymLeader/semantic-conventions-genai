@@ -3,14 +3,9 @@
 from __future__ import annotations
 
 import json
-import logging
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
 from pathlib import Path
-
-from .classify import classify_metric as _default_classify_metric
-
-_LOGGER = logging.getLogger(__name__)
 
 # ── Span classification types ──────────────────────────────────────
 
@@ -33,7 +28,6 @@ class DetectedSignals:
 
 
 ClassifySpan = Callable[[str, str, dict[str, object]], set[str]]
-ClassifyMetric = Callable[[str, dict[str, object]], set[str]]
 
 
 def _attributes_by_name(
@@ -47,12 +41,9 @@ def _attributes_by_name(
     for attr in raw_attrs:
         if not isinstance(attr, dict):
             continue
-        name = attr.get("name")
-        if not isinstance(name, str) or not name:
-            continue
         if include_attr is not None and not include_attr(attr):
             continue
-        attrs[name] = attr.get("value")
+        attrs[attr.get("name", "")] = attr.get("value")
     return attrs
 
 
@@ -76,43 +67,35 @@ def _attribute_names(
     return names
 
 
-def _metric_data_points(metric: dict[str, object]) -> list[dict[str, object]] | None:
-    """Return metric data points from either known Weaver metric shapes."""
-    marker = object()
-    raw_points = metric.get("data_points", marker)
-    if raw_points is marker:
-        raw_data = metric.get("data", marker)
-        if isinstance(raw_data, dict):
-            raw_points = raw_data.get("data_points", marker)
-    if raw_points is marker:
-        return [metric]
-    if isinstance(raw_points, dict):
-        return [raw_points]
-    if isinstance(raw_points, list):
-        data_points: list[dict[str, object]] = []
-        for data_point in raw_points:
-            if isinstance(data_point, dict):
-                data_points.append(data_point)
+def _metric_attribute_names(
+    metric: dict[str, object],
+    include_attr: Callable[[dict[str, object]], bool] | None = None,
+) -> set[str]:
+    names: set[str] = set()
+    raw_points = metric.get("data_points", [])
+    if not isinstance(raw_points, list):
+        return names
+    for dp in raw_points:
+        if not isinstance(dp, dict):
+            continue
+        raw_attrs = dp.get("attributes", [])
+        if not isinstance(raw_attrs, list):
+            continue
+        for attr in raw_attrs:
+            if not isinstance(attr, dict):
                 continue
-            _LOGGER.warning(
-                "Skipping non-dict data point for metric %r: %r",
-                metric.get("name", ""),
-                data_point,
-            )
-        return data_points
-
-    _LOGGER.warning(
-        "Skipping metric %r with invalid data_points: expected dict or list, got %s",
-        metric.get("name", ""),
-        type(raw_points).__name__,
-    )
-    return None
+            name = attr.get("name")
+            if not isinstance(name, str) or not name:
+                continue
+            if include_attr is not None and not include_attr(attr):
+                continue
+            names.add(name)
+    return names
 
 
 def _summarize_samples(
     all_objects: list[dict],
     classify_span: ClassifySpan,
-    classify_metric: ClassifyMetric,
     include_attr: Callable[[dict[str, object]], bool] | None = None,
 ) -> tuple[SpanClassification, DetectedSignals]:
     """Scan sample payloads once and collect detected spans, events, and metrics."""
@@ -154,41 +137,14 @@ def _summarize_samples(
             metric = sample.get("metric")
             if metric:
                 metric_name = metric.get("name", "")
-                if not isinstance(metric_name, str) or not metric_name:
-                    _LOGGER.warning("Skipping metric with invalid name: %r", metric_name)
-                    continue
-
-                observations = _metric_data_points(metric)
-                if observations is None or not observations:
-                    continue
-
-                metric_attrs_by_type: dict[str, set[str]] = {}
-                metric_any_attrs_by_type: dict[str, set[str]] = {}
-                for observation in observations:
-                    metric_attrs = _attributes_by_name(observation, include_attr)
-                    attr_names = set(metric_attrs)
-                    for metric_type in classify_metric(metric_name, metric_attrs):
-                        if not metric_type.startswith("gen_ai."):
-                            continue
-                        if metric_type not in metric_attrs_by_type:
-                            metric_attrs_by_type[metric_type] = set(attr_names)
-                        else:
-                            metric_attrs_by_type[metric_type].intersection_update(attr_names)
-                        metric_any_attrs_by_type.setdefault(metric_type, set()).update(attr_names)
-
-                if not metric_attrs_by_type:
-                    _LOGGER.warning("Skipping unrecognized metric: %s", metric_name)
-                    continue
-
-                for metric_type, attr_names in metric_attrs_by_type.items():
-                    signals.metrics[metric_type] = signals.metrics.get(metric_type, 0) + 1
-                    if metric_type not in signals.metric_attrs:
-                        signals.metric_attrs[metric_type] = set(attr_names)
+                if metric_name.startswith("gen_ai."):
+                    signals.metrics[metric_name] = signals.metrics.get(metric_name, 0) + 1
+                    attr_names = _metric_attribute_names(metric, include_attr)
+                    if metric_name not in signals.metric_attrs:
+                        signals.metric_attrs[metric_name] = set(attr_names)
                     else:
-                        signals.metric_attrs[metric_type].intersection_update(attr_names)
-                    signals.metric_any_attrs.setdefault(metric_type, set()).update(
-                        metric_any_attrs_by_type.get(metric_type, set())
-                    )
+                        signals.metric_attrs[metric_name].intersection_update(attr_names)
+                    signals.metric_any_attrs.setdefault(metric_name, set()).update(attr_names)
 
     return spans, signals
 
@@ -397,13 +353,11 @@ def _detected_signals_from_samples(
     all_objects: list[dict],
     statistics: dict | None,
     classify_span: ClassifySpan,
-    classify_metric: ClassifyMetric,
 ) -> tuple[SpanClassification, DetectedSignals]:
     """Classify spans and supplement detected signal counts from statistics."""
     span_classification, detected = _summarize_samples(
         all_objects,
         classify_span,
-        classify_metric,
         include_attr=_attribute_counts_as_present,
     )
     stats = statistics or {}
@@ -426,7 +380,6 @@ def parse_result_dir(
     result_dir: Path,
     library: str,
     classify_span: ClassifySpan,
-    classify_metric: ClassifyMetric = _default_classify_metric,
 ) -> ScenarioResult | None:
     """Parse a single library's Weaver output directory into a ScenarioResult."""
     if not result_dir.is_dir():
@@ -435,9 +388,7 @@ def parse_result_dir(
     all_objects = _load_result_objects(result_dir)
     statistics = _extract_statistics(all_objects)
     observed = _observed_telemetry_from_statistics(statistics, all_objects)
-    span_classification, detected = _detected_signals_from_samples(
-        all_objects, statistics, classify_span, classify_metric
-    )
+    span_classification, detected = _detected_signals_from_samples(all_objects, statistics, classify_span)
     return ScenarioResult(
         library=library,
         statistics=statistics,

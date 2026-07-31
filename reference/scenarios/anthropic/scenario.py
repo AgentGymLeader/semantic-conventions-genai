@@ -1,11 +1,7 @@
 """Reference implementation for Anthropic using opentelemetry-util-genai."""
 
-import os
-
-os.environ["OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"] = "SPAN_AND_EVENT"
-os.environ["OTEL_INSTRUMENTATION_GENAI_EMIT_EVENT"] = "true"
-
 import base64
+import os
 
 import anthropic
 from opentelemetry.util.genai.handler import get_telemetry_handler
@@ -33,7 +29,10 @@ def run_chat(handler):
     ) as inv:
         inv.max_tokens = request_max_tokens  # -> gen_ai.request.max_tokens
         inv.attributes["gen_ai.request.reasoning.level"] = request_reasoning_level  # -> gen_ai.request.reasoning.level
-        inv.input_messages = [InputMessage(role="user", parts=[Text(content="Say hello.")])]  # -> gen_ai.input.messages
+        (user_message,) = messages
+        inv.input_messages = [  # -> gen_ai.input.messages
+            InputMessage(role=user_message["role"], parts=[Text(content=user_message["content"])])
+        ]
 
         resp = client.messages.create(
             model=request_model,
@@ -56,15 +55,11 @@ def run_chat(handler):
             if cache_read:
                 inv.cache_read_input_tokens = cache_read  # -> gen_ai.usage.cache_read.input_tokens
 
-        inv.output_messages = [  # -> gen_ai.output.messages
-            OutputMessage(
-                role="assistant",
-                parts=[Text(content=block.text)],
-                finish_reason=resp.stop_reason,
-            )
-            for block in resp.content
-            if hasattr(block, "text")
-        ]
+        output_parts = [Text(content=block.text) for block in resp.content if hasattr(block, "text")]
+        if output_parts:
+            inv.output_messages = [  # -> gen_ai.output.messages
+                OutputMessage(role="assistant", parts=output_parts, finish_reason=resp.stop_reason)
+            ]
 
     print(f"    -> {resp.content[0].text[:60]}")
 
@@ -268,6 +263,9 @@ def run_chat_with_document_input(handler):
 def main():
     """Run all Anthropic reference scenarios."""
     print("=== Reference Implementation: Anthropic (util-genai) ===")
+
+    os.environ["OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"] = "SPAN_AND_EVENT"
+    os.environ["OTEL_INSTRUMENTATION_GENAI_EMIT_EVENT"] = "true"
 
     tp, lp, mp = setup_otel()
     handler = get_telemetry_handler(

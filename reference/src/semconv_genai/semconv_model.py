@@ -226,7 +226,7 @@ EVENT_SPECS: dict[str, AttributeSpec] = {
 # `gen_ai.client.operation.duration` and `gen_ai.client.token.usage` are a
 # single-span read, unlike the `invoke_agent` counters below, which need each
 # call attributed to exactly one invocation across the call tree (#336). They
-# are tracked here because google-adk and agent-framework emit them; this list
+# are tracked here because agent-framework and anthropic emit them; this list
 # records what the reference scenarios emit, not what instrumentations should emit.
 METRIC_SPECS: dict[str, AttributeSpec] = {
     "gen_ai.client.token.usage": _from_yaml(

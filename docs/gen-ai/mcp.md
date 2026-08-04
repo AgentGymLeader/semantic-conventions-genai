@@ -125,11 +125,11 @@ It's reported by the MCP client when it initiates the request
 or notification or by the MCP server when server initiates the operation.
 It covers the time to receive the response or ack from the peer.
 
-**Span status** SHOULD be set to `ERROR` when `error.type` attribute is present.
-The status description SHOULD match the `JSONRPCError.message` if the message is available.
+**Span status**: refer to the [Recording Errors](https://github.com/open-telemetry/semantic-conventions/blob/v1.43.0/docs/general/recording-errors.md)
+document for details on how to record span status. See also `rpc.response.status_code` attribute
+for the details on which values classify as errors.
 
-Refer to the [Recording Errors](https://github.com/open-telemetry/semantic-conventions/blob/v1.41.0/docs/general/recording-errors.md) document
-for more details.
+If the span status is set to `ERROR`, the status description SHOULD match the `JSONRPCError.message` if the message is available.
 
 MCP tool call execution spans are compatible with GenAI [execute_tool spans](/docs/gen-ai/gen-ai-spans.md#execute-tool-span).
 
@@ -177,8 +177,12 @@ to avoid high cardinality span names.
 | [`gen_ai.tool.call.arguments`](/docs/registry/attributes/gen-ai.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | any | Parameters passed to the tool call. [14] | {<br>&nbsp;&nbsp;&nbsp;&nbsp;"location": "San Francisco?",<br>&nbsp;&nbsp;&nbsp;&nbsp;"date": "2025-10-01"<br>} |
 | [`gen_ai.tool.call.result`](/docs/registry/attributes/gen-ai.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | any | The result returned by the tool call (if any and if execution was successful). [15] | {<br>&nbsp;&nbsp;"temperature_range": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"high": 75,<br>&nbsp;&nbsp;&nbsp;&nbsp;"low": 60<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"conditions": "sunny"<br>} |
 
-**[1] `error.type`:** This attribute SHOULD be set to the string representation of the JSON-RPC
-error code, if one is returned.
+**[1] `error.type`:** When the response carries a JSON-RPC error code that classifies as an error,
+`error.type` SHOULD be set to the string representation of that code. See
+`rpc.response.status_code` for which codes classify as errors. Otherwise
+(for example on timeouts or transport errors) it SHOULD be set following the
+[`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/v1.43.0/docs/registry/attributes/error.md)
+guidance.
 
 When JSON-RPC call is successful, but an error is returned within the
 result payload, this attribute SHOULD be set to the low-cardinality
@@ -194,8 +198,10 @@ Instrumentations SHOULD NOT capture this attribute when the `id` is `null` or om
 
 **[4] `mcp.resource.uri`:** This is a URI of the resource provided in the following requests or notifications: `resources/read`, `resources/subscribe`, `resources/unsubscribe`, or `notifications/resources/updated`.
 
-**[5] `rpc.response.status_code`:** Usually it represents an error code, but may also represent partial success, warning, or differentiate between various types of successful outcomes.
-Semantic conventions for individual RPC frameworks SHOULD document what `rpc.response.status_code` means in the context of that system and which values are considered to represent errors.
+**[5] `rpc.response.status_code`:** This attribute records the [JSON-RPC error code](https://www.jsonrpc.org/specification#error_object)
+returned in the error response.
+
+All JSON-RPC error codes SHOULD be considered errors.
 
 **[6] `gen_ai.operation.name`:** SHOULD be set to `execute_tool` when the operation describes a tool call and SHOULD NOT be set otherwise.
 
@@ -354,11 +360,11 @@ This span describes the processing of the MCP request or notification initiated 
 It's reported by the MCP server when client initiates the request
 (or notification) or by the MCP client when server initiates the operation.
 
-**Span status** SHOULD be set to `ERROR` when `error.type` attribute is present.
-The status description SHOULD match the `JSONRPCError.message` if the message is available.
+**Span status**: refer to the [Recording Errors](https://github.com/open-telemetry/semantic-conventions/blob/v1.43.0/docs/general/recording-errors.md)
+document for details on how to record span status. See also `rpc.response.status_code` attribute
+for the details on which values classify as errors.
 
-Refer to the [Recording Errors](https://github.com/open-telemetry/semantic-conventions/blob/v1.41.0/docs/general/recording-errors.md) document
-for more details.
+If the span status is set to `ERROR`, the status description SHOULD match the `JSONRPCError.message` if the message is available.
 
 **Span name** SHOULD follow the format `{mcp.method.name} {target}`
 where target SHOULD match `{gen_ai.tool.name}` or `{gen_ai.prompt.name}` when
@@ -397,8 +403,12 @@ to avoid high cardinality span names.
 | [`gen_ai.tool.call.arguments`](/docs/registry/attributes/gen-ai.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | any | Parameters passed to the tool call. [14] | {<br>&nbsp;&nbsp;&nbsp;&nbsp;"location": "San Francisco?",<br>&nbsp;&nbsp;&nbsp;&nbsp;"date": "2025-10-01"<br>} |
 | [`gen_ai.tool.call.result`](/docs/registry/attributes/gen-ai.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | any | The result returned by the tool call (if any and if execution was successful). [15] | {<br>&nbsp;&nbsp;"temperature_range": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"high": 75,<br>&nbsp;&nbsp;&nbsp;&nbsp;"low": 60<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"conditions": "sunny"<br>} |
 
-**[1] `error.type`:** This attribute SHOULD be set to the string representation of the JSON-RPC
-error code, if one is returned.
+**[1] `error.type`:** When the response carries a JSON-RPC error code that classifies as an error,
+`error.type` SHOULD be set to the string representation of that code. See
+`rpc.response.status_code` for which codes classify as errors. Otherwise
+(for example on timeouts or transport errors) it SHOULD be set following the
+[`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/v1.43.0/docs/registry/attributes/error.md)
+guidance.
 
 When JSON-RPC call is successful, but an error is returned within the
 result payload, this attribute SHOULD be set to the low-cardinality
@@ -414,8 +424,20 @@ Instrumentations SHOULD NOT capture this attribute when the `id` is `null` or om
 
 **[4] `mcp.resource.uri`:** This is a URI of the resource provided in the following requests or notifications: `resources/read`, `resources/subscribe`, `resources/unsubscribe`, or `notifications/resources/updated`.
 
-**[5] `rpc.response.status_code`:** Usually it represents an error code, but may also represent partial success, warning, or differentiate between various types of successful outcomes.
-Semantic conventions for individual RPC frameworks SHOULD document what `rpc.response.status_code` means in the context of that system and which values are considered to represent errors.
+**[5] `rpc.response.status_code`:** This attribute records the [JSON-RPC error code](https://www.jsonrpc.org/specification#error_object)
+returned in the error response.
+
+The following error codes indicate that the caller sent a request the
+receiver could not serve and SHOULD NOT be considered errors:
+
+- `-32700` (`Parse error`)
+- `-32600` (`Invalid Request`)
+- `-32601` (`Method not found`)
+- `-32602` (`Invalid params`) - also returned when the requested tool
+  does not exist
+- `-32002` ([`Resource not found`](https://modelcontextprotocol.io/specification/2025-11-25/server/resources#error-handling))
+
+Any other error code SHOULD be considered an error.
 
 **[6] `client.address`:** When observed from the server side, and when communicating through an intermediary, `client.address` SHOULD represent the client address behind any intermediaries,  for example proxies, if it's available.
 
@@ -599,8 +621,12 @@ of `[ 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 30, 60, 120, 300 ]`.
 | [`gen_ai.prompt.variable`](/docs/registry/attributes/gen-ai.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | The variables supplied to the prompt template in the request. [9] | `Alice`; `French` |
 | [`mcp.resource.uri`](/docs/registry/attributes/mcp.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | The value of the resource uri. [10] | `postgres://database/customers/schema`; `file:///home/user/documents/report.pdf` |
 
-**[1] `error.type`:** This attribute SHOULD be set to the string representation of the JSON-RPC
-error code, if one is returned.
+**[1] `error.type`:** When the response carries a JSON-RPC error code that classifies as an error,
+`error.type` SHOULD be set to the string representation of that code. See
+`rpc.response.status_code` for which codes classify as errors. Otherwise
+(for example on timeouts or transport errors) it SHOULD be set following the
+[`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/v1.43.0/docs/registry/attributes/error.md)
+guidance.
 
 When JSON-RPC call is successful, but an error is returned within the
 result payload, this attribute SHOULD be set to the low-cardinality
@@ -609,8 +635,10 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
-**[2] `rpc.response.status_code`:** Usually it represents an error code, but may also represent partial success, warning, or differentiate between various types of successful outcomes.
-Semantic conventions for individual RPC frameworks SHOULD document what `rpc.response.status_code` means in the context of that system and which values are considered to represent errors.
+**[2] `rpc.response.status_code`:** This attribute records the [JSON-RPC error code](https://www.jsonrpc.org/specification#error_object)
+returned in the error response.
+
+All JSON-RPC error codes SHOULD be considered errors.
 
 **[3] `gen_ai.operation.name`:** SHOULD be set to `execute_tool` when the operation describes a tool call and SHOULD NOT be set otherwise.
 
@@ -760,8 +788,12 @@ of `[ 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 30, 60, 120, 300 ]`.
 | [`gen_ai.prompt.variable`](/docs/registry/attributes/gen-ai.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | The variables supplied to the prompt template in the request. [7] | `Alice`; `French` |
 | [`mcp.resource.uri`](/docs/registry/attributes/mcp.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | The value of the resource uri. [8] | `postgres://database/customers/schema`; `file:///home/user/documents/report.pdf` |
 
-**[1] `error.type`:** This attribute SHOULD be set to the string representation of the JSON-RPC
-error code, if one is returned.
+**[1] `error.type`:** When the response carries a JSON-RPC error code that classifies as an error,
+`error.type` SHOULD be set to the string representation of that code. See
+`rpc.response.status_code` for which codes classify as errors. Otherwise
+(for example on timeouts or transport errors) it SHOULD be set following the
+[`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/v1.43.0/docs/registry/attributes/error.md)
+guidance.
 
 When JSON-RPC call is successful, but an error is returned within the
 result payload, this attribute SHOULD be set to the low-cardinality
@@ -770,8 +802,20 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
-**[2] `rpc.response.status_code`:** Usually it represents an error code, but may also represent partial success, warning, or differentiate between various types of successful outcomes.
-Semantic conventions for individual RPC frameworks SHOULD document what `rpc.response.status_code` means in the context of that system and which values are considered to represent errors.
+**[2] `rpc.response.status_code`:** This attribute records the [JSON-RPC error code](https://www.jsonrpc.org/specification#error_object)
+returned in the error response.
+
+The following error codes indicate that the caller sent a request the
+receiver could not serve and SHOULD NOT be considered errors:
+
+- `-32700` (`Parse error`)
+- `-32600` (`Invalid Request`)
+- `-32601` (`Method not found`)
+- `-32602` (`Invalid params`) - also returned when the requested tool
+  does not exist
+- `-32002` ([`Resource not found`](https://modelcontextprotocol.io/specification/2025-11-25/server/resources#error-handling))
+
+Any other error code SHOULD be considered an error.
 
 **[3] `gen_ai.operation.name`:** SHOULD be set to `execute_tool` when the operation describes a tool call and SHOULD NOT be set otherwise.
 

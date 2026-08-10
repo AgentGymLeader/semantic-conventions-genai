@@ -66,10 +66,12 @@ def run_invoke_agent(client):
         "server.address": _SERVER_ADDRESS,
         "server.port": _SERVER_PORT,
     }
-    with tracer.start_as_current_span("create_agent", kind=SpanKind.CLIENT, attributes=span_attributes) as span:
+    with tracer.start_as_current_span(
+        f"create_agent {assistant_name}", kind=SpanKind.CLIENT, attributes=span_attributes
+    ) as span:
         span.set_attribute("gen_ai.agent.description", assistant_description)
         span.set_attribute(
-            "gen_ai.system_instructions", json.dumps([{"parts": [{"type": "text", "content": assistant_instructions}]}])
+            "gen_ai.system_instructions", json.dumps([{"type": "text", "content": assistant_instructions}])
         )
         assistant = client.beta.assistants.create(
             model=request_model,
@@ -100,7 +102,9 @@ def run_invoke_agent(client):
         "server.address": _SERVER_ADDRESS,
         "server.port": _SERVER_PORT,
     }
-    with tracer.start_as_current_span("invoke_agent", kind=SpanKind.CLIENT, attributes=span_attributes_2) as span:
+    with tracer.start_as_current_span(
+        f"invoke_agent {assistant.name}", kind=SpanKind.CLIENT, attributes=span_attributes_2
+    ) as span:
         span.set_attribute("gen_ai.agent.id", assistant.id)
         span.set_attribute("gen_ai.request.temperature", request_temperature)
         span.set_attribute("gen_ai.request.top_p", request_top_p)
@@ -116,7 +120,7 @@ def run_invoke_agent(client):
         if getattr(assistant, "instructions", None):
             span.set_attribute(
                 "gen_ai.system_instructions",
-                json.dumps([{"parts": [{"type": "text", "content": assistant.instructions}]}]),
+                json.dumps([{"type": "text", "content": assistant.instructions}]),
             )
         try:
             run = client.beta.threads.runs.create(

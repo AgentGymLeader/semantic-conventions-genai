@@ -2,8 +2,9 @@
 OpenAI Agents SDK guardrail runtime.
 
 Exercises: invoke_agent around the SDK's own input guardrail evaluation, against a mock
-chat completions server, with manual span instrumentation. No gen_ai.agent.governance.ref
-is emitted here: its first attachment point is the guardrail evaluation span proposed in
+chat completions server, with manual span instrumentation. The underlying OpenAI client
+owns inference instrumentation. No gen_ai.agent.governance.ref is emitted here: its first
+attachment point is the guardrail evaluation span proposed in
 open-telemetry/semantic-conventions-genai#262, which does not exist upstream yet.
 
 The decision join point instrumented here is the SDK's own input guardrail evaluation
@@ -19,8 +20,7 @@ from agents import Agent, GuardrailFunctionOutput, InputGuardrail, RunContextWra
 from agents.exceptions import InputGuardrailTripwireTriggered
 from agents.models.openai_chatcompletions import OpenAIChatCompletionsModel
 from agents.tool import FunctionTool, ToolContext
-from opentelemetry.trace import SpanKind
-from reference_shared import flush_and_shutdown, mock_server_host_port, reference_tracer, setup_otel
+from reference_shared import flush_and_shutdown, reference_tracer, setup_otel
 
 MOCK_BASE_URL = os.environ["MOCK_LLM_URL"] + "/v1"
 REQUEST_MODEL = "gpt-4o-mini"
@@ -92,21 +92,14 @@ async def run_allowed_reference(client) -> None:
         input_guardrails=[blocked_topic_guardrail],
     )
 
-    host, port = mock_server_host_port(MOCK_BASE_URL)
     agent_attributes = {
         "gen_ai.operation.name": "invoke_agent",
-        "gen_ai.provider.name": "openai",
         "gen_ai.request.model": request_model,
         "gen_ai.agent.name": agent.name,
     }
-    if host:
-        agent_attributes["server.address"] = host
-    if port is not None:
-        agent_attributes["server.port"] = port
 
     with _reference_tracer.start_as_current_span(
         f"invoke_agent {AGENT_NAME}",
-        kind=SpanKind.CLIENT,
         attributes=agent_attributes,
     ) as agent_span:
         agent_span.set_attribute("gen_ai.input.messages", input_messages)
@@ -116,7 +109,9 @@ async def run_allowed_reference(client) -> None:
                 [
                     {
                         "type": "function",
-                        "function": {"name": t.name, "description": t.description, "parameters": t.params_json_schema},
+                        "name": t.name,
+                        "description": t.description,
+                        "parameters": t.params_json_schema,
                     }
                     for t in tools
                     if isinstance(t, FunctionTool)
@@ -124,66 +119,52 @@ async def run_allowed_reference(client) -> None:
             ),
         )
 
-        chat_attributes = {
-            "gen_ai.operation.name": "chat",
-            "gen_ai.provider.name": "openai",
-            "gen_ai.request.model": request_model,
-        }
-        if host:
-            chat_attributes["server.address"] = host
-        if port is not None:
-            chat_attributes["server.port"] = port
-        with _reference_tracer.start_as_current_span("chat gpt-4o-mini", attributes=chat_attributes) as span:
-            original_create = client.chat.completions.create
-            captured_responses = []
+        original_create = client.chat.completions.create
+        captured_responses = []
 
-            async def _capture_create(*args, **kwargs):
-                response = await original_create(*args, **kwargs)
-                captured_responses.append(response)
-                return response
+        async def _capture_create(*args, **kwargs):
+            response = await original_create(*args, **kwargs)
+            captured_responses.append(response)
+            return response
 
-            client.chat.completions.create = _capture_create
-            try:
-                result = await Runner.run(agent, prompt)
-            finally:
-                client.chat.completions.create = original_create
+        client.chat.completions.create = _capture_create
+        try:
+            result = await Runner.run(agent, prompt)
+        finally:
+            client.chat.completions.create = original_create
 
-            # gen_ai.agent.governance.ref will be recorded on the span representing the
-            # guardrail evaluation itself once that span type exists upstream (see PR #262);
-            # it is deliberately not copied onto this agent span.
+        # gen_ai.agent.governance.ref will be recorded on the span representing the
+        # guardrail evaluation itself once that span type exists upstream (see PR #262);
+        # it is deliberately not copied onto this agent span.
 
-            usage = result.context_wrapper.usage
-            if usage.total_tokens:
-                span.set_attribute("gen_ai.usage.input_tokens", usage.input_tokens)
-                span.set_attribute("gen_ai.usage.output_tokens", usage.output_tokens)
-                agent_span.set_attribute("gen_ai.usage.input_tokens", usage.input_tokens)
-                agent_span.set_attribute("gen_ai.usage.output_tokens", usage.output_tokens)
-            if captured_responses:
-                last_response = captured_responses[-1]
-                if getattr(last_response, "id", None):
-                    span.set_attribute("gen_ai.response.id", last_response.id)
-                if getattr(last_response, "model", None):
-                    span.set_attribute("gen_ai.response.model", last_response.model)
-                finish_reasons = [
-                    choice.finish_reason
-                    for choice in getattr(last_response, "choices", []) or []
-                    if getattr(choice, "finish_reason", None)
-                ]
-                if finish_reasons:
-                    agent_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
-            if result.final_output:
-                agent_span.set_attribute(
-                    "gen_ai.output.messages",
-                    json.dumps(
-                        [
-                            {
-                                "role": "assistant",
-                                "parts": [{"type": "text", "content": str(result.final_output)}],
-                            }
-                        ]
-                    ),
-                )
-            print(f"    -> allow: {str(result.final_output)[:60]}")
+        usage = result.context_wrapper.usage
+        if usage.total_tokens:
+            agent_span.set_attribute("gen_ai.usage.input_tokens", usage.input_tokens)
+            agent_span.set_attribute("gen_ai.usage.output_tokens", usage.output_tokens)
+        finish_reasons = []
+        if captured_responses:
+            last_response = captured_responses[-1]
+            finish_reasons = [
+                choice.finish_reason
+                for choice in getattr(last_response, "choices", []) or []
+                if getattr(choice, "finish_reason", None)
+            ]
+            if finish_reasons:
+                agent_span.set_attribute("gen_ai.response.finish_reasons", finish_reasons)
+        if result.final_output and finish_reasons:
+            agent_span.set_attribute(
+                "gen_ai.output.messages",
+                json.dumps(
+                    [
+                        {
+                            "role": "assistant",
+                            "parts": [{"type": "text", "content": str(result.final_output)}],
+                            "finish_reason": finish_reasons[0],
+                        }
+                    ]
+                ),
+            )
+        print(f"    -> allow: {str(result.final_output)[:60]}")
 
 
 async def run_denied_reference(client) -> None:
@@ -201,21 +182,14 @@ async def run_denied_reference(client) -> None:
         input_guardrails=[blocked_topic_guardrail],
     )
 
-    host, port = mock_server_host_port(MOCK_BASE_URL)
     agent_attributes = {
         "gen_ai.operation.name": "invoke_agent",
-        "gen_ai.provider.name": "openai",
         "gen_ai.request.model": request_model,
         "gen_ai.agent.name": agent.name,
     }
-    if host:
-        agent_attributes["server.address"] = host
-    if port is not None:
-        agent_attributes["server.port"] = port
 
     with _reference_tracer.start_as_current_span(
         f"invoke_agent {AGENT_NAME}",
-        kind=SpanKind.CLIENT,
         attributes=agent_attributes,
     ) as agent_span:
         agent_span.set_attribute("gen_ai.input.messages", input_messages)

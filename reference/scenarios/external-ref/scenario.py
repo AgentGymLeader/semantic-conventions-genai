@@ -1,13 +1,11 @@
-"""Reference implementation: agent governance decision join point instrumented over the
-OpenAI Agents SDK guardrail runtime.
+"""Reference implementation: external record join point instrumented over the OpenAI
+Agents SDK guardrail runtime.
 
 Exercises: invoke_agent around the SDK's own input guardrail evaluation, against a mock
 chat completions server, with manual span instrumentation. The underlying OpenAI client
-owns inference instrumentation. No gen_ai.agent.governance.ref is emitted here: its first
-attachment point is the guardrail evaluation span proposed in
-open-telemetry/semantic-conventions-genai#262, which does not exist upstream yet.
+owns inference instrumentation.
 
-The decision join point instrumented here is the SDK's own input guardrail evaluation
+The join point instrumented here is the SDK's own input guardrail evaluation
 (InputGuardrail / Runner.run), a library-owned runtime object, not a hand-rolled gate. The
 guardrail function below is a deterministic plain function (no extra LLM call) so both the
 allow and block paths are reproducible against the mock server.
@@ -24,7 +22,7 @@ from reference_shared import flush_and_shutdown, reference_tracer, setup_otel
 
 MOCK_BASE_URL = os.environ["MOCK_LLM_URL"] + "/v1"
 REQUEST_MODEL = "gpt-4o-mini"
-AGENT_NAME = "governance_agent"
+AGENT_NAME = "external_ref_agent"
 
 _reference_tracer = reference_tracer()
 
@@ -35,8 +33,10 @@ def _blocked_topic_guardrail_function(
     """Deterministic input guardrail: trips on billing/refund requests, no LLM call."""
     text = input_text if isinstance(input_text, str) else json.dumps(input_text)
     tripwire_triggered = "refund" in text.lower()
+    # The guardrail owns the out-of-band record and returns only its reference.
+    record_ref = "01J9Z2K3M4N5P6Q7R8S9T0V1W3" if tripwire_triggered else "01J9Z2K3M4N5P6Q7R8S9T0V1W2"
     return GuardrailFunctionOutput(
-        output_info={"checked_topic": "billing.refund"},
+        output_info={"checked_topic": "billing.refund", "record_ref": record_ref},
         tripwire_triggered=tripwire_triggered,
     )
 
@@ -76,8 +76,8 @@ def get_weather(ctx: ToolContext[None], location: str) -> str:
 
 
 async def run_allowed_reference(client) -> None:
-    """Allowed governance decision: guardrail does not trip, agent runs and calls a tool."""
-    print("  [invoke_agent] allowed governance decision")
+    """Allowed run: guardrail does not trip, agent runs and calls a tool."""
+    print("  [invoke_agent] allowed run with external reference")
     prompt = "Check the weather in Seattle."
     input_messages = _input_messages(prompt)
 
@@ -133,10 +133,8 @@ async def run_allowed_reference(client) -> None:
         finally:
             client.chat.completions.create = original_create
 
-        # gen_ai.agent.governance.ref will be recorded on the span representing the
-        # guardrail evaluation itself once that span type exists upstream (see PR #262);
-        # it is deliberately not copied onto this agent span.
-
+        ref = result.input_guardrail_results[0].output.output_info["record_ref"]
+        agent_span.set_attribute("gen_ai.external_ref", ref)
         usage = result.context_wrapper.usage
         if usage.total_tokens:
             agent_span.set_attribute("gen_ai.usage.input_tokens", usage.input_tokens)
@@ -168,8 +166,8 @@ async def run_allowed_reference(client) -> None:
 
 
 async def run_denied_reference(client) -> None:
-    """Blocked governance decision: guardrail trips, agent makes no model call."""
-    print("  [invoke_agent] blocked governance decision")
+    """Blocked run: guardrail trips, agent makes no model call."""
+    print("  [invoke_agent] blocked run with external reference")
     prompt = "Refund the current invoice."
     input_messages = _input_messages(prompt)
 
@@ -195,15 +193,17 @@ async def run_denied_reference(client) -> None:
         agent_span.set_attribute("gen_ai.input.messages", input_messages)
         try:
             await Runner.run(agent, prompt)
-        except InputGuardrailTripwireTriggered:
+        except InputGuardrailTripwireTriggered as exc:
+            ref = exc.guardrail_result.output.output_info["record_ref"]
+            agent_span.set_attribute("gen_ai.external_ref", ref)
             # No model call happened (run_in_parallel=False on the guardrail stopped the
             # run before the first turn) and no execute_tool child span is emitted: the
-            # decision is terminal at the invoke_agent span itself.
+            # run is terminal at the invoke_agent span itself.
             print("    -> block: refund request stopped before any model call")
 
 
 def main() -> None:
-    print("=== Reference Implementation: Agent Governance Reference Implementation ===")
+    print("=== Reference Implementation: External Reference ===")
 
     tp, lp, mp = setup_otel()
 

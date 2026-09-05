@@ -1,5 +1,5 @@
 runner: genai-conformance
-instrumented_library: agent-governance
+instrumented_library: external-ref
 instrumentation_library: reference
 
 server:

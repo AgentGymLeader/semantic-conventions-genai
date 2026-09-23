@@ -107,6 +107,11 @@ are outside this specification. This attribute defines only a
 payload-free join surface between a span and that record; it does not
 carry the record's contents.
 
+Producers SHOULD keep the value stable for the record state that
+governed the operation: if the referenced record is later revised, the
+value SHOULD still identify the version or snapshot in effect at the
+time of the operation.
+
 **[8] `server.address`:** When observed from the client side, and when communicating through an intermediary, `server.address` SHOULD represent the server address behind any intermediaries, for example proxies, if it's available.
 
 **[9] `gen_ai.system_instructions`:** Instrumentations MUST follow [JSON schema](/model/gen-ai/gen-ai-system-instructions.json).
@@ -327,6 +332,11 @@ The referenced record's format, lifecycle, retrieval, and validation
 are outside this specification. This attribute defines only a
 payload-free join surface between a span and that record; it does not
 carry the record's contents.
+
+Producers SHOULD keep the value stable for the record state that
+governed the operation: if the referenced record is later revised, the
+value SHOULD still identify the version or snapshot in effect at the
+time of the operation.
 
 **[12] `gen_ai.request.model`:** This attribute SHOULD be populated if and only if the instrumented library allows to set only a single model per agent. It SHOULD NOT be populated for agents that support multiple models or dynamic selection.
 
@@ -648,6 +658,11 @@ are outside this specification. This attribute defines only a
 payload-free join surface between a span and that record; it does not
 carry the record's contents.
 
+Producers SHOULD keep the value stable for the record state that
+governed the operation: if the referenced record is later revised, the
+value SHOULD still identify the version or snapshot in effect at the
+time of the operation.
+
 **[9] `gen_ai.request.model`:** This attribute SHOULD be populated if and only if the instrumented library allows to set only a single model per agent. It SHOULD NOT be populated for agents that support multiple models or dynamic selection.
 
 **[10] `gen_ai.response.finish_reasons`:** Values correspond to generations in the same order as the returned
@@ -914,6 +929,11 @@ are outside this specification. This attribute defines only a
 payload-free join surface between a span and that record; it does not
 carry the record's contents.
 
+Producers SHOULD keep the value stable for the record state that
+governed the operation: if the referenced record is later revised, the
+value SHOULD still identify the version or snapshot in effect at the
+time of the operation.
+
 **[7] `gen_ai.input.messages`:** Messages MUST be provided in the order they were sent to the model.
 Instrumentations MAY provide a way for users to filter or truncate
 input messages.
@@ -1047,9 +1067,15 @@ are outside this specification. This attribute defines only a
 payload-free join surface between a span and that record; it does not
 carry the record's contents.
 
+Producers SHOULD keep the value stable for the record state that
+governed the operation: if the referenced record is later revised, the
+value SHOULD still identify the version or snapshot in effect at the
+time of the operation.
+
 The following attributes can be important for making sampling decisions
 and SHOULD be provided **at span creation time** (if provided at all):
 
+* [`gen_ai.agent.name`](/docs/registry/attributes/gen-ai.md)
 * [`gen_ai.operation.name`](/docs/registry/attributes/gen-ai.md)
 
 ---

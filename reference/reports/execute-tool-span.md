@@ -14,6 +14,7 @@
 | Attribute | Supporting Libraries |
 | --- | --- |
 | gen_ai.agent.name | [external-ref], [google-adk], [openai-agents], [pydantic-ai] |
+| gen_ai.conversation.id | [google-adk], [openai-assistants] |
 
 ## Recommended
 

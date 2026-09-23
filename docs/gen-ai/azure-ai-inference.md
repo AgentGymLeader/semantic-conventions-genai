@@ -169,6 +169,11 @@ are outside this specification. This attribute defines only a
 payload-free join surface between a span and that record; it does not
 carry the record's contents.
 
+Producers SHOULD keep the value stable for the record state that
+governed the operation: if the referenced record is later revised, the
+value SHOULD still identify the version or snapshot in effect at the
+time of the operation.
+
 **[16] `gen_ai.request.previous_response.id`:** When available and if the request references a previous response.
 
 **[17] `gen_ai.request.previous_response.id`:** Instrumentations SHOULD populate this attribute when the request references a previous response or interaction identifier to continue a conversation or pass prior context.

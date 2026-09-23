@@ -483,6 +483,11 @@ attributes:
       are outside this specification. This attribute defines only a
       payload-free join surface between a span and that record; it does not
       carry the record's contents.
+
+      Producers SHOULD keep the value stable for the record state that
+      governed the operation: if the referenced record is later revised, the
+      value SHOULD still identify the version or snapshot in effect at the
+      time of the operation.
     examples: ["01J9Z2K3M4N5P6Q7R8S9T0V1W2"]
     stability: development
   - key: gen_ai.tool.name

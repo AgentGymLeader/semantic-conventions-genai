@@ -18,9 +18,6 @@ metrics:
 
       When systems report both used tokens and billable tokens, instrumentation
       MUST report billable tokens.
-
-      Instrumentation SHOULD record these counters for failed operations too,
-      so that tokens consumed before the failure are still counted.
     stability: development
     annotations:
       code_generation:
@@ -97,15 +94,18 @@ metrics:
 
       When systems report both used tokens and billable tokens, instrumentation MUST report billable tokens.
 
-      Instrumentation SHOULD NOT record this metric for an operation that ended
-      in an error (that is, recorded `error.type`). A successful operation
-      that reports zero tokens SHOULD be recorded with a value of `0`.
+      Instrumentation that reports this metric SHOULD also record it for failed
+      operations, with `error.type` set. Whether or not the operation succeeded,
+      it SHOULD record the provider's count for this metric. When a failed
+      operation has no such count, it SHOULD record the count it knows for this
+      metric, or `0` if it has none.
     stability: development
     annotations:
       code_generation:
         metric_value_type: int
     attributes:
       - ref_group: metric_attributes.gen_ai
+      - ref_group: attributes.gen_ai.error
   - name: gen_ai.client.inference.operation.output_tokens
     requirement_level: recommended
     instrument: histogram
@@ -118,6 +118,7 @@ metrics:
         metric_value_type: int
     attributes:
       - ref_group: metric_attributes.gen_ai
+      - ref_group: attributes.gen_ai.error
 metric_refinements:
   - id: openai.client.inference.usage.input_tokens
     ref: gen_ai.client.inference.usage.input_tokens

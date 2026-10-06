@@ -18,6 +18,10 @@ metrics:
 
       When systems report both used tokens and billable tokens, instrumentation
       MUST report billable tokens.
+
+      Instrumentation SHOULD record this metric for all operations with a
+      non-zero token count, including failed operations, when the token count
+      is available.
     stability: development
     annotations:
       code_generation:
@@ -43,6 +47,10 @@ metrics:
     brief: 'The number of input tokens served from a provider-managed cache.'
     note: >
       This value is a subset of `gen_ai.client.inference.usage.input_tokens`.
+
+      Instrumentation SHOULD record this metric for all operations with a
+      non-zero token count, including failed operations, when the token count
+      is available.
     stability: development
     annotations:
       code_generation:
@@ -56,6 +64,10 @@ metrics:
     brief: 'The number of input tokens written to a provider-managed cache.'
     note: >
       This value is a subset of `gen_ai.client.inference.usage.input_tokens`.
+
+      Instrumentation SHOULD record this metric for all operations with a
+      non-zero token count, including failed operations, when the token count
+      is available.
     stability: development
     annotations:
       code_generation:
@@ -69,6 +81,10 @@ metrics:
     brief: 'The number of output tokens used for reasoning (e.g. chain-of-thought, extended thinking).'
     note: >
       This value is a subset of `gen_ai.client.inference.usage.output_tokens`.
+
+      Instrumentation SHOULD record this metric for all operations with a
+      non-zero token count, including failed operations, when the token count
+      is available.
     stability: development
     annotations:
       code_generation:
@@ -94,11 +110,10 @@ metrics:
 
       When systems report both used tokens and billable tokens, instrumentation MUST report billable tokens.
 
-      Instrumentation that reports this metric SHOULD also record it for failed
-      operations, with `error.type` set. Whether or not the operation succeeded,
-      it SHOULD record the provider's count for this metric. When a failed
-      operation has no such count, it SHOULD record the count it knows for this
-      metric, or `0` if it has none.
+      Instrumentations SHOULD record this metric for each inference operation,
+      including failed ones. The recorded value SHOULD match the token count
+      returned by the provider, or `0` if the response was not received or
+      did not contain token usage.
     stability: development
     annotations:
       code_generation:

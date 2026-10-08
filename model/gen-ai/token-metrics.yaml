@@ -19,9 +19,11 @@ metrics:
       When systems report both used tokens and billable tokens, instrumentation
       MUST report billable tokens.
 
-      Instrumentation SHOULD record this metric for all operations with a
-      non-zero token count, including failed operations, when the token count
-      is available.
+      Instrumentations SHOULD record this metric for each inference operation,
+      including failed ones. The recorded value SHOULD match the token count
+      returned by the provider, or `0` if the response was not received or
+      did not contain token usage. When no usage is received, the `0` is
+      recorded with `gen_ai.token.modality` set to `unknown`.
     stability: development
     annotations:
       code_generation:
@@ -48,9 +50,10 @@ metrics:
     note: >
       This value is a subset of `gen_ai.client.inference.usage.input_tokens`.
 
-      Instrumentation SHOULD record this metric for all operations with a
-      non-zero token count, including failed operations, when the token count
-      is available.
+      Instrumentations SHOULD record this metric for each inference operation,
+      including failed ones. The recorded value SHOULD match the token count
+      returned by the provider, or `0` if the response was not received or
+      did not contain token usage.
     stability: development
     annotations:
       code_generation:
@@ -65,9 +68,10 @@ metrics:
     note: >
       This value is a subset of `gen_ai.client.inference.usage.input_tokens`.
 
-      Instrumentation SHOULD record this metric for all operations with a
-      non-zero token count, including failed operations, when the token count
-      is available.
+      Instrumentations SHOULD record this metric for each inference operation,
+      including failed ones. The recorded value SHOULD match the token count
+      returned by the provider, or `0` if the response was not received or
+      did not contain token usage.
     stability: development
     annotations:
       code_generation:
@@ -82,9 +86,10 @@ metrics:
     note: >
       This value is a subset of `gen_ai.client.inference.usage.output_tokens`.
 
-      Instrumentation SHOULD record this metric for all operations with a
-      non-zero token count, including failed operations, when the token count
-      is available.
+      Instrumentations SHOULD record this metric for each inference operation,
+      including failed ones. The recorded value SHOULD match the token count
+      returned by the provider, or `0` if the response was not received or
+      did not contain token usage.
     stability: development
     annotations:
       code_generation:

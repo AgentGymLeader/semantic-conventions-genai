@@ -140,7 +140,7 @@ metrics:
       - ref_group: metric_attributes.gen_ai
       - ref_group: attributes.gen_ai.error
 metric_refinements:
-  - id: openai.client.inference.usage.input_tokens
+  - id: openai.gen_ai.client.inference.usage.input_tokens
     ref: gen_ai.client.inference.usage.input_tokens
     brief: >
       OpenAI-specific extension to `gen_ai.client.inference.usage.input_tokens`. Adds
@@ -149,7 +149,7 @@ metric_refinements:
     stability: development
     attributes:
       - ref_group: metric_attributes.openai
-  - id: openai.client.inference.usage.output_tokens
+  - id: openai.gen_ai.client.inference.usage.output_tokens
     ref: gen_ai.client.inference.usage.output_tokens
     brief: >
       OpenAI-specific extension to `gen_ai.client.inference.usage.output_tokens`. Adds
@@ -158,7 +158,7 @@ metric_refinements:
     stability: development
     attributes:
       - ref_group: metric_attributes.openai
-  - id: openai.client.inference.usage.cache_read.input_tokens
+  - id: openai.gen_ai.client.inference.usage.cache_read.input_tokens
     ref: gen_ai.client.inference.usage.cache_read.input_tokens
     brief: >
       OpenAI-specific extension to `gen_ai.client.inference.usage.cache_read.input_tokens`. Adds
@@ -167,7 +167,7 @@ metric_refinements:
     stability: development
     attributes:
       - ref_group: metric_attributes.openai
-  - id: openai.client.inference.usage.cache_write.input_tokens
+  - id: openai.gen_ai.client.inference.usage.cache_write.input_tokens
     ref: gen_ai.client.inference.usage.cache_write.input_tokens
     brief: >
       OpenAI-specific extension to `gen_ai.client.inference.usage.cache_write.input_tokens`. Adds
@@ -176,7 +176,7 @@ metric_refinements:
     stability: development
     attributes:
       - ref_group: metric_attributes.openai
-  - id: openai.client.inference.usage.reasoning.output_tokens
+  - id: openai.gen_ai.client.inference.usage.reasoning.output_tokens
     ref: gen_ai.client.inference.usage.reasoning.output_tokens
     brief: >
       OpenAI-specific extension to `gen_ai.client.inference.usage.reasoning.output_tokens`. Adds
@@ -185,7 +185,7 @@ metric_refinements:
     stability: development
     attributes:
       - ref_group: metric_attributes.openai
-  - id: openai.client.inference.operation.input_tokens
+  - id: openai.gen_ai.client.inference.operation.input_tokens
     ref: gen_ai.client.inference.operation.input_tokens
     brief: >
       OpenAI-specific extension to `gen_ai.client.inference.operation.input_tokens`. Adds
@@ -194,7 +194,7 @@ metric_refinements:
     stability: development
     attributes:
       - ref_group: metric_attributes.openai
-  - id: openai.client.inference.operation.output_tokens
+  - id: openai.gen_ai.client.inference.operation.output_tokens
     ref: gen_ai.client.inference.operation.output_tokens
     brief: >
       OpenAI-specific extension to `gen_ai.client.inference.operation.output_tokens`. Adds

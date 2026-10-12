@@ -21,9 +21,8 @@ metrics:
 
       Instrumentations SHOULD record this metric for each inference operation,
       including failed ones. The recorded value SHOULD match the token count
-      returned by the provider, or `0` if the response was not received or
-      did not contain token usage. When no usage is received, the `0` is
-      recorded with `gen_ai.token.modality` set to `unknown`.
+      returned by the provider, or `0` with `gen_ai.token.modality` set to
+      `unknown` if the response was not received or did not contain token usage.
     stability: development
     annotations:
       code_generation:
@@ -52,9 +51,8 @@ metrics:
 
       Instrumentations SHOULD record this metric for each inference operation,
       including failed ones. The recorded value SHOULD match the token count
-      returned by the provider, or `0` if the response was not received or
-      did not contain token usage. When no usage is received, the `0` is
-      recorded with `gen_ai.token.modality` set to `unknown`.
+      returned by the provider, or `0` with `gen_ai.token.modality` set to
+      `unknown` if the response was not received or did not contain token usage.
     stability: development
     annotations:
       code_generation:
@@ -71,9 +69,8 @@ metrics:
 
       Instrumentations SHOULD record this metric for each inference operation,
       including failed ones. The recorded value SHOULD match the token count
-      returned by the provider, or `0` if the response was not received or
-      did not contain token usage. When no usage is received, the `0` is
-      recorded with `gen_ai.token.modality` set to `unknown`.
+      returned by the provider, or `0` with `gen_ai.token.modality` set to
+      `unknown` if the response was not received or did not contain token usage.
     stability: development
     annotations:
       code_generation:
@@ -90,9 +87,8 @@ metrics:
 
       Instrumentations SHOULD record this metric for each inference operation,
       including failed ones. The recorded value SHOULD match the token count
-      returned by the provider, or `0` if the response was not received or
-      did not contain token usage. When no usage is received, the `0` is
-      recorded with `gen_ai.token.modality` set to `unknown`.
+      returned by the provider, or `0` with `gen_ai.token.modality` set to
+      `unknown` if the response was not received or did not contain token usage.
     stability: development
     annotations:
       code_generation:

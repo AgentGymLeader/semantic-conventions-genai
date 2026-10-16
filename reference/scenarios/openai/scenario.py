@@ -256,8 +256,9 @@ def run_chat_reference(client):
             if cached_tokens is not None:
                 usage["gen_ai.usage.cache_read.input_tokens"] = cached_tokens
         # Semconv records a zero cache read on the counter but not as a span or event attribute.
-        attribute_usage = {attr: value for attr, value in usage.items()
-                           if value or attr != "gen_ai.usage.cache_read.input_tokens"}
+        attribute_usage = {
+            attr: value for attr, value in usage.items() if value or attr != "gen_ai.usage.cache_read.input_tokens"
+        }
         for attr, value in attribute_usage.items():
             span.set_attribute(attr, value)
         record_inference_usage(usage, usage_metric_attributes(request_model, resp.model, host, port))
